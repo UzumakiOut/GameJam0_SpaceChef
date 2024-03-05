@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://b7sliubdq50x7"]
+
+[ext_resource type="PackedScene" uid="uid://ctple43mb5p0x" path="res://Mesh/Character/Enemy/SKM_BigTent.glb" id="1_nc6x0"]
+[ext_resource type="Shader" path="res://Shaders/PSXShader.gdshader" id="2_pw2bg"]
+[ext_resource type="Texture2D" uid="uid://bgj1g00qajgrm" path="res://Textures/Mesh/Enemy/T_BigTent.png" id="3_0e0s0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fo537"]
+render_priority = 0
+shader = ExtResource("2_pw2bg")
+shader_parameter/jitter = 0.5
+shader_parameter/jitter_z_coordinate = true
+shader_parameter/jitter_depth_independent = true
+shader_parameter/affine_texture_mapping = true
+shader_parameter/alpha_scissor = 1.0
+shader_parameter/triplanar = false
+shader_parameter/emissiveBoost = 0.01
+shader_parameter/Direction = Vector2(0, 0)
+shader_parameter/Speed = 0.0
+shader_parameter/albedo = ExtResource("3_0e0s0")
+shader_parameter/emission = ExtResource("3_0e0s0")
+
+[node name="SKM_BigTent2" instance=ExtResource("1_nc6x0")]
+
+[node name="SKM_BigTent" parent="SK_BigTent/Skeleton3D" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_fo537")

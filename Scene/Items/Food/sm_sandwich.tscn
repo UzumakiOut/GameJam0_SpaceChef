@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://qfrxwgx71768"]
+
+[ext_resource type="PackedScene" uid="uid://c2or20dgmotdj" path="res://Mesh/Food/SM_Sandwich.glb" id="1_k7qx3"]
+[ext_resource type="Shader" path="res://Shaders/PSXShader.gdshader" id="2_vc2o2"]
+[ext_resource type="Texture2D" uid="uid://bdhyjeo6b2v5o" path="res://Textures/Mesh/Food/T_Sandwhich.png" id="3_68n1e"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ervjw"]
+render_priority = 0
+shader = ExtResource("2_vc2o2")
+shader_parameter/jitter = 0.5
+shader_parameter/jitter_z_coordinate = true
+shader_parameter/jitter_depth_independent = true
+shader_parameter/affine_texture_mapping = true
+shader_parameter/alpha_scissor = 1.0
+shader_parameter/triplanar = false
+shader_parameter/emissiveBoost = 0.1
+shader_parameter/Direction = Vector2(0, 0)
+shader_parameter/Speed = 0.0
+shader_parameter/albedo = ExtResource("3_68n1e")
+
+[node name="SM_Sandwich2" instance=ExtResource("1_k7qx3")]
+
+[node name="SM_Sandwich" parent="." index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_ervjw")

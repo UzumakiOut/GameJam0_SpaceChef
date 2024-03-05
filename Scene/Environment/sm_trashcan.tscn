@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://slk5ek1x03v7"]
+
+[ext_resource type="PackedScene" uid="uid://w3q7khjlbm2" path="res://Mesh/Environment/SM_Trashcan.glb" id="1_b0ydp"]
+[ext_resource type="Shader" path="res://Shaders/PSXShader.gdshader" id="2_qmcts"]
+[ext_resource type="Texture2D" uid="uid://bcpvdaa7i7you" path="res://Textures/Mesh/Environment/T_Trashcan.png" id="3_h305l"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fjdx3"]
+render_priority = 0
+shader = ExtResource("2_qmcts")
+shader_parameter/jitter = 0.5
+shader_parameter/jitter_z_coordinate = true
+shader_parameter/jitter_depth_independent = true
+shader_parameter/affine_texture_mapping = true
+shader_parameter/alpha_scissor = 1.0
+shader_parameter/triplanar = false
+shader_parameter/Direction = Vector2(0, 0)
+shader_parameter/Speed = 0.0
+shader_parameter/albedo = ExtResource("3_h305l")
+
+[node name="SM_Trashcan" instance=ExtResource("1_b0ydp")]
+
+[node name="Trash" parent="." index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_fjdx3")

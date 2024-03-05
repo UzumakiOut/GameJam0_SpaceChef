@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://db3q25lx4l5ib"]
+
+[ext_resource type="PackedScene" uid="uid://c8i6cldytn0du" path="res://Mesh/Food/SM_Batteries.glb" id="1_ilf17"]
+[ext_resource type="Shader" path="res://Shaders/PSXShader.gdshader" id="2_p8acy"]
+[ext_resource type="Texture2D" uid="uid://b8pu1imk78bln" path="res://Textures/Mesh/Food/T_Batteries.png" id="3_2fky8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_copg1"]
+render_priority = 0
+shader = ExtResource("2_p8acy")
+shader_parameter/jitter = 0.5
+shader_parameter/jitter_z_coordinate = true
+shader_parameter/jitter_depth_independent = true
+shader_parameter/affine_texture_mapping = true
+shader_parameter/alpha_scissor = 1.0
+shader_parameter/triplanar = false
+shader_parameter/emissiveBoost = 0.1
+shader_parameter/Direction = Vector2(0, 0)
+shader_parameter/Speed = 0.0
+shader_parameter/albedo = ExtResource("3_2fky8")
+
+[node name="SM_Batteries2" instance=ExtResource("1_ilf17")]
+
+[node name="SM_Batteries" parent="." index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_copg1")

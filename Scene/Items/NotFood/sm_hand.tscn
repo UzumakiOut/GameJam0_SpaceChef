@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://uhq47qcx4s3s"]
+
+[ext_resource type="PackedScene" uid="uid://cr25viwoqv1i4" path="res://Mesh/Food/SM_Hand.glb" id="1_8yf2y"]
+[ext_resource type="Shader" path="res://Shaders/PSXShader.gdshader" id="2_miyg3"]
+[ext_resource type="Texture2D" uid="uid://br1fsiw5tn0n4" path="res://Textures/Mesh/Food/T_Hand.png" id="3_d38pa"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jfbr1"]
+render_priority = 0
+shader = ExtResource("2_miyg3")
+shader_parameter/jitter = 0.5
+shader_parameter/jitter_z_coordinate = true
+shader_parameter/jitter_depth_independent = true
+shader_parameter/affine_texture_mapping = true
+shader_parameter/alpha_scissor = 1.0
+shader_parameter/triplanar = false
+shader_parameter/emissiveBoost = 0.1
+shader_parameter/Direction = Vector2(0, 0)
+shader_parameter/Speed = 0.0
+shader_parameter/albedo = ExtResource("3_d38pa")
+
+[node name="SM_Hand2" instance=ExtResource("1_8yf2y")]
+
+[node name="SM_Hand" parent="." index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_jfbr1")

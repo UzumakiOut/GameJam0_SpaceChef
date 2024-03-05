@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://cauj3jpn5tpb1"]
+
+[ext_resource type="PackedScene" uid="uid://c3o08u04gjd5g" path="res://Mesh/Food/SM_Pizza.glb" id="1_lo2tc"]
+[ext_resource type="Shader" path="res://Shaders/PSXShader.gdshader" id="2_87w0k"]
+[ext_resource type="Texture2D" uid="uid://b31rcblr74ohb" path="res://Textures/Mesh/Food/T_Pizza_Greens.png" id="3_rwvxu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7r7yh"]
+render_priority = 0
+shader = ExtResource("2_87w0k")
+shader_parameter/jitter = 0.5
+shader_parameter/jitter_z_coordinate = true
+shader_parameter/jitter_depth_independent = true
+shader_parameter/affine_texture_mapping = true
+shader_parameter/alpha_scissor = 1.0
+shader_parameter/triplanar = false
+shader_parameter/emissiveBoost = 0.1
+shader_parameter/Direction = Vector2(0, 0)
+shader_parameter/Speed = 0.0
+shader_parameter/albedo = ExtResource("3_rwvxu")
+
+[node name="SM_Pizza2" instance=ExtResource("1_lo2tc")]
+
+[node name="SM_Pizza" parent="." index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_7r7yh")

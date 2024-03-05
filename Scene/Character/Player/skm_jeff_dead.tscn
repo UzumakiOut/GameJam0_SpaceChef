@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=3 uid="uid://b1g0jh7qh60bu"]
+
+[ext_resource type="PackedScene" uid="uid://di1hga5ar6xeo" path="res://Mesh/Character/Player/SKM_JeffDead.glb" id="1_o7lt0"]
+[ext_resource type="Shader" path="res://Shaders/PSXShader.gdshader" id="2_sr8p6"]
+[ext_resource type="Texture2D" uid="uid://hlwa61ovim33" path="res://Textures/Mesh/Player/T_GeoffBloody.png" id="3_6sj6p"]
+[ext_resource type="Texture2D" uid="uid://d23cgaavf1s18" path="res://Textures/Mesh/Player/T_JeffInsides.png" id="4_50bpi"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2ymvo"]
+render_priority = 0
+shader = ExtResource("2_sr8p6")
+shader_parameter/jitter = 0.5
+shader_parameter/jitter_z_coordinate = true
+shader_parameter/jitter_depth_independent = true
+shader_parameter/affine_texture_mapping = true
+shader_parameter/alpha_scissor = 1.0
+shader_parameter/triplanar = false
+shader_parameter/Direction = Vector2(0, 0)
+shader_parameter/Speed = 0.0
+shader_parameter/albedo = ExtResource("3_6sj6p")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7hoqf"]
+render_priority = 0
+shader = ExtResource("2_sr8p6")
+shader_parameter/jitter = 0.5
+shader_parameter/jitter_z_coordinate = true
+shader_parameter/jitter_depth_independent = true
+shader_parameter/affine_texture_mapping = true
+shader_parameter/alpha_scissor = 1.0
+shader_parameter/triplanar = false
+shader_parameter/Direction = Vector2(0, 0)
+shader_parameter/Speed = 0.0
+shader_parameter/albedo = ExtResource("4_50bpi")
+
+[node name="SKM_JeffDead" instance=ExtResource("1_o7lt0")]
+
+[node name="Skeleton3D" parent="SK_Geoff" index="0"]
+bones/0/rotation = Quaternion(-2.77657e-17, -3.62015e-09, 0.0269439, 0.999637)
+bones/1/rotation = Quaternion(2.78245e-17, 9.45023e-09, -0.0703358, 0.997523)
+bones/2/rotation = Quaternion(5.55458e-17, -4.74672e-09, 0.0353287, 0.999376)
+bones/3/rotation = Quaternion(7.28774e-17, -3.06864e-09, 0.0228391, 0.999739)
+bones/4/rotation = Quaternion(0, -1.09125e-16, 0, 1)
+bones/5/rotation = Quaternion(0.97338, -0.0826114, -0.0180795, 0.213026)
+bones/6/rotation = Quaternion(0.0068708, 0.118539, -0.262802, 0.957516)
+bones/7/rotation = Quaternion(0.017532, 3.54463e-15, 8.3599e-09, 0.999846)
+bones/8/rotation = Quaternion(0.974928, -0.0907471, 0.0188304, -0.202301)
+bones/9/rotation = Quaternion(-0.00701483, -0.0823075, -0.193582, 0.9776)
+bones/11/rotation = Quaternion(-0.0862138, -0.00685571, 0.993118, -0.0789726)
+bones/12/rotation = Quaternion(0.0518261, -0.00551081, -0.105591, 0.993043)
+bones/13/rotation = Quaternion(-0.018883, 0.00148938, 0.603689, 0.796995)
+bones/14/rotation = Quaternion(0.984276, 0.0819342, -0.155947, 0.0129815)
+bones/15/rotation = Quaternion(0.0518068, 0.00568894, 0.109007, 0.992674)
+bones/16/rotation = Quaternion(-0.0186345, -0.00174947, -0.606905, 0.794554)
+
+[node name="SKM_ChefGeoffSkelly" parent="SK_Geoff/Skeleton3D" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_2ymvo")
+surface_material_override/1 = SubResource("ShaderMaterial_7hoqf")

@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://b6tumw2ils2lt"]
+
+[ext_resource type="PackedScene" uid="uid://cfnr2wmjh7dj8" path="res://Mesh/Food/SM_Foot.glb" id="1_wi3fo"]
+[ext_resource type="Shader" path="res://Shaders/PSXShader.gdshader" id="2_bak13"]
+[ext_resource type="Texture2D" uid="uid://whlmpuj0tfgw" path="res://Textures/Mesh/Food/T_Foot.png" id="3_31ait"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0un1p"]
+render_priority = 0
+shader = ExtResource("2_bak13")
+shader_parameter/jitter = 0.5
+shader_parameter/jitter_z_coordinate = true
+shader_parameter/jitter_depth_independent = true
+shader_parameter/affine_texture_mapping = true
+shader_parameter/alpha_scissor = 1.0
+shader_parameter/triplanar = false
+shader_parameter/emissiveBoost = 0.1
+shader_parameter/Direction = Vector2(0, 0)
+shader_parameter/Speed = 0.0
+shader_parameter/albedo = ExtResource("3_31ait")
+
+[node name="SM_Foot2" instance=ExtResource("1_wi3fo")]
+
+[node name="SM_Foot" parent="." index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_0un1p")

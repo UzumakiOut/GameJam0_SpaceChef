@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://cd8tweahy8ud2"]
+
+[ext_resource type="PackedScene" uid="uid://d3tc0ho6hbwh6" path="res://Mesh/Environment/SM_ExpoDoor.glb" id="1_brqa5"]
+[ext_resource type="Shader" path="res://Shaders/PSXShader.gdshader" id="2_vvgk7"]
+[ext_resource type="Texture2D" uid="uid://n2ef7bksbbtm" path="res://Textures/Mesh/Environment/T_Expo.png" id="3_4ible"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u0meu"]
+render_priority = 0
+shader = ExtResource("2_vvgk7")
+shader_parameter/jitter = 0.5
+shader_parameter/jitter_z_coordinate = true
+shader_parameter/jitter_depth_independent = true
+shader_parameter/affine_texture_mapping = true
+shader_parameter/alpha_scissor = 1.0
+shader_parameter/triplanar = false
+shader_parameter/Direction = Vector2(0, 0)
+shader_parameter/Speed = 0.0
+shader_parameter/albedo = ExtResource("3_4ible")
+
+[node name="SM_ExpoDoor" instance=ExtResource("1_brqa5")]
+
+[node name="ExpoDoor" parent="." index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_u0meu")

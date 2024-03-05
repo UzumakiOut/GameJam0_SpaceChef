@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://233ugjn71ud3"]
+
+[ext_resource type="PackedScene" uid="uid://bjsdsenaw1i61" path="res://Mesh/Food/SM_Bagel.glb" id="1_myc0j"]
+[ext_resource type="Shader" path="res://Shaders/PSXShader.gdshader" id="2_jf7al"]
+[ext_resource type="Texture2D" uid="uid://bkefi7byp7dho" path="res://Textures/Mesh/Food/T_Donut.png" id="3_2lmap"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_um0f4"]
+render_priority = 0
+shader = ExtResource("2_jf7al")
+shader_parameter/jitter = 0.5
+shader_parameter/jitter_z_coordinate = true
+shader_parameter/jitter_depth_independent = true
+shader_parameter/affine_texture_mapping = true
+shader_parameter/alpha_scissor = 1.0
+shader_parameter/triplanar = false
+shader_parameter/emissiveBoost = 0.1
+shader_parameter/Direction = Vector2(0, 0)
+shader_parameter/Speed = 0.0
+shader_parameter/albedo = ExtResource("3_2lmap")
+
+[node name="SM_Bagel2" instance=ExtResource("1_myc0j")]
+
+[node name="SM_Bagel" parent="." index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_um0f4")

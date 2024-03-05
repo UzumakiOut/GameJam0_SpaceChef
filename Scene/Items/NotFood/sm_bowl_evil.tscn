@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://d21l8o4u404vj"]
+
+[ext_resource type="PackedScene" uid="uid://bl60y8sowtp1" path="res://Mesh/Food/SM_Bowl.glb" id="1_tyje4"]
+[ext_resource type="Shader" path="res://Shaders/PSXShader.gdshader" id="2_vsihd"]
+[ext_resource type="Texture2D" uid="uid://cduxbo08j1aya" path="res://Textures/Mesh/Food/T_Bowl_Blood.png" id="3_i8atv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hnyue"]
+render_priority = 0
+shader = ExtResource("2_vsihd")
+shader_parameter/jitter = 0.5
+shader_parameter/jitter_z_coordinate = true
+shader_parameter/jitter_depth_independent = true
+shader_parameter/affine_texture_mapping = true
+shader_parameter/alpha_scissor = 1.0
+shader_parameter/triplanar = false
+shader_parameter/emissiveBoost = 0.1
+shader_parameter/Direction = Vector2(0, 0)
+shader_parameter/Speed = 0.0
+shader_parameter/albedo = ExtResource("3_i8atv")
+
+[node name="SM_Bowl2" instance=ExtResource("1_tyje4")]
+
+[node name="SM_Bowl" parent="." index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_hnyue")

@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://c24x818eb7fbi"]
+
+[ext_resource type="PackedScene" uid="uid://cl7krpqii0q7f" path="res://Mesh/Environment/SM_Printer.glb" id="1_ub3wy"]
+[ext_resource type="Shader" path="res://Shaders/PSXShader.gdshader" id="2_tds1t"]
+[ext_resource type="Texture2D" uid="uid://ml1u4kpbs8uy" path="res://Textures/Mesh/Environment/T_Printer.png" id="3_4vhrv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bjwsh"]
+render_priority = 0
+shader = ExtResource("2_tds1t")
+shader_parameter/jitter = 0.5
+shader_parameter/jitter_z_coordinate = true
+shader_parameter/jitter_depth_independent = true
+shader_parameter/affine_texture_mapping = true
+shader_parameter/alpha_scissor = 1.0
+shader_parameter/triplanar = false
+shader_parameter/Direction = Vector2(0, 0)
+shader_parameter/Speed = 0.0
+shader_parameter/albedo = ExtResource("3_4vhrv")
+
+[node name="SM_Printer" instance=ExtResource("1_ub3wy")]
+
+[node name="Printer" parent="." index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_bjwsh")

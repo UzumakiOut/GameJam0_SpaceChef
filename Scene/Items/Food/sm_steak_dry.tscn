@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://cnbcmedaf04cq"]
+
+[ext_resource type="PackedScene" uid="uid://c81htdgxmperv" path="res://Mesh/Food/SM_Steak.glb" id="1_qjbhd"]
+[ext_resource type="Shader" path="res://Shaders/PSXShader.gdshader" id="2_cwux3"]
+[ext_resource type="Texture2D" uid="uid://x4kwaoac2knn" path="res://Textures/Mesh/Food/T_Steak_Dry.png" id="3_jthhm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ovucd"]
+render_priority = 0
+shader = ExtResource("2_cwux3")
+shader_parameter/jitter = 0.5
+shader_parameter/jitter_z_coordinate = true
+shader_parameter/jitter_depth_independent = true
+shader_parameter/affine_texture_mapping = true
+shader_parameter/alpha_scissor = 1.0
+shader_parameter/triplanar = false
+shader_parameter/emissiveBoost = 0.1
+shader_parameter/Direction = Vector2(0, 0)
+shader_parameter/Speed = 0.0
+shader_parameter/albedo = ExtResource("3_jthhm")
+
+[node name="SM_Steak2" instance=ExtResource("1_qjbhd")]
+
+[node name="SM_Steak" parent="." index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_ovucd")

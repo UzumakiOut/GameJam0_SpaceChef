@@ -1,0 +1,71 @@
+[gd_scene load_steps=10 format=3 uid="uid://col4rlrx4xro8"]
+
+[ext_resource type="PackedScene" uid="uid://dg1o5kg2cantm" path="res://Mesh/Environment/SM_Decoration.glb" id="1_pb5rt"]
+[ext_resource type="Texture2D" uid="uid://bj7563ukefapx" path="res://Textures/Mesh/Environment/T_WallPost.png" id="2_qnnvo"]
+[ext_resource type="Shader" path="res://Shaders/PSXShader.gdshader" id="2_x0my4"]
+[ext_resource type="Texture2D" uid="uid://xme5jk3tipig" path="res://Textures/Mesh/Environment/T_WallBoxes.png" id="4_1kjnl"]
+[ext_resource type="Texture2D" uid="uid://bgctrtj5573e8" path="res://Textures/Mesh/Environment/T_EmissiveLight.png" id="5_oxud4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ujtx0"]
+render_priority = 0
+shader = ExtResource("2_x0my4")
+shader_parameter/jitter = 0.5
+shader_parameter/jitter_z_coordinate = true
+shader_parameter/jitter_depth_independent = true
+shader_parameter/affine_texture_mapping = true
+shader_parameter/alpha_scissor = 1.0
+shader_parameter/triplanar = false
+shader_parameter/emissiveBoost = 0.05
+shader_parameter/Direction = Vector2(0, 0)
+shader_parameter/Speed = 0.0
+shader_parameter/albedo = ExtResource("2_qnnvo")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_asb7w"]
+render_priority = 0
+shader = ExtResource("2_x0my4")
+shader_parameter/jitter = 0.5
+shader_parameter/jitter_z_coordinate = true
+shader_parameter/jitter_depth_independent = true
+shader_parameter/affine_texture_mapping = true
+shader_parameter/alpha_scissor = 1.0
+shader_parameter/triplanar = false
+shader_parameter/emissiveBoost = 0.05
+shader_parameter/Direction = Vector2(0, 0)
+shader_parameter/Speed = 0.0
+shader_parameter/albedo = ExtResource("2_qnnvo")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hhrgm"]
+render_priority = 0
+shader = ExtResource("2_x0my4")
+shader_parameter/jitter = 0.5
+shader_parameter/jitter_z_coordinate = true
+shader_parameter/jitter_depth_independent = true
+shader_parameter/affine_texture_mapping = true
+shader_parameter/alpha_scissor = 1.0
+shader_parameter/triplanar = false
+shader_parameter/emissiveBoost = 0.05
+shader_parameter/Direction = Vector2(0, 0)
+shader_parameter/Speed = 0.0
+shader_parameter/albedo = ExtResource("4_1kjnl")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cy144"]
+render_priority = 0
+shader = ExtResource("2_x0my4")
+shader_parameter/jitter = 0.5
+shader_parameter/jitter_z_coordinate = true
+shader_parameter/jitter_depth_independent = true
+shader_parameter/affine_texture_mapping = true
+shader_parameter/alpha_scissor = 1.0
+shader_parameter/triplanar = false
+shader_parameter/emissiveBoost = 2.0
+shader_parameter/Direction = Vector2(0, 0)
+shader_parameter/Speed = 0.0
+shader_parameter/emission = ExtResource("5_oxud4")
+
+[node name="SM_Decoration" instance=ExtResource("1_pb5rt")]
+
+[node name="RoomDecor" parent="." index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_ujtx0")
+surface_material_override/1 = SubResource("ShaderMaterial_asb7w")
+surface_material_override/2 = SubResource("ShaderMaterial_hhrgm")
+surface_material_override/3 = SubResource("ShaderMaterial_cy144")

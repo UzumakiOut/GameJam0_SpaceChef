@@ -1,0 +1,71 @@
+[gd_scene load_steps=10 format=3 uid="uid://dlb8mf43p3ecs"]
+
+[ext_resource type="Script" path="res://CameraController.gd" id="1_2yx30"]
+[ext_resource type="PackedScene" uid="uid://b3vlsgwsx3j08" path="res://Scene/Environment/sm_background.tscn" id="1_dqukl"]
+[ext_resource type="PackedScene" uid="uid://wg5cod5uin48" path="res://Scene/Environment/sm_conveyor.tscn" id="2_1otev"]
+[ext_resource type="PackedScene" uid="uid://col4rlrx4xro8" path="res://Scene/Environment/sm_decoration.tscn" id="3_kyjin"]
+[ext_resource type="PackedScene" uid="uid://4vmteov2sttb" path="res://Scene/Environment/sm_space_background.tscn" id="4_5u5e8"]
+[ext_resource type="PackedScene" uid="uid://cd8tweahy8ud2" path="res://Scene/Environment/sm_expo_door.tscn" id="6_44j8d"]
+[ext_resource type="PackedScene" uid="uid://c24x818eb7fbi" path="res://Scene/Environment/sm_printer.tscn" id="7_jfxpa"]
+[ext_resource type="PackedScene" uid="uid://slk5ek1x03v7" path="res://Scene/Environment/sm_trashcan.tscn" id="8_pjtbr"]
+[ext_resource type="PackedScene" uid="uid://vg0aj0bigs46" path="res://Scene/Character/Player/skm_jeff.tscn" id="9_aivcx"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(-0.00382349, -0.548512, 0.836134, -0.00250822, 0.836143, 0.548506, -0.99999, -4.65666e-10, -0.00457277, 9.50294, 6.02851, -2.61232)
+light_color = Color(0.878431, 0.85098, 0.768627, 1)
+light_energy = 16.0
+light_indirect_energy = 2.829
+light_size = 1.0
+spot_range = 10.017
+
+[node name="PlayerController" type="Node3D" parent="."]
+transform = Transform3D(0.0242577, 0, 0.999706, 0, 1, 0, -0.999706, 0, 0.0242577, 10.6017, 4.11189, -3.16919)
+script = ExtResource("1_2yx30")
+
+[node name="Camera3D" type="Camera3D" parent="PlayerController"]
+transform = Transform3D(0.999997, -0.00237177, -0.00011619, 0.00237177, 0.995209, 0.0977452, -0.000116196, -0.0977452, 0.995212, 0, 0.0999999, 0)
+fov = 57.5
+
+[node name="MapCollection" type="Node3D" parent="."]
+
+[node name="SM_Trashcan" parent="MapCollection" instance=ExtResource("8_pjtbr")]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="MapCollection/SM_Trashcan"]
+transform = Transform3D(0.91808, -0.018189, 0.395977, -0.396395, -0.0421271, 0.917113, 0, -0.998947, -0.0458861, 3.84253, 4.64558, -5.21446)
+light_color = Color(1, 0, 0, 1)
+light_energy = 6.181
+light_volumetric_fog_energy = 0.0
+
+[node name="SM_Background" parent="MapCollection" instance=ExtResource("1_dqukl")]
+
+[node name="SM_Conveyor" parent="MapCollection" instance=ExtResource("2_1otev")]
+
+[node name="SM_Decoration" parent="MapCollection" instance=ExtResource("3_kyjin")]
+
+[node name="SM_SpaceBackground" parent="MapCollection" instance=ExtResource("4_5u5e8")]
+
+[node name="SM_ExpoDoor" parent="MapCollection" instance=ExtResource("6_44j8d")]
+
+[node name="SM_Printer" parent="MapCollection" instance=ExtResource("7_jfxpa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.687277, 0)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="MapCollection/SM_Printer"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 5.18067, 2.77231, -8.73644)
+light_color = Color(0.996078, 0.882353, 0, 1)
+light_energy = 7.857
+spot_range = 2.158
+
+[node name="SpotLight3D" type="SpotLight3D" parent="MapCollection"]
+transform = Transform3D(1, 0, 0, 0, -0.342922, 0.939364, 0, -0.939364, -0.342922, 5.56118, 5.13895, -2.8561)
+light_color = Color(0.733333, 0.698039, 0.498039, 1)
+light_energy = 16.0
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="MapCollection"]
+transform = Transform3D(1, 0, 0, 0, 0.285939, 0.958248, 0, -0.958248, 0.285939, 5.38664, 5.47441, -4.8826)
+light_color = Color(0.733333, 0.698039, 0.498039, 1)
+light_energy = 16.0
+
+[node name="SKM_Jeff" parent="." instance=ExtResource("9_aivcx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.13634, 0, -1.20923)
