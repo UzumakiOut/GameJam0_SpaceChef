@@ -1,11 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://wg5cod5uin48"]
+[gd_scene load_steps=7 format=3 uid="uid://beipi0uo5s22o"]
 
 [ext_resource type="PackedScene" uid="uid://dodui7bnnq522" path="res://Mesh/Environment/SM_Conveyor.glb" id="1_st37b"]
 [ext_resource type="Shader" path="res://Shaders/PSXShader.gdshader" id="2_ortl5"]
 [ext_resource type="Texture2D" uid="uid://t5ngbpu38fde" path="res://Textures/Mesh/Environment/T_Belt.png" id="3_ddrxr"]
-[ext_resource type="Texture2D" uid="uid://bmkxteo1t6jyd" path="res://Textures/Mesh/Environment/T_ConveryorLegs.png" id="4_wx7ld"]
+[ext_resource type="Texture2D" uid="uid://c8rjge2v1vc24" path="res://Textures/Mesh/Environment/T_ConveryorBelt.png" id="4_8jvwk"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_dsimu"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_my6p2"]
 render_priority = 0
 shader = ExtResource("2_ortl5")
 shader_parameter/jitter = 0.5
@@ -13,12 +13,13 @@ shader_parameter/jitter_z_coordinate = true
 shader_parameter/jitter_depth_independent = true
 shader_parameter/affine_texture_mapping = true
 shader_parameter/alpha_scissor = 1.0
-shader_parameter/triplanar = true
+shader_parameter/triplanar = false
+shader_parameter/emissiveBoost = 0.0
 shader_parameter/Direction = Vector2(1, 0)
 shader_parameter/Speed = 1.0
 shader_parameter/albedo = ExtResource("3_ddrxr")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_g872f"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kcdts"]
 render_priority = 0
 shader = ExtResource("2_ortl5")
 shader_parameter/jitter = 0.5
@@ -26,13 +27,14 @@ shader_parameter/jitter_z_coordinate = true
 shader_parameter/jitter_depth_independent = true
 shader_parameter/affine_texture_mapping = true
 shader_parameter/alpha_scissor = 1.0
-shader_parameter/triplanar = true
+shader_parameter/triplanar = false
+shader_parameter/emissiveBoost = 0.0
 shader_parameter/Direction = Vector2(0, 0)
 shader_parameter/Speed = 0.0
-shader_parameter/albedo = ExtResource("4_wx7ld")
+shader_parameter/albedo = ExtResource("4_8jvwk")
 
 [node name="SM_Conveyor" instance=ExtResource("1_st37b")]
 
 [node name="Conveyor" parent="." index="0"]
-surface_material_override/0 = SubResource("ShaderMaterial_dsimu")
-surface_material_override/1 = SubResource("ShaderMaterial_g872f")
+surface_material_override/0 = SubResource("ShaderMaterial_my6p2")
+surface_material_override/1 = SubResource("ShaderMaterial_kcdts")

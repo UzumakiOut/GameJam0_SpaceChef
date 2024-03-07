@@ -1,16 +1,38 @@
-[gd_scene load_steps=10 format=3 uid="uid://dlb8mf43p3ecs"]
+[gd_scene load_steps=28 format=3 uid="uid://dlb8mf43p3ecs"]
 
-[ext_resource type="Script" path="res://CameraController.gd" id="1_2yx30"]
+[ext_resource type="Script" path="res://Scripts/CameraController.gd" id="1_2yx30"]
+[ext_resource type="Script" path="res://ComboDetector.gd" id="1_do0j0"]
 [ext_resource type="PackedScene" uid="uid://b3vlsgwsx3j08" path="res://Scene/Environment/sm_background.tscn" id="1_dqukl"]
-[ext_resource type="PackedScene" uid="uid://wg5cod5uin48" path="res://Scene/Environment/sm_conveyor.tscn" id="2_1otev"]
+[ext_resource type="PackedScene" uid="uid://beipi0uo5s22o" path="res://Scene/Environment/sm_conveyor.tscn" id="2_1otev"]
 [ext_resource type="PackedScene" uid="uid://col4rlrx4xro8" path="res://Scene/Environment/sm_decoration.tscn" id="3_kyjin"]
 [ext_resource type="PackedScene" uid="uid://4vmteov2sttb" path="res://Scene/Environment/sm_space_background.tscn" id="4_5u5e8"]
 [ext_resource type="PackedScene" uid="uid://cd8tweahy8ud2" path="res://Scene/Environment/sm_expo_door.tscn" id="6_44j8d"]
-[ext_resource type="PackedScene" uid="uid://c24x818eb7fbi" path="res://Scene/Environment/sm_printer.tscn" id="7_jfxpa"]
+[ext_resource type="AudioStream" uid="uid://c5xtf7xxn5y4v" path="res://Sound/Music/gba1complete.mp3" id="8_ine4s"]
 [ext_resource type="PackedScene" uid="uid://slk5ek1x03v7" path="res://Scene/Environment/sm_trashcan.tscn" id="8_pjtbr"]
-[ext_resource type="PackedScene" uid="uid://vg0aj0bigs46" path="res://Scene/Character/Player/skm_jeff.tscn" id="9_aivcx"]
+[ext_resource type="AudioStream" uid="uid://bxje0fj513yxb" path="res://Sound/SFX/Environment/SFX_DroningHum.wav" id="9_bo3i4"]
+[ext_resource type="PackedScene" uid="uid://catohhfede31l" path="res://Scene/Gameplay/FoodSpawner.tscn" id="11_6ukaf"]
+[ext_resource type="PackedScene" uid="uid://bw24dv5pvglqq" path="res://Scene/Character/Player/ActorJeff.tscn" id="12_cjnfc"]
+[ext_resource type="PackedScene" uid="uid://bpnynw3larqxl" path="res://Scene/Gameplay/ArrowKeysOnScreen.tscn" id="13_6im0i"]
+[ext_resource type="PackedScene" uid="uid://dlu4h4yceto0b" path="res://Scene/Gameplay/FoodItem.tscn" id="13_r34s7"]
+[ext_resource type="PackedScene" uid="uid://dqxrk40pywqir" path="res://Scene/Items/Food/sm_bagel.tscn" id="15_ytepq"]
+[ext_resource type="PackedScene" uid="uid://bwhj7uhi4lut7" path="res://Scene/Items/Food/sm_onigiri.tscn" id="16_30hko"]
+[ext_resource type="PackedScene" uid="uid://dpvpkql6gokgt" path="res://Scene/Items/Food/sm_pizza_pep.tscn" id="17_tt5p8"]
+[ext_resource type="PackedScene" uid="uid://qfrxwgx71768" path="res://Scene/Items/Food/sm_sandwich.tscn" id="18_keday"]
+[ext_resource type="PackedScene" uid="uid://cnbcmedaf04cq" path="res://Scene/Items/Food/sm_steak_dry.tscn" id="19_rgc1k"]
+[ext_resource type="PackedScene" uid="uid://db3q25lx4l5ib" path="res://Scene/Items/Trash/sm_batteries.tscn" id="20_kggho"]
+[ext_resource type="PackedScene" uid="uid://coorjuc0867xs" path="res://Scene/Items/Food/sm_bowl_noods.tscn" id="21_4mrpk"]
+[ext_resource type="PackedScene" uid="uid://dh1hs1mn5y647" path="res://Scene/Items/Food/sm_potato_chz.tscn" id="22_cr67c"]
+[ext_resource type="PackedScene" uid="uid://d34rbail5ymcn" path="res://Scene/Items/Food/sm_bowl_soupb.tscn" id="23_nciur"]
+[ext_resource type="PackedScene" uid="uid://233ugjn71ud3" path="res://Scene/Items/Food/sm_donut.tscn" id="24_r46pg"]
+[ext_resource type="PackedScene" uid="uid://cauj3jpn5tpb1" path="res://Scene/Items/Food/sm_pizza_greens.tscn" id="25_j3qke"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_52krc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3ew1d"]
+size = Vector3(4.38599, 0.941528, 2.36673)
 
 [node name="Node3D" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.371102, 0, -0.224759)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(-0.00382349, -0.548512, 0.836134, -0.00250822, 0.836143, 0.548506, -0.99999, -4.65666e-10, -0.00457277, 9.50294, 6.02851, -2.61232)
@@ -22,10 +44,22 @@ spot_range = 10.017
 
 [node name="PlayerController" type="Node3D" parent="."]
 transform = Transform3D(0.0242577, 0, 0.999706, 0, 1, 0, -0.999706, 0, 0.0242577, 10.6017, 4.11189, -3.16919)
+
+[node name="ComboArea" type="Area3D" parent="PlayerController" groups=["Detector"]]
+transform = Transform3D(0.00691182, 0, -0.999706, 0, 1, 0, 0.284849, 0, 0.0242577, -2.49581, -1.75907, -5.25838)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_do0j0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerController/ComboArea"]
+transform = Transform3D(7.19, 0, -1.42109e-13, 0, 7.19, 0, 1.42109e-13, 0, 7.19, 0, -3.45985, -0.518061)
+shape = SubResource("BoxShape3D_52krc")
+
+[node name="CameraController" type="Node3D" parent="PlayerController"]
 script = ExtResource("1_2yx30")
 
-[node name="Camera3D" type="Camera3D" parent="PlayerController"]
-transform = Transform3D(0.999997, -0.00237177, -0.00011619, 0.00237177, 0.995209, 0.0977452, -0.000116196, -0.0977452, 0.995212, 0, 0.0999999, 0)
+[node name="Camera3D" type="Camera3D" parent="PlayerController/CameraController"]
+transform = Transform3D(0.999997, -0.00237177, -0.00011619, 0.00237177, 0.995209, 0.0977452, -0.000116196, -0.0977452, 0.995211, 0.0274374, 0.0999999, 1.13075)
 fov = 57.5
 
 [node name="MapCollection" type="Node3D" parent="."]
@@ -38,24 +72,27 @@ light_color = Color(1, 0, 0, 1)
 light_energy = 6.181
 light_volumetric_fog_energy = 0.0
 
+[node name="TrashArea" type="Area3D" parent="MapCollection/SM_Trashcan" groups=["Trash"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.95531, 3.0855, -5.07033)
+
+[node name="TrashCollision" type="CollisionShape3D" parent="MapCollection/SM_Trashcan/TrashArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.18738, 0.392639, 0.126328)
+shape = SubResource("BoxShape3D_3ew1d")
+
 [node name="SM_Background" parent="MapCollection" instance=ExtResource("1_dqukl")]
 
 [node name="SM_Conveyor" parent="MapCollection" instance=ExtResource("2_1otev")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.27766)
+
+[node name="SM_Conveyor2" parent="MapCollection" instance=ExtResource("2_1otev")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0203245, -8.98149)
 
 [node name="SM_Decoration" parent="MapCollection" instance=ExtResource("3_kyjin")]
 
 [node name="SM_SpaceBackground" parent="MapCollection" instance=ExtResource("4_5u5e8")]
 
 [node name="SM_ExpoDoor" parent="MapCollection" instance=ExtResource("6_44j8d")]
-
-[node name="SM_Printer" parent="MapCollection" instance=ExtResource("7_jfxpa")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.687277, 0)
-
-[node name="SpotLight3D" type="SpotLight3D" parent="MapCollection/SM_Printer"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 5.18067, 2.77231, -8.73644)
-light_color = Color(0.996078, 0.882353, 0, 1)
-light_energy = 7.857
-spot_range = 2.158
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.53922)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="MapCollection"]
 transform = Transform3D(1, 0, 0, 0, -0.342922, 0.939364, 0, -0.939364, -0.342922, 5.56118, 5.13895, -2.8561)
@@ -67,5 +104,142 @@ transform = Transform3D(1, 0, 0, 0, 0.285939, 0.958248, 0, -0.958248, 0.285939, 
 light_color = Color(0.733333, 0.698039, 0.498039, 1)
 light_energy = 16.0
 
-[node name="SKM_Jeff" parent="." instance=ExtResource("9_aivcx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.13634, 0, -1.20923)
+[node name="BGM" type="AudioStreamPlayer" parent="MapCollection"]
+stream = ExtResource("8_ine4s")
+volume_db = -20.0
+autoplay = true
+
+[node name="AmbientDrone" type="AudioStreamPlayer" parent="MapCollection"]
+stream = ExtResource("9_bo3i4")
+volume_db = -30.0
+autoplay = true
+
+[node name="ArrowKeysOnScreen" parent="." instance=ExtResource("13_6im0i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.17482, 2.79201, -1.26251)
+
+[node name="ScannerLight" type="SpotLight3D" parent="."]
+transform = Transform3D(0.998818, 0.0485611, -0.0020837, 0.048592, -0.998637, 0.0190616, -0.00115521, -0.0191403, -0.999816, 5.27976, 2.16144, -4.68663)
+light_color = Color(0, 1, 0, 1)
+light_energy = 16.0
+spot_range = 1.99877
+spot_attenuation = 5.85637
+spot_angle = 89.99
+
+[node name="FoodSpawner" parent="." instance=ExtResource("11_6ukaf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.31891)
+
+[node name="ActorJeff" parent="." instance=ExtResource("12_cjnfc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.51066, 4.76837e-07, -1.35541)
+
+[node name="FoodItem" parent="." instance=ExtResource("13_r34s7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.37824, 1.93422, -10.0974)
+platePointMultiplier = 2
+plateComboArray = [4, 5, 2, 4, 5, 2, null, null, null]
+sequence = ["RightArrow", "Spacebar", "DownArrow", "RightArrow", "Spacebar", "DownArrow"]
+
+[node name="SM_Bagel2" parent="FoodItem" instance=ExtResource("15_ytepq")]
+transform = Transform3D(0.330422, 0.25927, 0, -0.25927, 0.330422, 0, 0, 0, 0.42, 0, 0.204162, 0)
+
+[node name="FoodItem2" parent="." instance=ExtResource("13_r34s7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.37824, 1.93422, -17.0058)
+platePointMultiplier = 2
+plateComboArray = [5, 5, 5, null, null, null, null, null, null]
+sequence = ["Spacebar", "Spacebar", "Spacebar"]
+
+[node name="SM_Onigiri2" parent="FoodItem2" instance=ExtResource("16_30hko")]
+transform = Transform3D(0.450728, 0, -0.216436, 0, 0.5, 0, 0.216436, 0, 0.450728, 0.173798, 1.19209e-07, 0.217491)
+
+[node name="SM_Onigiri3" parent="FoodItem2" instance=ExtResource("16_30hko")]
+transform = Transform3D(0.478612, 0, 0.144675, 0, 0.5, 0, -0.144675, 0, 0.478612, 0.2209, 0.375047, -0.0652733)
+
+[node name="SM_Onigiri4" parent="FoodItem2" instance=ExtResource("16_30hko")]
+transform = Transform3D(0.478612, 0, 0.144675, 0, 0.5, 0, -0.144675, 0, 0.478612, 0.197525, -1.19209e-07, -0.282164)
+
+[node name="FoodItem3" parent="." instance=ExtResource("13_r34s7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.37824, 1.93422, -25.0458)
+platePointMultiplier = 2
+plateComboArray = [1, 1, 2, 2, 3, 4, 3, 4, null]
+sequence = ["UpArrow", "UpArrow", "DownArrow", "DownArrow", "LeftArrow", "RightArrow", "LeftArrow", "RightArrow"]
+
+[node name="SM_Pizza2" parent="FoodItem3" instance=ExtResource("17_tt5p8")]
+transform = Transform3D(0.351841, 0, 0.492172, 0, 0.605, 0, -0.492172, 0, 0.351841, 0, 0, 0)
+
+[node name="FoodItem4" parent="." instance=ExtResource("13_r34s7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.37824, 1.93422, -30.8323)
+platePointMultiplier = 2
+plateComboArray = [1, 2, 3, 1, 2, 3, null, null, null]
+sequence = ["UpArrow", "DownArrow", "LeftArrow", "UpArrow", "DownArrow", "LeftArrow"]
+
+[node name="SM_Sandwich2" parent="FoodItem4" instance=ExtResource("18_keday")]
+transform = Transform3D(0.287165, 0.102769, 0, -0.102769, 0.287165, 0, 0, 0, 0.305, 0, 0, 0)
+
+[node name="FoodItem5" parent="." instance=ExtResource("13_r34s7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.37824, 1.93422, -38.4883)
+platePointMultiplier = 2
+plateComboArray = [4, 5, 2, 4, 5, 2, null, null, null]
+sequence = ["RightArrow", "Spacebar", "DownArrow", "RightArrow", "Spacebar", "DownArrow"]
+
+[node name="SM_Steak2" parent="FoodItem5" instance=ExtResource("19_rgc1k")]
+transform = Transform3D(0.530214, 0.20922, 0, -0.20922, 0.530214, 0, 0, 0, 0.57, 0, 0, 0)
+
+[node name="FoodItem6" parent="." instance=ExtResource("13_r34s7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.37824, 1.93422, -45.3967)
+platePointMultiplier = 2
+plateComboArray = [5, 5, 5, null, null, null, null, null, null]
+sequence = ["Spacebar", "Spacebar", "Spacebar"]
+
+[node name="SM_Batteries2" parent="FoodItem6" instance=ExtResource("20_kggho")]
+transform = Transform3D(0.645, 0, 0, 0, 0.645, 0, 0, 0, 0.645, 0, 0, 0)
+
+[node name="FoodItem7" parent="." instance=ExtResource("13_r34s7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.37824, 1.93422, -53.4366)
+platePointMultiplier = 2
+plateComboArray = [1, 1, 2, 2, 3, 4, 3, 4, null]
+sequence = ["UpArrow", "UpArrow", "DownArrow", "DownArrow", "LeftArrow", "RightArrow", "LeftArrow", "RightArrow"]
+
+[node name="SM_Bowl2" parent="FoodItem7" instance=ExtResource("21_4mrpk")]
+transform = Transform3D(0.328603, 0.120499, 0, -0.120499, 0.328603, 0, 0, 0, 0.35, 0, 0, 0)
+
+[node name="FoodItem8" parent="." instance=ExtResource("13_r34s7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.37824, 1.93422, -59.2232)
+platePointMultiplier = 2
+plateComboArray = [1, 2, 3, 1, 2, 3, null, null, null]
+sequence = ["UpArrow", "DownArrow", "LeftArrow", "UpArrow", "DownArrow", "LeftArrow"]
+
+[node name="SM_Potato2" parent="FoodItem8" instance=ExtResource("22_cr67c")]
+transform = Transform3D(0.0947522, 0.103634, -0.495487, -0.0194653, 0.504465, 0.10179, 0.505834, -7.6741e-09, 0.0967309, 0, 0, 0)
+
+[node name="FoodItem9" parent="." instance=ExtResource("13_r34s7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.37824, 1.93422, -67.3021)
+platePointMultiplier = 2
+plateComboArray = [4, 5, 2, 4, 5, 2, null, null, null]
+sequence = ["RightArrow", "Spacebar", "DownArrow", "RightArrow", "Spacebar", "DownArrow"]
+
+[node name="SM_Bowl2" parent="FoodItem9" instance=ExtResource("23_nciur")]
+transform = Transform3D(0.384402, 0.0908831, 0, -0.0908831, 0.384402, 0, 0, 0, 0.395, 0, 0, 0)
+
+[node name="FoodItem10" parent="." instance=ExtResource("13_r34s7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.37824, 1.93422, -74.2105)
+platePointMultiplier = 2
+plateComboArray = [5, 5, 5, null, null, null, null, null, null]
+sequence = ["Spacebar", "Spacebar", "Spacebar"]
+
+[node name="SM_Bagel2" parent="FoodItem10" instance=ExtResource("24_r46pg")]
+transform = Transform3D(0.39, 0, 0, 0, 0.39, 0, 0, 0, 0.39, 0, 0, 0)
+
+[node name="SM_Bagel3" parent="FoodItem10" instance=ExtResource("24_r46pg")]
+transform = Transform3D(0.39, 0, 0, 0, 0.39, 0, 0, 0, 0.39, 0, 0.213855, 0)
+
+[node name="SM_Bagel4" parent="FoodItem10" instance=ExtResource("24_r46pg")]
+transform = Transform3D(0.39, 0, 0, 0, 0.39, 0, 0, 0, 0.39, 0, 0.42136, 0)
+
+[node name="FoodItem11" parent="." instance=ExtResource("13_r34s7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.37824, 1.93422, -82.2505)
+platePointMultiplier = 2
+plateComboArray = [1, 1, 2, 2, 3, 4, 3, 4, null]
+sequence = ["UpArrow", "UpArrow", "DownArrow", "DownArrow", "LeftArrow", "RightArrow", "LeftArrow", "RightArrow"]
+
+[node name="SM_Pizza2" parent="FoodItem11" instance=ExtResource("25_j3qke")]
+transform = Transform3D(0.711769, 0.702414, 0, -0.66743, 0.676319, -0.311655, -0.218911, 0.221826, 0.950195, -0.130831, 0.296696, -0.00666046)
+
+[connection signal="area_entered" from="PlayerController/ComboArea" to="PlayerController/ComboArea" method="_on_area_entered"]

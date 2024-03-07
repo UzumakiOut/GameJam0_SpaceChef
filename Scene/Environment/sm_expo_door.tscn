@@ -1,8 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://cd8tweahy8ud2"]
+[gd_scene load_steps=11 format=3 uid="uid://cd8tweahy8ud2"]
 
 [ext_resource type="PackedScene" uid="uid://d3tc0ho6hbwh6" path="res://Mesh/Environment/SM_ExpoDoor.glb" id="1_brqa5"]
 [ext_resource type="Shader" path="res://Shaders/PSXShader.gdshader" id="2_vvgk7"]
 [ext_resource type="Texture2D" uid="uid://n2ef7bksbbtm" path="res://Textures/Mesh/Environment/T_Expo.png" id="3_4ible"]
+[ext_resource type="Script" path="res://Scene/Environment/ExpoEatingFood.gd" id="4_n2kgp"]
+[ext_resource type="AudioStream" uid="uid://eyk522l07ar" path="res://Sound/SFX/Character/SFX_Coin.wav" id="5_1stk5"]
+[ext_resource type="AudioStream" uid="uid://dbxcfdxmvvl07" path="res://Sound/SFX/Character/SFX_Fail2.wav" id="5_sg8sh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u0meu"]
 render_priority = 0
@@ -13,11 +16,86 @@ shader_parameter/jitter_depth_independent = true
 shader_parameter/affine_texture_mapping = true
 shader_parameter/alpha_scissor = 1.0
 shader_parameter/triplanar = false
+shader_parameter/emissiveBoost = 0.0
 shader_parameter/Direction = Vector2(0, 0)
 shader_parameter/Speed = 0.0
 shader_parameter/albedo = ExtResource("3_4ible")
+
+[sub_resource type="Animation" id="Animation_25ebu"]
+resource_name = "expoEatingFood"
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ExpoDoor")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.1, 1, 0, 0.0636211, -0.0318108, 0.2, 1, 0, 0, 0)
+tracks/1/type = "scale_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ExpoDoor")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 1, 1, 1, 0.1, 1, 1, 1.34264, 1.04292, 0.2, 1, 1, 1, 1, 0.3, 1, 1, 1.1121, 1, 0.4, 1, 1, 1, 1)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ExpoDoor")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.1, 1, 0, 0, 0, 1, 0.3, 1, 0, 0, 0, 1)
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ExpoDoor/ExpoAudio")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("5_sg8sh")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.01,
+"stream": ExtResource("5_1stk5")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("5_sg8sh")
+}],
+"times": PackedFloat32Array(0.1, 0.2, 0.3)
+}
+tracks/3/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2lssk"]
+_data = {
+"expoEatingFood": SubResource("Animation_25ebu")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pbhni"]
 
 [node name="SM_ExpoDoor" instance=ExtResource("1_brqa5")]
 
 [node name="ExpoDoor" parent="." index="0"]
 surface_material_override/0 = SubResource("ShaderMaterial_u0meu")
+script = ExtResource("4_n2kgp")
+
+[node name="ExpoAudio" type="AudioStreamPlayer" parent="ExpoDoor" index="0"]
+volume_db = -30.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ExpoDoor" index="1"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_2lssk")
+}
+
+[node name="ExpoArea" type="Area3D" parent="." index="1" groups=["Expo"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.04975, 1.56178, 2.24212)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ExpoArea" index="0"]
+shape = SubResource("BoxShape3D_pbhni")
+
+[connection signal="area_entered" from="ExpoArea" to="ExpoDoor" method="_on_expo_area_area_entered"]

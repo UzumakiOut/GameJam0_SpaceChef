@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://dlu4h4yceto0b"]
+
+[ext_resource type="Script" path="res://Scene/Items/Tools/FoodAndComboSpawner.gd" id="1_rim2d"]
+[ext_resource type="PackedScene" uid="uid://dnxhpypy5bqjx" path="res://Scene/Items/Tools/sm_plate.tscn" id="2_1s3mj"]
+[ext_resource type="PackedScene" uid="uid://bmeyvxkt8pppq" path="res://Scene/Gameplay/combo_button_on_food.tscn" id="3_2brj5"]
+[ext_resource type="AudioStream" uid="uid://b4okahemjxg0x" path="res://Sound/SFX/Character/SFX_Great.wav" id="4_sc2p8"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_d13ui"]
+
+[node name="FoodItem" type="Node3D"]
+script = ExtResource("1_rim2d")
+
+[node name="Plate" parent="." instance=ExtResource("2_1s3mj")]
+transform = Transform3D(0.000188515, 0, 0.6, 0, 0.6, 0, -0.6, 0, 0.000188515, 0, 0, 0)
+
+[node name="ComboButton1" parent="Plate" instance=ExtResource("3_2brj5")]
+transform = Transform3D(0.24, 0, 1.45519e-11, 0, 0.24, 0, -1.45519e-11, 0, 0.24, -0.904314, 0.680454, 1.089)
+
+[node name="ComboButton2" parent="Plate" instance=ExtResource("3_2brj5")]
+transform = Transform3D(0.24, 0, 5.09317e-11, 0, 0.24, 0, -5.09317e-11, 0, 0.24, -0.457578, 0.680454, 1.08886)
+
+[node name="ComboButton3" parent="Plate" instance=ExtResource("3_2brj5")]
+transform = Transform3D(0.24, 0, 5.09317e-11, 0, 0.24, 0, -5.09317e-11, 0, 0.24, -0.00686294, 0.680454, 1.08872)
+
+[node name="ComboButton4" parent="Plate" instance=ExtResource("3_2brj5")]
+transform = Transform3D(0.24, 0, 5.09317e-11, 0, 0.24, 0, -5.09317e-11, 0, 0.24, 0.443852, 0.680454, 1.08858)
+
+[node name="ComboButton5" parent="Plate" instance=ExtResource("3_2brj5")]
+transform = Transform3D(0.24, 0, 5.09317e-11, 0, 0.24, 0, -5.09317e-11, 0, 0.24, 0.893188, 0.680454, 1.08844)
+
+[node name="ComboButton6" parent="Plate" instance=ExtResource("3_2brj5")]
+transform = Transform3D(0.24, 0, 5.09317e-11, 0, 0.24, 0, -5.09317e-11, 0, 0.24, -0.677727, 0.198559, 1.08893)
+
+[node name="ComboButton7" parent="Plate" instance=ExtResource("3_2brj5")]
+transform = Transform3D(0.24, 0, 5.09317e-11, 0, 0.24, 0, -5.09317e-11, 0, 0.24, -0.228963, 0.198559, 1.08879)
+
+[node name="ComboButton8" parent="Plate" instance=ExtResource("3_2brj5")]
+transform = Transform3D(0.24, 0, 5.09317e-11, 0, 0.24, 0, -5.09317e-11, 0, 0.24, 0.221753, 0.198559, 1.08865)
+
+[node name="ComboButton9" parent="Plate" instance=ExtResource("3_2brj5")]
+transform = Transform3D(0.24, 0, 5.09317e-11, 0, 0.24, 0, -5.09317e-11, 0, 0.24, 0.673516, 0.198559, 1.0885)
+
+[node name="FoodArea" type="Area3D" parent="." groups=["FoodItem"]]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FoodArea"]
+shape = SubResource("SphereShape3D_d13ui")
+
+[node name="FoodSound" type="AudioStreamPlayer" parent="FoodArea"]
+stream = ExtResource("4_sc2p8")
+volume_db = -20.0
+
+[connection signal="area_entered" from="FoodArea" to="." method="_on_food_area_area_entered"]
+[connection signal="area_exited" from="FoodArea" to="." method="_on_food_area_area_exited"]

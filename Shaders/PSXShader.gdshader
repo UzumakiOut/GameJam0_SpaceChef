@@ -11,7 +11,9 @@ uniform bool jitter_depth_independent = true;
 uniform bool affine_texture_mapping = true;
 uniform float alpha_scissor: hint_range(0.0, 1.0) = 1.0;
 uniform bool triplanar = false;
+//emission
 uniform float emissiveBoost = 0;
+//texture panning
 uniform vec2 Direction = vec2(0.0,0.0);
 uniform float Speed = 0.0;
 
@@ -44,7 +46,9 @@ void fragment() {
 		uv /= VERTEX.z;
 	}
 	
-	ALBEDO = texture(albedo, uv + (Direction * TIME * Speed)).rgb;
+	
+	
+	ALBEDO = texture(albedo, uv + Direction * TIME * Speed).rgb; //Find a way to make this update a lower frame rate for aesthetic reasons
 	ALPHA = texture(albedo, uv).a;
 	ALPHA_SCISSOR_THRESHOLD = alpha_scissor;
 	EMISSION = texture(albedo, uv).rgb * emissiveBoost;

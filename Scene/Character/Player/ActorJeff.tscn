@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://bw24dv5pvglqq"]
+
+[ext_resource type="Script" path="res://Scene/Character/Player/ActorJeff.gd" id="1_ld07x"]
+[ext_resource type="PackedScene" uid="uid://vg0aj0bigs46" path="res://Scene/Character/Player/skm_jeff.tscn" id="2_wqixk"]
+[ext_resource type="PackedScene" uid="uid://b1g0jh7qh60bu" path="res://Scene/Character/Player/skm_jeff_dead.tscn" id="3_cjupr"]
+
+[node name="ActorJeff" type="Node3D"]
+script = ExtResource("1_ld07x")
+
+[node name="SKM_Jeff" parent="." instance=ExtResource("2_wqixk")]
+
+[node name="SKM_JeffDead" parent="." instance=ExtResource("3_cjupr")]
+visible = false
