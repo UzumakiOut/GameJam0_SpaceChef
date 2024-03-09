@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://dm3i1tvsj0xqt"]
+
+[ext_resource type="PackedScene" uid="uid://dlu4h4yceto0b" path="res://Scene/Gameplay/FoodItem.tscn" id="1_43hex"]
+[ext_resource type="PackedScene" uid="uid://db3q25lx4l5ib" path="res://Scene/Items/Trash/sm_batteries.tscn" id="2_qtqfu"]
+
+[node name="FoodItem" instance=ExtResource("1_43hex")]
+predeterminedComboSize = true
+plateDifficulty = 6
+plateIsTrash = true
+
+[node name="SM_Batteries2" parent="." index="0" instance=ExtResource("2_qtqfu")]
+transform = Transform3D(0.42, 0, 0, 0, 0.42, 0, 0, 0, 0.42, -0.158919, -1.19209e-07, 0.171627)
+
+[node name="SM_Batteries3" parent="." index="1" instance=ExtResource("2_qtqfu")]
+transform = Transform3D(-0.30033, 0, 0.293602, 0, 0.42, 0, -0.293602, 0, -0.30033, 0.289302, -1.19209e-07, -0.11776)
+
+[node name="SM_Batteries5" parent="." index="2" instance=ExtResource("2_qtqfu")]
+transform = Transform3D(-0.30033, 0, 0.293602, 0, 0.42, 0, -0.293602, 0, -0.30033, 0.0686905, -1.19209e-07, -0.279971)
+
+[node name="SM_Batteries4" parent="." index="3" instance=ExtResource("2_qtqfu")]
+transform = Transform3D(0.163135, 0, 0.387023, 0, 0.42, 0, -0.387023, 0, 0.163135, 0.209884, -1.19209e-07, 0.23071)

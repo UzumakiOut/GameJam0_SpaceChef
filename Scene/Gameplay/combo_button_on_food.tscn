@@ -59,25 +59,30 @@ script = ExtResource("1_abau0")
 
 [node name="ArrowUp" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1.31134e-07, -1, 0, 1, 1.31134e-07, 0, 0, 0)
+visible = false
 mesh = SubResource("PlaneMesh_ngers")
 surface_material_override/0 = SubResource("StandardMaterial3D_qengm")
 
 [node name="ArrowDown" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1.31134e-07, -1, 0, 1, 1.31134e-07, 0, 0, 0)
+visible = false
 mesh = SubResource("PlaneMesh_ngers")
 surface_material_override/0 = SubResource("StandardMaterial3D_a8w2t")
 
 [node name="ArrowLeft" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1.31134e-07, -1, 0, 1, 1.31134e-07, 0, 0, 0)
+visible = false
 mesh = SubResource("PlaneMesh_ngers")
 surface_material_override/0 = SubResource("StandardMaterial3D_cihvk")
 
 [node name="ArrowRight" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1.31134e-07, -1, 0, 1, 1.31134e-07, 0, 0, 0)
+visible = false
 mesh = SubResource("PlaneMesh_ngers")
 surface_material_override/0 = SubResource("StandardMaterial3D_gc8mj")
 
 [node name="ArrowSpace" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1.31134e-07, -1, 0, 1, 1.31134e-07, 0, 0, 0)
+visible = false
 mesh = SubResource("PlaneMesh_ngers")
 surface_material_override/0 = SubResource("StandardMaterial3D_msrp5")

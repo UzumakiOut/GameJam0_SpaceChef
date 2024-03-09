@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://b73oerqh251fp"]
+
+[ext_resource type="PackedScene" uid="uid://dlu4h4yceto0b" path="res://Scene/Gameplay/FoodItem.tscn" id="1_7wkls"]
+[ext_resource type="PackedScene" uid="uid://b7srni5133ddi" path="res://Scene/Items/Food/sm_bowl_soupa.tscn" id="2_q856t"]
+
+[node name="FoodItem" instance=ExtResource("1_7wkls")]
+
+[node name="SM_Bowl2" parent="." index="2" instance=ExtResource("2_q856t")]
+transform = Transform3D(0.285, 0, 0, 0, 0.285, 0, 0, 0, 0.285, 0, 0, 0)

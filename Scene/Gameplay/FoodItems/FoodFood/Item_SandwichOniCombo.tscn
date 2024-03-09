@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://co1yjabawd0je"]
+
+[ext_resource type="PackedScene" uid="uid://dlu4h4yceto0b" path="res://Scene/Gameplay/FoodItem.tscn" id="1_ihsh6"]
+[ext_resource type="PackedScene" uid="uid://qfrxwgx71768" path="res://Scene/Items/Food/sm_sandwich.tscn" id="2_17ege"]
+[ext_resource type="PackedScene" uid="uid://bwhj7uhi4lut7" path="res://Scene/Items/Food/sm_onigiri.tscn" id="3_t2iv2"]
+
+[node name="FoodItem" instance=ExtResource("1_ihsh6")]
+predeterminedComboSize = true
+plateDifficulty = 6
+
+[node name="SM_Sandwich2" parent="." index="2" instance=ExtResource("2_17ege")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0.109887, -5.96046e-08, 0.169718)
+
+[node name="SM_Onigiri2" parent="." index="3" instance=ExtResource("3_t2iv2")]
+transform = Transform3D(0.17982, 0, 0.0875487, 0, 0.2, 0, -0.0875487, 0, 0.17982, 0.171883, -5.96046e-08, -0.234988)
+
+[node name="SM_Onigiri3" parent="." index="4" instance=ExtResource("3_t2iv2")]
+transform = Transform3D(0.128199, 0, 0.153509, 0, 0.2, 0, -0.153509, 0, 0.128199, -0.0564739, 0, -0.2814)

@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3tyeqsak8ghr"]
+
+[ext_resource type="PackedScene" uid="uid://dlu4h4yceto0b" path="res://Scene/Gameplay/FoodItem.tscn" id="1_jcjp5"]
+[ext_resource type="PackedScene" uid="uid://dq5srmwl30cn2" path="res://Scene/Items/NotFood/sm_eyes.tscn" id="2_i34lg"]
+
+[node name="FoodItem" instance=ExtResource("1_jcjp5")]
+predeterminedComboSize = true
+plateDifficulty = 6
+plateIsEvil = true
+
+[node name="SM_Eyes2" parent="." index="2" instance=ExtResource("2_i34lg")]
+transform = Transform3D(0.655, 0, 0, 0, 0.655, 0, 0, 0, 0.655, 0, 0, 0)

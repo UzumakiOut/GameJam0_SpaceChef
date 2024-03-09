@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://0j65vio51itx"]
+
+[ext_resource type="PackedScene" uid="uid://dlu4h4yceto0b" path="res://Scene/Gameplay/FoodItem.tscn" id="1_clv4l"]
+[ext_resource type="PackedScene" uid="uid://dpvpkql6gokgt" path="res://Scene/Items/Food/sm_pizza_pep.tscn" id="2_tg2wt"]
+[ext_resource type="PackedScene" uid="uid://cauj3jpn5tpb1" path="res://Scene/Items/Food/sm_pizza_greens.tscn" id="3_14g25"]
+[ext_resource type="PackedScene" uid="uid://cap5l0fqvylup" path="res://Scene/Items/Food/sm_pizza_chz.tscn" id="4_hodfd"]
+
+[node name="FoodItem" instance=ExtResource("1_clv4l")]
+platePregenerated = true
+plateDifficulty = 7
+plateComboArray = [4, 5, 2, 4, 5, 2, null, null, null]
+sequence = ["RightArrow", "Spacebar", "DownArrow", "RightArrow", "Spacebar", "DownArrow"]
+
+[node name="SM_Pizza2" parent="." index="2" instance=ExtResource("2_tg2wt")]
+transform = Transform3D(-1.6849e-08, 0.38546, -0.106868, -4.67137e-09, 0.106868, 0.38546, 0.4, 1.74846e-08, 7.64274e-16, -0.0938339, 0.755966, 0.00182149)
+
+[node name="SM_Pizza3" parent="." index="3" instance=ExtResource("3_14g25")]
+transform = Transform3D(-1.6849e-08, 0.38546, -0.106868, -4.67137e-09, 0.106868, 0.38546, 0.4, 1.74846e-08, 7.64274e-16, 0.046917, 0.248297, -0.207354)
+
+[node name="SM_Pizza4" parent="." index="4" instance=ExtResource("4_hodfd")]
+transform = Transform3D(-1.6849e-08, 0.38546, -0.106868, -4.67137e-09, 0.106868, 0.38546, 0.4, 1.74846e-08, 7.64274e-16, 0.046917, 0.248297, 0.208905)

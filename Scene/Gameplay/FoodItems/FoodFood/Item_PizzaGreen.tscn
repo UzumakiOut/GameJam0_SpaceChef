@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://c427nxht6hfe1"]
+
+[ext_resource type="PackedScene" uid="uid://dlu4h4yceto0b" path="res://Scene/Gameplay/FoodItem.tscn" id="1_gawyq"]
+[ext_resource type="PackedScene" uid="uid://cauj3jpn5tpb1" path="res://Scene/Items/Food/sm_pizza_greens.tscn" id="2_6ylie"]
+
+[node name="FoodItem" instance=ExtResource("1_gawyq")]
+
+[node name="SM_Pizza2" parent="." index="2" instance=ExtResource("2_6ylie")]
+transform = Transform3D(-0.403537, 0, 0.430416, 0, 0.59, 0, -0.430416, 0, -0.403537, 0, 0, 0)

@@ -1,0 +1,81 @@
+[gd_scene load_steps=7 format=3 uid="uid://c6bp0cuxxgpww"]
+
+[ext_resource type="PackedScene" uid="uid://slk5ek1x03v7" path="res://Scene/Environment/sm_trashcan.tscn" id="1_xrg8j"]
+[ext_resource type="AudioStream" uid="uid://drj1kkn22r72p" path="res://Sound/SFX/Enemy/SFX_TentDeath1.wav" id="2_e2lqu"]
+[ext_resource type="AudioStream" uid="uid://brai2ykqnpbu3" path="res://Sound/SFX/Character/SFX_Trash.wav" id="3_smh43"]
+
+[sub_resource type="Animation" id="Animation_jxe32"]
+resource_name = "TrashCanEating"
+tracks/0/type = "scale_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 1, 1, 1, 0.1, 1, 1.04, 1.04, 1.04, 0.3, 1, 1, 1, 1, 0.4, 1, 1.04, 1.04, 1.04, 0.6, 1, 1, 1, 1)
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../TrashAudio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("2_e2lqu")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_smh43")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_smh43")
+}],
+"times": PackedFloat32Array(0, 0.1, 0.3)
+}
+tracks/1/use_blend = true
+tracks/2/type = "position_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.1, 1, 0, 0, 0.26, 0.3, 1, 0, 0, 0, 0.4, 1, 0, 0, 0.26, 0.6, 1, 0, 0, 0)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jsijw"]
+_data = {
+"TrashCanEating": SubResource("Animation_jxe32")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_368fo"]
+size = Vector3(0.894127, 1.96753, 2.10687)
+
+[node name="FoodTrasher" type="Node3D"]
+
+[node name="SM_Trashcan" parent="." instance=ExtResource("1_xrg8j")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SM_Trashcan"]
+libraries = {
+"": SubResource("AnimationLibrary_jsijw")
+}
+
+[node name="OmniLight3D" type="OmniLight3D" parent="SM_Trashcan"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.55036, 2.89423, -5.13892)
+light_color = Color(1, 0, 0, 1)
+light_energy = 6.133
+omni_range = 1.288
+
+[node name="TrashAudio" type="AudioStreamPlayer" parent="."]
+volume_db = -20.0
+pitch_scale = 0.5
+
+[node name="TrashArea" type="Area3D" parent="." groups=["Trash"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.59895, 3.15766, -5.12717)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrashArea"]
+transform = Transform3D(0.310295, -0.95064, 0, 0.95064, 0.310295, 0, 0, 0, 1, -0.253818, -1.05083, 0.0526428)
+shape = SubResource("BoxShape3D_368fo")

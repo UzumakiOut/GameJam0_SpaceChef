@@ -13,6 +13,7 @@ shader_parameter/jitter_depth_independent = true
 shader_parameter/affine_texture_mapping = true
 shader_parameter/alpha_scissor = 1.0
 shader_parameter/triplanar = false
+shader_parameter/emissiveBoost = 0.0
 shader_parameter/Direction = Vector2(0, 0)
 shader_parameter/Speed = 0.0
 shader_parameter/albedo = ExtResource("3_h305l")

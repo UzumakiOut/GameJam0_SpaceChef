@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://csff74mmidp21"]
+
+[ext_resource type="PackedScene" uid="uid://dlu4h4yceto0b" path="res://Scene/Gameplay/FoodItem.tscn" id="1_7wsxf"]
+[ext_resource type="PackedScene" uid="uid://cefyendqaincv" path="res://Scene/Items/NotFood/sm_brains.tscn" id="2_rcn6p"]
+
+[node name="FoodItem" instance=ExtResource("1_7wsxf")]
+predeterminedComboSize = true
+plateDifficulty = 5
+plateIsEvil = true
+
+[node name="SM_Brains2" parent="." index="2" instance=ExtResource("2_rcn6p")]

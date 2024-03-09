@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dlu4h4yceto0b"]
+[gd_scene load_steps=7 format=3 uid="uid://dlu4h4yceto0b"]
 
 [ext_resource type="Script" path="res://Scene/Items/Tools/FoodAndComboSpawner.gd" id="1_rim2d"]
 [ext_resource type="PackedScene" uid="uid://dnxhpypy5bqjx" path="res://Scene/Items/Tools/sm_plate.tscn" id="2_1s3mj"]
@@ -6,6 +6,9 @@
 [ext_resource type="AudioStream" uid="uid://b4okahemjxg0x" path="res://Sound/SFX/Character/SFX_Great.wav" id="4_sc2p8"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_d13ui"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tt681"]
+size = Vector3(1, 0.132202, 1)
 
 [node name="FoodItem" type="Node3D"]
 script = ExtResource("1_rim2d")
@@ -51,5 +54,11 @@ shape = SubResource("SphereShape3D_d13ui")
 stream = ExtResource("4_sc2p8")
 volume_db = -20.0
 
+[node name="SecondaryCollision" type="CollisionShape3D" parent="FoodArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.249375, 0)
+shape = SubResource("BoxShape3D_tt681")
+
 [connection signal="area_entered" from="FoodArea" to="." method="_on_food_area_area_entered"]
 [connection signal="area_exited" from="FoodArea" to="." method="_on_food_area_area_exited"]
+[connection signal="mouse_entered" from="FoodArea" to="." method="_on_food_area_mouse_entered"]
+[connection signal="mouse_exited" from="FoodArea" to="." method="_on_food_area_mouse_exited"]

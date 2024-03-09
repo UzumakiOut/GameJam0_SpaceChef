@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://damd06141rkke"]
+
+[ext_resource type="PackedScene" uid="uid://dlu4h4yceto0b" path="res://Scene/Gameplay/FoodItem.tscn" id="1_wbghk"]
+[ext_resource type="PackedScene" uid="uid://d38ttmy173jrh" path="res://Scene/Items/Trash/sm_toothpaste.tscn" id="2_b2r6c"]
+
+[node name="FoodItem" instance=ExtResource("1_wbghk")]
+predeterminedComboSize = true
+plateDifficulty = 5
+plateIsTrash = true
+
+[node name="SM_Toothpaste2" parent="." index="2" instance=ExtResource("2_b2r6c")]
+transform = Transform3D(-0.0394517, 0, -0.999222, 0, 1, 0, 0.999222, 0, -0.0394517, 0, 0, 0)

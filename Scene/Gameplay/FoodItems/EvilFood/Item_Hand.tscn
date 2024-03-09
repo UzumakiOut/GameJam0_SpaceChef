@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://sjhcvu0nvj5g"]
+
+[ext_resource type="PackedScene" uid="uid://dlu4h4yceto0b" path="res://Scene/Gameplay/FoodItem.tscn" id="1_s78d0"]
+[ext_resource type="PackedScene" uid="uid://uhq47qcx4s3s" path="res://Scene/Items/NotFood/sm_hand.tscn" id="2_6doon"]
+
+[node name="FoodItem" instance=ExtResource("1_s78d0")]
+predeterminedComboSize = true
+plateDifficulty = 6
+plateIsEvil = true
+
+[node name="SM_Hand2" parent="." index="2" instance=ExtResource("2_6doon")]
+transform = Transform3D(0.825, 0, 0, 0, 0.825, 0, 0, 0, 0.825, 0, 0, 0)

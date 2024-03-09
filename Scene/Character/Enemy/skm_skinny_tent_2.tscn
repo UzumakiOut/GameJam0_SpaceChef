@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cteaoh1mc7lnh"]
+[gd_scene load_steps=9 format=3 uid="uid://cteaoh1mc7lnh"]
 
 [ext_resource type="PackedScene" uid="uid://ojuj3xi5cw7r" path="res://Mesh/Character/Enemy/SKM_SkinnyTent.glb" id="1_0mt4w"]
 [ext_resource type="Shader" path="res://Shaders/PSXShader.gdshader" id="2_brc6c"]
@@ -17,9 +17,65 @@ shader_parameter/emissiveBoost = 0.01
 shader_parameter/Direction = Vector2(0, 0)
 shader_parameter/Speed = 0.0
 shader_parameter/albedo = ExtResource("3_3dbe7")
-shader_parameter/emission = ExtResource("3_3dbe7")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_eckv3"]
+radius = 0.437188
+height = 1.60553
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_guhqb"]
+radius = 0.187057
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ng5lo"]
+radius = 0.141848
+height = 1.67084
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bjifw"]
+radius = 0.16337
+height = 1.48714
 
 [node name="SKM_SkinnyTent2" instance=ExtResource("1_0mt4w")]
 
 [node name="SKM_SkinnyTent" parent="SK_BigTent/Skeleton3D" index="0"]
 surface_material_override/0 = SubResource("ShaderMaterial_h1s4f")
+
+[node name="BaseCollision" type="BoneAttachment3D" parent="SK_BigTent/Skeleton3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000799298, 0.504634, 0.00115895)
+bone_name = "TentBone02"
+bone_idx = 1
+
+[node name="Area3D" type="Area3D" parent="SK_BigTent/Skeleton3D/BaseCollision" index="0"]
+
+[node name="TentCollisionBase" type="CollisionShape3D" parent="SK_BigTent/Skeleton3D/BaseCollision/Area3D" index="0"]
+transform = Transform3D(1, -2.95986e-08, 9.31323e-10, 1.5134e-08, 1, 1.86265e-09, 9.31323e-10, 3.72529e-09, 1, -0.0217234, -0.117261, -0.0033573)
+shape = SubResource("CapsuleShape3D_eckv3")
+
+[node name="MidCollision" type="BoneAttachment3D" parent="SK_BigTent/Skeleton3D" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000799298, 1.60463, 0.00115895)
+bone_name = "TentBone03"
+bone_idx = 2
+
+[node name="Area3D" type="Area3D" parent="SK_BigTent/Skeleton3D/MidCollision" index="0"]
+
+[node name="TentCollisionBase" type="CollisionShape3D" parent="SK_BigTent/Skeleton3D/MidCollision/Area3D" index="0"]
+shape = SubResource("CapsuleShape3D_guhqb")
+
+[node name="TopCollision" type="BoneAttachment3D" parent="SK_BigTent/Skeleton3D" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000799298, 3.00463, 0.00115895)
+bone_name = "TentBone05"
+bone_idx = 4
+
+[node name="Area3D" type="Area3D" parent="SK_BigTent/Skeleton3D/TopCollision" index="0"]
+
+[node name="TentCollisionBase" type="CollisionShape3D" parent="SK_BigTent/Skeleton3D/TopCollision/Area3D" index="0"]
+shape = SubResource("CapsuleShape3D_ng5lo")
+
+[node name="EndCollision" type="BoneAttachment3D" parent="SK_BigTent/Skeleton3D" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000799298, 3.70463, 0.00115895)
+bone_name = "TentBone06"
+bone_idx = 5
+
+[node name="Area3D" type="Area3D" parent="SK_BigTent/Skeleton3D/EndCollision" index="0"]
+
+[node name="TentCollisionBase" type="CollisionShape3D" parent="SK_BigTent/Skeleton3D/EndCollision/Area3D" index="0"]
+transform = Transform3D(1, -3.72529e-09, 0, -6.51926e-08, 1, 0, 0, -7.45058e-09, 1, 0.0144489, 0.413773, 0.0463087)
+shape = SubResource("CapsuleShape3D_bjifw")

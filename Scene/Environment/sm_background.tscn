@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b3vlsgwsx3j08"]
+[gd_scene load_steps=13 format=3 uid="uid://b3vlsgwsx3j08"]
 
 [ext_resource type="PackedScene" uid="uid://d3ogwearpm7vj" path="res://Mesh/Environment/SM_Background.glb" id="1_332ux"]
 [ext_resource type="Shader" path="res://Shaders/PSXShader.gdshader" id="2_tj2k5"]
@@ -15,6 +15,7 @@ shader_parameter/jitter_depth_independent = true
 shader_parameter/affine_texture_mapping = true
 shader_parameter/alpha_scissor = 1.0
 shader_parameter/triplanar = true
+shader_parameter/emissiveBoost = 0.0
 shader_parameter/Direction = Vector2(0, 0)
 shader_parameter/Speed = 0.0
 shader_parameter/albedo = ExtResource("3_8q0wo")
@@ -28,6 +29,7 @@ shader_parameter/jitter_depth_independent = true
 shader_parameter/affine_texture_mapping = true
 shader_parameter/alpha_scissor = 1.0
 shader_parameter/triplanar = true
+shader_parameter/emissiveBoost = 0.0
 shader_parameter/Direction = Vector2(0, 0)
 shader_parameter/Speed = 0.0
 shader_parameter/albedo = ExtResource("4_y7y1e")
@@ -41,9 +43,22 @@ shader_parameter/jitter_depth_independent = true
 shader_parameter/affine_texture_mapping = true
 shader_parameter/alpha_scissor = 1.0
 shader_parameter/triplanar = true
+shader_parameter/emissiveBoost = 0.0
 shader_parameter/Direction = Vector2(0, 0)
 shader_parameter/Speed = 0.0
 shader_parameter/albedo = ExtResource("5_yt20a")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0mrwc"]
+size = Vector3(25.1471, 1, 25.3707)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o1rn3"]
+size = Vector3(1.30811, 7.66776, 26.1613)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xr1w6"]
+size = Vector3(24.9155, 1, 25.5153)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_eom0n"]
+size = Vector3(23.6931, 7.99182, 1.83325)
 
 [node name="SM_Background" instance=ExtResource("1_332ux")]
 
@@ -51,3 +66,25 @@ shader_parameter/albedo = ExtResource("5_yt20a")
 surface_material_override/0 = SubResource("ShaderMaterial_p756c")
 surface_material_override/1 = SubResource("ShaderMaterial_af66q")
 surface_material_override/2 = SubResource("ShaderMaterial_ey37s")
+
+[node name="RoomBackgroundArea" type="Area3D" parent="RoomBackground" index="0"]
+
+[node name="Floor" type="CollisionShape3D" parent="RoomBackground/RoomBackgroundArea" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.55531, -0.450062, 0.211731)
+shape = SubResource("BoxShape3D_0mrwc")
+
+[node name="Backwall" type="CollisionShape3D" parent="RoomBackground/RoomBackgroundArea" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.05934, 3.44759, 0.0576626)
+shape = SubResource("BoxShape3D_o1rn3")
+
+[node name="Ceiling" type="CollisionShape3D" parent="RoomBackground/RoomBackgroundArea" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.71899, 7.26454, 0.469543)
+shape = SubResource("BoxShape3D_xr1w6")
+
+[node name="LeftWall" type="CollisionShape3D" parent="RoomBackground/RoomBackgroundArea" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.14585, 3.54006, 12.0443)
+shape = SubResource("BoxShape3D_eom0n")
+
+[node name="RightWall" type="CollisionShape3D" parent="RoomBackground/RoomBackgroundArea" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.08435, 3.49652, -12.5713)
+shape = SubResource("BoxShape3D_eom0n")

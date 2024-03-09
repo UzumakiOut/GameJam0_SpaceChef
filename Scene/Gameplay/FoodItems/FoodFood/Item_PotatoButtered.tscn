@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dv2qsftgnldhd"]
+
+[ext_resource type="PackedScene" uid="uid://dlu4h4yceto0b" path="res://Scene/Gameplay/FoodItem.tscn" id="1_efnue"]
+[ext_resource type="PackedScene" uid="uid://dnbrqmliv433u" path="res://Scene/Items/Food/sm_potato_butter.tscn" id="2_mvpog"]
+
+[node name="FoodItem" instance=ExtResource("1_efnue")]
+
+[node name="SM_Potato2" parent="." index="2" instance=ExtResource("2_mvpog")]
+transform = Transform3D(0.114006, 0, 0.277493, 0, 0.3, 0, -0.277493, 0, 0.114006, 0, 0, 0)

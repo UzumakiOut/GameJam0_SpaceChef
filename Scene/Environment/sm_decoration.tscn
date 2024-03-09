@@ -1,10 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://col4rlrx4xro8"]
+[gd_scene load_steps=11 format=3 uid="uid://col4rlrx4xro8"]
 
 [ext_resource type="PackedScene" uid="uid://dg1o5kg2cantm" path="res://Mesh/Environment/SM_Decoration.glb" id="1_pb5rt"]
 [ext_resource type="Texture2D" uid="uid://bj7563ukefapx" path="res://Textures/Mesh/Environment/T_WallPost.png" id="2_qnnvo"]
 [ext_resource type="Shader" path="res://Shaders/PSXShader.gdshader" id="2_x0my4"]
 [ext_resource type="Texture2D" uid="uid://xme5jk3tipig" path="res://Textures/Mesh/Environment/T_WallBoxes.png" id="4_1kjnl"]
-[ext_resource type="Texture2D" uid="uid://bgctrtj5573e8" path="res://Textures/Mesh/Environment/T_EmissiveLight.png" id="5_oxud4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ujtx0"]
 render_priority = 0
@@ -60,7 +59,12 @@ shader_parameter/triplanar = false
 shader_parameter/emissiveBoost = 2.0
 shader_parameter/Direction = Vector2(0, 0)
 shader_parameter/Speed = 0.0
-shader_parameter/emission = ExtResource("5_oxud4")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_geqvv"]
+size = Vector3(3.10645, 2.08875, 5.69678)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p3vlu"]
+size = Vector3(2.13477, 1.04395, 9.42163)
 
 [node name="SM_Decoration" instance=ExtResource("1_pb5rt")]
 
@@ -69,3 +73,21 @@ surface_material_override/0 = SubResource("ShaderMaterial_ujtx0")
 surface_material_override/1 = SubResource("ShaderMaterial_asb7w")
 surface_material_override/2 = SubResource("ShaderMaterial_hhrgm")
 surface_material_override/3 = SubResource("ShaderMaterial_cy144")
+
+[node name="DecorationCollision" type="Area3D" parent="RoomDecor" index="0"]
+
+[node name="DecorBoxes" type="CollisionShape3D" parent="RoomDecor/DecorationCollision" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8687, 1.08207, -0.0305176)
+shape = SubResource("BoxShape3D_geqvv")
+
+[node name="DecorBoxes2" type="CollisionShape3D" parent="RoomDecor/DecorationCollision" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8687, 1.08207, -7.44611)
+shape = SubResource("BoxShape3D_geqvv")
+
+[node name="DecorBoxes3" type="CollisionShape3D" parent="RoomDecor/DecorationCollision" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8687, 4.3811, -7.44611)
+shape = SubResource("BoxShape3D_geqvv")
+
+[node name="Light" type="CollisionShape3D" parent="RoomDecor/DecorationCollision" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0078125, 6.80378, -2.72107)
+shape = SubResource("BoxShape3D_p3vlu")

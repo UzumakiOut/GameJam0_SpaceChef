@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcjpuf53wcy4k"]
+
+[ext_resource type="PackedScene" uid="uid://dlu4h4yceto0b" path="res://Scene/Gameplay/FoodItem.tscn" id="1_ufbjs"]
+[ext_resource type="PackedScene" uid="uid://bwhj7uhi4lut7" path="res://Scene/Items/Food/sm_onigiri.tscn" id="2_wvocj"]
+
+[node name="FoodItem" instance=ExtResource("1_ufbjs")]
+
+[node name="SM_Onigiri2" parent="." index="2" instance=ExtResource("2_wvocj")]
+transform = Transform3D(0.31, 0, 0, 0, 0.31, 0, 0, 0, 0.31, 0, 0, 0)

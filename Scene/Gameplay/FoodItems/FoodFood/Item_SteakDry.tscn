@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cey0k5uuh5n4y"]
+
+[ext_resource type="PackedScene" uid="uid://dlu4h4yceto0b" path="res://Scene/Gameplay/FoodItem.tscn" id="1_8s3v8"]
+[ext_resource type="PackedScene" uid="uid://cnbcmedaf04cq" path="res://Scene/Items/Food/sm_steak_dry.tscn" id="2_vrx8w"]
+
+[node name="FoodItem" instance=ExtResource("1_8s3v8")]
+
+[node name="SM_Steak2" parent="." index="2" instance=ExtResource("2_vrx8w")]
+transform = Transform3D(0.475, 0, 0, 0, 0.475, 0, 0, 0, 0.475, 0, 0, 0)

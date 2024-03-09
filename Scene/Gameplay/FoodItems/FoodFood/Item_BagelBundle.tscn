@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnsuvbwdi12xm"]
+
+[ext_resource type="PackedScene" uid="uid://dlu4h4yceto0b" path="res://Scene/Gameplay/FoodItem.tscn" id="1_sv714"]
+[ext_resource type="PackedScene" uid="uid://dqxrk40pywqir" path="res://Scene/Items/Food/sm_bagel.tscn" id="2_givvc"]
+
+[node name="FoodItem" instance=ExtResource("1_sv714")]
+
+[node name="SM_Bagel2" parent="." index="2" instance=ExtResource("2_givvc")]
+transform = Transform3D(0.255, 0, 0, 0, 0.255, 0, 0, 0, 0.255, -0.120107, 0, 0.222794)
+
+[node name="SM_Bagel3" parent="." index="3" instance=ExtResource("2_givvc")]
+transform = Transform3D(0.255, 0, 0, 0, 0.255, 0, 0, 0, 0.255, 0.0266207, 0, -0.248551)
+
+[node name="SM_Bagel5" parent="." index="4" instance=ExtResource("2_givvc")]
+transform = Transform3D(0.200913, 0.157032, 0, -0.150793, 0.19293, -0.0711641, -0.0438238, 0.0560697, 0.244869, 0.27682, 0.0790308, 0.0741813)
+
+[node name="SM_Bagel4" parent="." index="5" instance=ExtResource("2_givvc")]
+transform = Transform3D(0.255, 0, 0, 0, 0.255, 0, 0, 0, 0.255, -0.018386, 0.129737, 0.030869)

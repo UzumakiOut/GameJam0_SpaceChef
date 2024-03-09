@@ -2,7 +2,7 @@ extends Node3D
 
 var isDead = Global.spookyMode
 
-func _process(delta):
+func _process(_delta):
 	if Global.spookyMode == true:
 		$SKM_Jeff.visible = false
 		$SKM_JeffDead.visible = true

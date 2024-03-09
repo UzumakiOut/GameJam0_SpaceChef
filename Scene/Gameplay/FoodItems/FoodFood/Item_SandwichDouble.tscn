@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://chlwatdorv8f2"]
+
+[ext_resource type="PackedScene" uid="uid://dlu4h4yceto0b" path="res://Scene/Gameplay/FoodItem.tscn" id="1_i040j"]
+[ext_resource type="PackedScene" uid="uid://qfrxwgx71768" path="res://Scene/Items/Food/sm_sandwich.tscn" id="2_rckei"]
+
+[node name="FoodItem" instance=ExtResource("1_i040j")]
+predeterminedComboSize = true
+plateDifficulty = 6
+
+[node name="SM_Sandwich2" parent="." index="2" instance=ExtResource("2_rckei")]
+transform = Transform3D(0.335, 0, 0, 0, 0.335, 0, 0, 0, 0.335, 0, 0, 0)
+
+[node name="SM_Sandwich3" parent="." index="3" instance=ExtResource("2_rckei")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0.135066, 0)

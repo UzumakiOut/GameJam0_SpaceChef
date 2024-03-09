@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dl310v4f2vqkw"]
+
+[ext_resource type="PackedScene" uid="uid://dlu4h4yceto0b" path="res://Scene/Gameplay/FoodItem.tscn" id="1_i82ck"]
+[ext_resource type="PackedScene" uid="uid://dsxv60phvkg26" path="res://Scene/Items/Trash/sm_lightbulb.tscn" id="2_14uwy"]
+
+[node name="FoodItem" instance=ExtResource("1_i82ck")]
+predeterminedComboSize = true
+plateIsTrash = true
+
+[node name="SM_Lightbulb2" parent="." index="2" instance=ExtResource("2_14uwy")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)

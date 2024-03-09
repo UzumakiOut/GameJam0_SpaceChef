@@ -34,8 +34,8 @@ func printerFakeOut():
 	
 func printerCook():
 	$AnimationPlayer.stop()
-	$AnimationPlayer.play("printerCooking");
-	await get_tree().create_timer(0.5).timeout
+	$AnimationPlayer.play("printerCookingSlow");
+	await get_tree().create_timer(1.0).timeout
 	printerGoUp();
 	
 func printerGoUp():

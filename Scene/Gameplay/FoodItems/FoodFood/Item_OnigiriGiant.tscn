@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cps7wapmx0bdo"]
+
+[ext_resource type="PackedScene" uid="uid://dlu4h4yceto0b" path="res://Scene/Gameplay/FoodItem.tscn" id="1_ntrj0"]
+[ext_resource type="PackedScene" uid="uid://bwhj7uhi4lut7" path="res://Scene/Items/Food/sm_onigiri.tscn" id="2_gk7t7"]
+
+[node name="FoodItem" instance=ExtResource("1_ntrj0")]
+
+[node name="SM_Onigiri2" parent="." index="2" instance=ExtResource("2_gk7t7")]

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://db6jnegc0v5we"]
+
+[ext_resource type="PackedScene" uid="uid://dlu4h4yceto0b" path="res://Scene/Gameplay/FoodItem.tscn" id="1_f78ih"]
+[ext_resource type="PackedScene" uid="uid://233ugjn71ud3" path="res://Scene/Items/Food/sm_donut.tscn" id="2_7mkrd"]
+
+[node name="FoodItem" instance=ExtResource("1_f78ih")]
+predeterminedComboSize = true
+plateDifficulty = 9
+
+[node name="SM_Bagel2" parent="." index="2" instance=ExtResource("2_7mkrd")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+
+[node name="SM_Bagel3" parent="." index="3" instance=ExtResource("2_7mkrd")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0.169779, 0)
+
+[node name="SM_Bagel4" parent="." index="4" instance=ExtResource("2_7mkrd")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0.333505, 0)

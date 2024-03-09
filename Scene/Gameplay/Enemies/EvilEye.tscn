@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://ccu2g4rxspfrs"]
+
+[ext_resource type="Script" path="res://Scene/Gameplay/Enemies/EvilEye.gd" id="1_7kvm1"]
+[ext_resource type="PackedScene" uid="uid://dpe2d8hob846x" path="res://Scene/Character/Enemy/skm_big_eye.tscn" id="2_xlcpy"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_rti1r"]
+radius = 1.02898
+
+[node name="EvilEye" type="Node3D"]
+script = ExtResource("1_7kvm1")
+
+[node name="SKM_BigEye" parent="." instance=ExtResource("2_xlcpy")]
+
+[node name="EyeballCollision" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EyeballCollision"]
+shape = SubResource("SphereShape3D_rti1r")

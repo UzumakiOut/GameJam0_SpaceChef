@@ -1,22 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://4vmteov2sttb"]
+[gd_scene load_steps=5 format=3 uid="uid://4vmteov2sttb"]
 
 [ext_resource type="PackedScene" uid="uid://b86r7a6jybrnn" path="res://Mesh/Environment/SM_SpaceBackground.glb" id="1_20mek"]
+[ext_resource type="Shader" path="res://Shaders/PSXShader.gdshader" id="2_bbyjf"]
 [ext_resource type="Texture2D" uid="uid://cs13f8r5xsws3" path="res://Textures/Mesh/Environment/T_Stars.png" id="2_ckgsk"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uc2fx"]
-cull_mode = 2
-albedo_texture = ExtResource("2_ckgsk")
-emission_enabled = true
-emission = Color(1, 1, 1, 1)
-emission_energy_multiplier = 12.92
-emission_operator = 1
-emission_texture = ExtResource("2_ckgsk")
-uv1_scale = Vector3(10, 10, 10)
-uv2_scale = Vector3(100, 100, 100)
-texture_filter = 1
-grow_amount = -2.79
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ewwv0"]
+render_priority = 0
+shader = ExtResource("2_bbyjf")
+shader_parameter/jitter = 0.5
+shader_parameter/jitter_z_coordinate = true
+shader_parameter/jitter_depth_independent = true
+shader_parameter/affine_texture_mapping = true
+shader_parameter/alpha_scissor = 1.0
+shader_parameter/triplanar = false
+shader_parameter/emissiveBoost = 10.0
+shader_parameter/Direction = Vector2(1, 1)
+shader_parameter/Speed = -0.05
+shader_parameter/UVScale = Vector2(10, 10)
+shader_parameter/albedo = ExtResource("2_ckgsk")
 
 [node name="SM_SpaceBackground" instance=ExtResource("1_20mek")]
 
 [node name="SpaceBackground" parent="." index="0"]
-surface_material_override/0 = SubResource("StandardMaterial3D_uc2fx")
+surface_material_override/0 = SubResource("ShaderMaterial_ewwv0")

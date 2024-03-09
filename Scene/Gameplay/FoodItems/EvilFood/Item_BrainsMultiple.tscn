@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfutik76p3vd0"]
+
+[ext_resource type="PackedScene" uid="uid://dlu4h4yceto0b" path="res://Scene/Gameplay/FoodItem.tscn" id="1_p1bpe"]
+[ext_resource type="PackedScene" uid="uid://cefyendqaincv" path="res://Scene/Items/NotFood/sm_brains.tscn" id="2_ewth5"]
+
+[node name="FoodItem" instance=ExtResource("1_p1bpe")]
+predeterminedComboSize = true
+plateDifficulty = 6
+plateIsEvil = true
+
+[node name="SM_Brains2" parent="." index="2" instance=ExtResource("2_ewth5")]
+transform = Transform3D(0.321824, 0, -0.0930296, 0, 0.335, 0, 0.0930296, 0, 0.321824, 0.125329, 0, 0.162446)
+
+[node name="SM_Brains3" parent="." index="3" instance=ExtResource("2_ewth5")]
+transform = Transform3D(0.302982, 0, 0.142922, 0, 0.335, 0, -0.142922, 0, 0.302982, 0.133944, 0, -0.215972)
+
+[node name="SM_Brains4" parent="." index="4" instance=ExtResource("2_ewth5")]
+transform = Transform3D(-0.0883411, 0, -0.323142, 0, 0.335, 0, 0.323142, 0, -0.0883411, -0.248023, 5.96046e-08, -0.0174652)

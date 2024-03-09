@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bb4o3wxqbhtbr"]
+
+[ext_resource type="PackedScene" uid="uid://dlu4h4yceto0b" path="res://Scene/Gameplay/FoodItem.tscn" id="1_6cam3"]
+[ext_resource type="PackedScene" uid="uid://1isvtsww11v7" path="res://Scene/Items/NotFood/sm_steak_evil.tscn" id="2_uuqeb"]
+
+[node name="FoodItem" instance=ExtResource("1_6cam3")]
+plateDifficulty = 9
+plateIsEvil = true
+
+[node name="SM_Steak2" parent="." index="2" instance=ExtResource("2_uuqeb")]
+transform = Transform3D(-0.00206235, 0.478848, 0.0331682, 0.0297167, 0.0332323, -0.477925, -0.479075, -1.43051e-08, -0.0297882, -0.0453474, 0.518815, 0.00967252)

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnlw5afy8ls15"]
+
+[ext_resource type="PackedScene" uid="uid://dlu4h4yceto0b" path="res://Scene/Gameplay/FoodItem.tscn" id="1_4kvhp"]
+[ext_resource type="PackedScene" uid="uid://d21l8o4u404vj" path="res://Scene/Items/NotFood/sm_bowl_evil.tscn" id="2_gd1he"]
+
+[node name="FoodItem" instance=ExtResource("1_4kvhp")]
+plateDifficulty = 5
+plateIsEvil = true
+
+[node name="SM_Bowl2" parent="." index="2" instance=ExtResource("2_gd1he")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)

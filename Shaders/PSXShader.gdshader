@@ -1,6 +1,6 @@
 shader_type spatial;
 render_mode vertex_lighting, skip_vertex_transform, 
-			specular_toon, diffuse_lambert_wrap;
+			specular_toon, diffuse_lambert_wrap, cull_disabled;
 
 uniform sampler2D albedo: source_color, filter_nearest_mipmap;
 uniform sampler2D specular: hint_default_black;
@@ -16,6 +16,7 @@ uniform float emissiveBoost = 0;
 //texture panning
 uniform vec2 Direction = vec2(0.0,0.0);
 uniform float Speed = 0.0;
+uniform vec2 UVScale = vec2(1.0,1.0);
 
 void vertex() {
 	VERTEX = (MODELVIEW_MATRIX * vec4(VERTEX, 1.0)).xyz;
@@ -40,7 +41,7 @@ void vertex() {
 }
 
 void fragment() {
-	vec2 uv = UV;
+	vec2 uv = UV * UVScale;
 	
 	if (affine_texture_mapping) {
 		uv /= VERTEX.z;
@@ -51,6 +52,6 @@ void fragment() {
 	ALBEDO = texture(albedo, uv + Direction * TIME * Speed).rgb; //Find a way to make this update a lower frame rate for aesthetic reasons
 	ALPHA = texture(albedo, uv).a;
 	ALPHA_SCISSOR_THRESHOLD = alpha_scissor;
-	EMISSION = texture(albedo, uv).rgb * emissiveBoost;
+	EMISSION = texture(albedo, uv + Direction * TIME * Speed).rgb * emissiveBoost;
 	SPECULAR = texture(specular, uv).r;
 }

@@ -8,31 +8,6 @@
 [ext_resource type="AudioStream" uid="uid://dle2pkxs63wsc" path="res://Sound/SFX/Environment/SFX_Printer.wav" id="6_18eug"]
 [ext_resource type="AudioStream" uid="uid://dtrhaloqdjh4o" path="res://Sound/SFX/Environment/SFX_PrinterMoving.wav" id="7_3bod0"]
 
-[sub_resource type="Animation" id="Animation_qf8u7"]
-resource_name = "PrinterMotion"
-tracks/0/type = "position_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0, 2, 0, 0.3, 1, 0, -0.103557, 0, 0.4, 1, 0, 0, 0)
-tracks/1/type = "audio"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("PrinterSound")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"clips": [{
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource("3_pvb4e")
-}],
-"times": PackedFloat32Array(-0.4)
-}
-tracks/1/use_blend = true
-
 [sub_resource type="Animation" id="Animation_abic4"]
 resource_name = "printerCooking"
 tracks/0/type = "position_3d"
@@ -117,6 +92,31 @@ tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = PackedFloat32Array(0, 1, 0, 2, 0, 0.0001, 1, 0, 2, 0, 0.1, 1, -0.00870063, 1.96884, -0.0437051, 0.4, 1, -0.0348287, 1.87526, 0.0442834, 0.5, 1, 0, 1.84407, 0.055357, 0.6, 1, 0.0504332, 1.87526, 0.0442856, 0.9, 1, 0.0126083, 1.96881, -0.0435732, 1, 1, 0, 2, 0)
+
+[sub_resource type="Animation" id="Animation_qf8u7"]
+resource_name = "PrinterMotion"
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 2, 0, 0.3, 1, 0, -0.103557, 0, 0.4, 1, 0, 0, 0)
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PrinterSound")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_pvb4e")
+}],
+"times": PackedFloat32Array(-0.4)
+}
+tracks/1/use_blend = true
 
 [sub_resource type="Animation" id="Animation_57krg"]
 resource_name = "printerMoveUpSlow"
