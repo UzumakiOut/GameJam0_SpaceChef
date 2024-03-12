@@ -33,7 +33,6 @@ func _input(_event):
 		var mouseRayResult = mouseRayWorldSpace.intersect_ray(rayQuery)
 		Global.globalMouseLocationInSpace = mouseRayResult.position
 		rayQuery.set_collision_mask(1)
-		#print(Global.globalMouseLocationInSpace);
 		
 	if Input.is_action_just_released("MouseClick"):
 		Global.globalMouseLocationInSpace = Vector3();

@@ -29,7 +29,7 @@ size = Vector3(1.45947, 1.77808, 1.84058)
 script = ExtResource("2_o20de")
 
 [node name="Skeleton3D" parent="SK_GiantEye" index="0"]
-bones/2/scale = Vector3(0.984544, 0.984544, 0.984544)
+bones/0/rotation = Quaternion(-2.66925e-08, -2.66925e-08, -0.707107, 0.707107)
 
 [node name="SKM_Eyeball" parent="SK_GiantEye/Skeleton3D" index="0"]
 surface_material_override/0 = SubResource("ShaderMaterial_htcsr")

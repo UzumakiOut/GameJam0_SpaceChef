@@ -1,11 +1,610 @@
-[gd_scene load_steps=3 format=3 uid="uid://dl310v4f2vqkw"]
+[gd_scene load_steps=53 format=3 uid="uid://0yebsnm3laqp"]
 
-[ext_resource type="PackedScene" uid="uid://dlu4h4yceto0b" path="res://Scene/Gameplay/FoodItem.tscn" id="1_i82ck"]
-[ext_resource type="PackedScene" uid="uid://dsxv60phvkg26" path="res://Scene/Items/Trash/sm_lightbulb.tscn" id="2_14uwy"]
+[ext_resource type="PackedScene" uid="uid://dlu4h4yceto0b" path="res://Scene/Gameplay/FoodItem.tscn" id="1_l55fp"]
+[ext_resource type="Texture2D" uid="uid://jqk0rt0vh1q1" path="res://Textures/UI/T_ArrowUp.png" id="2_a67tw"]
+[ext_resource type="Texture2D" uid="uid://boa7wbjx2cigh" path="res://Textures/UI/T_ArrowDown.png" id="3_wye00"]
+[ext_resource type="Texture2D" uid="uid://btoxtybs2byra" path="res://Textures/UI/T_ArrowLeft.png" id="4_qlppb"]
+[ext_resource type="Texture2D" uid="uid://c7p47wvmu83fs" path="res://Textures/UI/T_ArrowRight.png" id="5_totud"]
+[ext_resource type="Texture2D" uid="uid://dho1cdpa22evd" path="res://Textures/UI/T_ArrowSpace.png" id="6_xj2kf"]
+[ext_resource type="PackedScene" uid="uid://dsxv60phvkg26" path="res://Scene/Items/Trash/sm_lightbulb.tscn" id="7_cwya8"]
 
-[node name="FoodItem" instance=ExtResource("1_i82ck")]
-predeterminedComboSize = true
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bkphi"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = ExtResource("2_a67tw")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_operator = 1
+emission_texture = ExtResource("2_a67tw")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bwfwf"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = ExtResource("3_wye00")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_operator = 1
+emission_texture = ExtResource("3_wye00")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pk1io"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = ExtResource("4_qlppb")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_operator = 1
+emission_texture = ExtResource("4_qlppb")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d2xe3"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = ExtResource("5_totud")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_operator = 1
+emission_texture = ExtResource("5_totud")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5ob7n"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = ExtResource("6_xj2kf")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_operator = 1
+emission_texture = ExtResource("6_xj2kf")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3782q"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = ExtResource("2_a67tw")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_operator = 1
+emission_texture = ExtResource("2_a67tw")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d724l"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = ExtResource("3_wye00")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_operator = 1
+emission_texture = ExtResource("3_wye00")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ke3d8"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = ExtResource("4_qlppb")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_operator = 1
+emission_texture = ExtResource("4_qlppb")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g1u1q"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = ExtResource("5_totud")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_operator = 1
+emission_texture = ExtResource("5_totud")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h2c88"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = ExtResource("6_xj2kf")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_operator = 1
+emission_texture = ExtResource("6_xj2kf")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lj3nq"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = ExtResource("2_a67tw")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_operator = 1
+emission_texture = ExtResource("2_a67tw")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_46ag1"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = ExtResource("3_wye00")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_operator = 1
+emission_texture = ExtResource("3_wye00")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jhq3a"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = ExtResource("4_qlppb")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_operator = 1
+emission_texture = ExtResource("4_qlppb")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aa4og"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = ExtResource("5_totud")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_operator = 1
+emission_texture = ExtResource("5_totud")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_svi4s"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = ExtResource("6_xj2kf")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_operator = 1
+emission_texture = ExtResource("6_xj2kf")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_61p6i"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = ExtResource("2_a67tw")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_operator = 1
+emission_texture = ExtResource("2_a67tw")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c30g6"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = ExtResource("3_wye00")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_operator = 1
+emission_texture = ExtResource("3_wye00")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p1alg"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = ExtResource("4_qlppb")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_operator = 1
+emission_texture = ExtResource("4_qlppb")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y8rfy"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = ExtResource("5_totud")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_operator = 1
+emission_texture = ExtResource("5_totud")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_snkj2"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = ExtResource("6_xj2kf")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_operator = 1
+emission_texture = ExtResource("6_xj2kf")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tx05x"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = ExtResource("2_a67tw")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_operator = 1
+emission_texture = ExtResource("2_a67tw")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q67y4"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = ExtResource("3_wye00")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_operator = 1
+emission_texture = ExtResource("3_wye00")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tevby"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = ExtResource("4_qlppb")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_operator = 1
+emission_texture = ExtResource("4_qlppb")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l2sli"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = ExtResource("5_totud")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_operator = 1
+emission_texture = ExtResource("5_totud")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f545q"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = ExtResource("6_xj2kf")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_operator = 1
+emission_texture = ExtResource("6_xj2kf")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ssylg"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = ExtResource("2_a67tw")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_operator = 1
+emission_texture = ExtResource("2_a67tw")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_twhsn"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = ExtResource("3_wye00")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_operator = 1
+emission_texture = ExtResource("3_wye00")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_af3pp"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = ExtResource("4_qlppb")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_operator = 1
+emission_texture = ExtResource("4_qlppb")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3vng5"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = ExtResource("5_totud")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_operator = 1
+emission_texture = ExtResource("5_totud")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m7501"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = ExtResource("6_xj2kf")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_operator = 1
+emission_texture = ExtResource("6_xj2kf")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ujuny"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = ExtResource("2_a67tw")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_operator = 1
+emission_texture = ExtResource("2_a67tw")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_617rk"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = ExtResource("3_wye00")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_operator = 1
+emission_texture = ExtResource("3_wye00")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ghfd3"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = ExtResource("4_qlppb")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_operator = 1
+emission_texture = ExtResource("4_qlppb")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_50dpa"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = ExtResource("5_totud")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_operator = 1
+emission_texture = ExtResource("5_totud")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i826m"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = ExtResource("6_xj2kf")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_operator = 1
+emission_texture = ExtResource("6_xj2kf")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b77wd"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = ExtResource("2_a67tw")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_operator = 1
+emission_texture = ExtResource("2_a67tw")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ku7yv"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = ExtResource("3_wye00")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_operator = 1
+emission_texture = ExtResource("3_wye00")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qtmm3"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = ExtResource("4_qlppb")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_operator = 1
+emission_texture = ExtResource("4_qlppb")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3vew1"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = ExtResource("5_totud")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_operator = 1
+emission_texture = ExtResource("5_totud")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r4f33"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = ExtResource("6_xj2kf")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_operator = 1
+emission_texture = ExtResource("6_xj2kf")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sjcfr"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = ExtResource("2_a67tw")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_operator = 1
+emission_texture = ExtResource("2_a67tw")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_plpdb"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = ExtResource("3_wye00")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_operator = 1
+emission_texture = ExtResource("3_wye00")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_axhpy"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = ExtResource("4_qlppb")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_operator = 1
+emission_texture = ExtResource("4_qlppb")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r747g"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = ExtResource("5_totud")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_operator = 1
+emission_texture = ExtResource("5_totud")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5jdwm"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = ExtResource("6_xj2kf")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_operator = 1
+emission_texture = ExtResource("6_xj2kf")
+texture_filter = 0
+
+[node name="FoodItem" instance=ExtResource("1_l55fp")]
 plateIsTrash = true
 
-[node name="SM_Lightbulb2" parent="." index="2" instance=ExtResource("2_14uwy")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+[node name="ArrowUp" parent="Plate/ComboButton1" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_bkphi")
+
+[node name="ArrowDown" parent="Plate/ComboButton1" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_bwfwf")
+
+[node name="ArrowLeft" parent="Plate/ComboButton1" index="2"]
+surface_material_override/0 = SubResource("StandardMaterial3D_pk1io")
+
+[node name="ArrowRight" parent="Plate/ComboButton1" index="3"]
+surface_material_override/0 = SubResource("StandardMaterial3D_d2xe3")
+
+[node name="ArrowSpace" parent="Plate/ComboButton1" index="4"]
+surface_material_override/0 = SubResource("StandardMaterial3D_5ob7n")
+
+[node name="ArrowUp" parent="Plate/ComboButton2" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_3782q")
+
+[node name="ArrowDown" parent="Plate/ComboButton2" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_d724l")
+
+[node name="ArrowLeft" parent="Plate/ComboButton2" index="2"]
+surface_material_override/0 = SubResource("StandardMaterial3D_ke3d8")
+
+[node name="ArrowRight" parent="Plate/ComboButton2" index="3"]
+surface_material_override/0 = SubResource("StandardMaterial3D_g1u1q")
+
+[node name="ArrowSpace" parent="Plate/ComboButton2" index="4"]
+surface_material_override/0 = SubResource("StandardMaterial3D_h2c88")
+
+[node name="ArrowUp" parent="Plate/ComboButton3" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_lj3nq")
+
+[node name="ArrowDown" parent="Plate/ComboButton3" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_46ag1")
+
+[node name="ArrowLeft" parent="Plate/ComboButton3" index="2"]
+surface_material_override/0 = SubResource("StandardMaterial3D_jhq3a")
+
+[node name="ArrowRight" parent="Plate/ComboButton3" index="3"]
+surface_material_override/0 = SubResource("StandardMaterial3D_aa4og")
+
+[node name="ArrowSpace" parent="Plate/ComboButton3" index="4"]
+surface_material_override/0 = SubResource("StandardMaterial3D_svi4s")
+
+[node name="ArrowUp" parent="Plate/ComboButton4" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_61p6i")
+
+[node name="ArrowDown" parent="Plate/ComboButton4" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_c30g6")
+
+[node name="ArrowLeft" parent="Plate/ComboButton4" index="2"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p1alg")
+
+[node name="ArrowRight" parent="Plate/ComboButton4" index="3"]
+surface_material_override/0 = SubResource("StandardMaterial3D_y8rfy")
+
+[node name="ArrowSpace" parent="Plate/ComboButton4" index="4"]
+surface_material_override/0 = SubResource("StandardMaterial3D_snkj2")
+
+[node name="ArrowUp" parent="Plate/ComboButton5" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_tx05x")
+
+[node name="ArrowDown" parent="Plate/ComboButton5" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_q67y4")
+
+[node name="ArrowLeft" parent="Plate/ComboButton5" index="2"]
+surface_material_override/0 = SubResource("StandardMaterial3D_tevby")
+
+[node name="ArrowRight" parent="Plate/ComboButton5" index="3"]
+surface_material_override/0 = SubResource("StandardMaterial3D_l2sli")
+
+[node name="ArrowSpace" parent="Plate/ComboButton5" index="4"]
+surface_material_override/0 = SubResource("StandardMaterial3D_f545q")
+
+[node name="ArrowUp" parent="Plate/ComboButton6" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_ssylg")
+
+[node name="ArrowDown" parent="Plate/ComboButton6" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_twhsn")
+
+[node name="ArrowLeft" parent="Plate/ComboButton6" index="2"]
+surface_material_override/0 = SubResource("StandardMaterial3D_af3pp")
+
+[node name="ArrowRight" parent="Plate/ComboButton6" index="3"]
+surface_material_override/0 = SubResource("StandardMaterial3D_3vng5")
+
+[node name="ArrowSpace" parent="Plate/ComboButton6" index="4"]
+surface_material_override/0 = SubResource("StandardMaterial3D_m7501")
+
+[node name="ArrowUp" parent="Plate/ComboButton7" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_ujuny")
+
+[node name="ArrowDown" parent="Plate/ComboButton7" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_617rk")
+
+[node name="ArrowLeft" parent="Plate/ComboButton7" index="2"]
+surface_material_override/0 = SubResource("StandardMaterial3D_ghfd3")
+
+[node name="ArrowRight" parent="Plate/ComboButton7" index="3"]
+surface_material_override/0 = SubResource("StandardMaterial3D_50dpa")
+
+[node name="ArrowSpace" parent="Plate/ComboButton7" index="4"]
+surface_material_override/0 = SubResource("StandardMaterial3D_i826m")
+
+[node name="ArrowUp" parent="Plate/ComboButton8" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_b77wd")
+
+[node name="ArrowDown" parent="Plate/ComboButton8" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_ku7yv")
+
+[node name="ArrowLeft" parent="Plate/ComboButton8" index="2"]
+surface_material_override/0 = SubResource("StandardMaterial3D_qtmm3")
+
+[node name="ArrowRight" parent="Plate/ComboButton8" index="3"]
+surface_material_override/0 = SubResource("StandardMaterial3D_3vew1")
+
+[node name="ArrowSpace" parent="Plate/ComboButton8" index="4"]
+surface_material_override/0 = SubResource("StandardMaterial3D_r4f33")
+
+[node name="ArrowUp" parent="Plate/ComboButton9" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_sjcfr")
+
+[node name="ArrowDown" parent="Plate/ComboButton9" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_plpdb")
+
+[node name="ArrowLeft" parent="Plate/ComboButton9" index="2"]
+surface_material_override/0 = SubResource("StandardMaterial3D_axhpy")
+
+[node name="ArrowRight" parent="Plate/ComboButton9" index="3"]
+surface_material_override/0 = SubResource("StandardMaterial3D_r747g")
+
+[node name="ArrowSpace" parent="Plate/ComboButton9" index="4"]
+surface_material_override/0 = SubResource("StandardMaterial3D_5jdwm")
+
+[node name="SM_Lightbulb2" parent="." index="2" instance=ExtResource("7_cwya8")]
+transform = Transform3D(0.605, 0, 0, 0, 0.605, 0, 0, 0, 0.605, 0.00930989, -1.19209e-07, -0.0227729)
+
+[editable path="Plate/ComboButton1"]
+[editable path="Plate/ComboButton2"]
+[editable path="Plate/ComboButton3"]
+[editable path="Plate/ComboButton4"]
+[editable path="Plate/ComboButton5"]
+[editable path="Plate/ComboButton6"]
+[editable path="Plate/ComboButton7"]
+[editable path="Plate/ComboButton8"]
+[editable path="Plate/ComboButton9"]

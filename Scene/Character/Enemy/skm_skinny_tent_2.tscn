@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://cteaoh1mc7lnh"]
+[gd_scene load_steps=10 format=3 uid="uid://cteaoh1mc7lnh"]
 
 [ext_resource type="PackedScene" uid="uid://ojuj3xi5cw7r" path="res://Mesh/Character/Enemy/SKM_SkinnyTent.glb" id="1_0mt4w"]
 [ext_resource type="Shader" path="res://Shaders/PSXShader.gdshader" id="2_brc6c"]
+[ext_resource type="Script" path="res://Scene/Character/Enemy/skm_big_tent_2.gd" id="2_exo3o"]
 [ext_resource type="Texture2D" uid="uid://bgj1g00qajgrm" path="res://Textures/Mesh/Enemy/T_BigTent.png" id="3_3dbe7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_h1s4f"]
@@ -16,6 +17,7 @@ shader_parameter/triplanar = false
 shader_parameter/emissiveBoost = 0.01
 shader_parameter/Direction = Vector2(0, 0)
 shader_parameter/Speed = 0.0
+shader_parameter/UVScale = Vector2(1, 1)
 shader_parameter/albedo = ExtResource("3_3dbe7")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_eckv3"]
@@ -30,52 +32,70 @@ radius = 0.141848
 height = 1.67084
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bjifw"]
-radius = 0.16337
+radius = 0.369749
 height = 1.48714
 
 [node name="SKM_SkinnyTent2" instance=ExtResource("1_0mt4w")]
+script = ExtResource("2_exo3o")
+
+[node name="Skeleton3D" parent="SK_BigTent" index="0"]
+bones/1/rotation = Quaternion(-0.0134958, 0.00460644, 0.0048999, 0.999886)
+bones/2/rotation = Quaternion(-0.00679935, 0.00363581, 0.00577372, 0.999954)
+bones/3/rotation = Quaternion(-0.000244591, 0.00265022, -0.046491, 0.998915)
+bones/4/rotation = Quaternion(-0.0150304, 0.0139963, 0.0146322, 0.999682)
+bones/5/rotation = Quaternion(-0.0154569, 0.0310318, -0.0310617, 0.998916)
 
 [node name="SKM_SkinnyTent" parent="SK_BigTent/Skeleton3D" index="0"]
 surface_material_override/0 = SubResource("ShaderMaterial_h1s4f")
 
 [node name="BaseCollision" type="BoneAttachment3D" parent="SK_BigTent/Skeleton3D" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000799298, 0.504634, 0.00115895)
+transform = Transform3D(0.99991, -0.00992302, 0.00907957, 0.00967436, 0.999588, 0.0270336, -0.00934408, -0.0269433, 0.999593, -6.61744e-24, 0.5, 0)
 bone_name = "TentBone02"
 bone_idx = 1
 
-[node name="Area3D" type="Area3D" parent="SK_BigTent/Skeleton3D/BaseCollision" index="0"]
+[node name="Area3D" type="Area3D" parent="SK_BigTent/Skeleton3D/BaseCollision" index="0" groups=["Tentacle"]]
 
-[node name="TentCollisionBase" type="CollisionShape3D" parent="SK_BigTent/Skeleton3D/BaseCollision/Area3D" index="0"]
+[node name="TentCollisionBase" type="CollisionShape3D" parent="SK_BigTent/Skeleton3D/BaseCollision/Area3D" index="0" groups=["Tentacle"]]
 transform = Transform3D(1, -2.95986e-08, 9.31323e-10, 1.5134e-08, 1, 1.86265e-09, 9.31323e-10, 3.72529e-09, 1, -0.0217234, -0.117261, -0.0033573)
 shape = SubResource("CapsuleShape3D_eckv3")
 
 [node name="MidCollision" type="BoneAttachment3D" parent="SK_BigTent/Skeleton3D" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000799298, 1.60463, 0.00115895)
+transform = Transform3D(0.999636, -0.0216398, 0.0161352, 0.0209675, 0.99895, 0.0407344, -0.0169998, -0.0403812, 0.99904, -0.0109153, 1.59955, -0.0296376)
 bone_name = "TentBone03"
 bone_idx = 2
 
-[node name="Area3D" type="Area3D" parent="SK_BigTent/Skeleton3D/MidCollision" index="0"]
+[node name="Area3D" type="Area3D" parent="SK_BigTent/Skeleton3D/MidCollision" index="0" groups=["Tentacle"]]
 
-[node name="TentCollisionBase" type="CollisionShape3D" parent="SK_BigTent/Skeleton3D/MidCollision/Area3D" index="0"]
+[node name="TentCollisionBase" type="CollisionShape3D" parent="SK_BigTent/Skeleton3D/MidCollision/Area3D" index="0" groups=["Tentacle"]]
 shape = SubResource("CapsuleShape3D_guhqb")
 
+[node name="OmniLight3D" type="OmniLight3D" parent="SK_BigTent/Skeleton3D/MidCollision" index="1"]
+transform = Transform3D(1, -1.74623e-09, 3.72529e-09, -1.68802e-09, 1, 3.72529e-09, 0, 7.45058e-09, 1, 0.160247, -0.00346875, 0.00258657)
+omni_range = 1.544
+
 [node name="TopCollision" type="BoneAttachment3D" parent="SK_BigTent/Skeleton3D" index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000799298, 3.00463, 0.00115895)
+transform = Transform3D(0.997853, 0.0409959, 0.0510661, -0.0444969, 0.996595, 0.0694218, -0.0480462, -0.0715451, 0.996279, 0.0145455, 2.99664, -0.0874546)
 bone_name = "TentBone05"
 bone_idx = 4
 
-[node name="Area3D" type="Area3D" parent="SK_BigTent/Skeleton3D/TopCollision" index="0"]
+[node name="Area3D" type="Area3D" parent="SK_BigTent/Skeleton3D/TopCollision" index="0" groups=["Tentacle"]]
 
-[node name="TentCollisionBase" type="CollisionShape3D" parent="SK_BigTent/Skeleton3D/TopCollision/Area3D" index="0"]
+[node name="TentCollisionBase" type="CollisionShape3D" parent="SK_BigTent/Skeleton3D/TopCollision/Area3D" index="0" groups=["Tentacle"]]
 shape = SubResource("CapsuleShape3D_ng5lo")
 
 [node name="EndCollision" type="BoneAttachment3D" parent="SK_BigTent/Skeleton3D" index="4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000799298, 3.70463, 0.00115895)
+transform = Transform3D(0.988306, 0.100187, 0.114952, -0.111363, 0.989199, 0.0953074, -0.104162, -0.106994, 0.988788, 0.0432426, 3.69425, -0.137536)
 bone_name = "TentBone06"
 bone_idx = 5
 
-[node name="Area3D" type="Area3D" parent="SK_BigTent/Skeleton3D/EndCollision" index="0"]
+[node name="Area3D" type="Area3D" parent="SK_BigTent/Skeleton3D/EndCollision" index="0" groups=["Tentacle", "TentacleStinger"]]
+collision_layer = 2
+collision_mask = 2
 
-[node name="TentCollisionBase" type="CollisionShape3D" parent="SK_BigTent/Skeleton3D/EndCollision/Area3D" index="0"]
+[node name="TentHitBox" type="CollisionShape3D" parent="SK_BigTent/Skeleton3D/EndCollision/Area3D" index="0" groups=["Tentacle", "TentacleStinger"]]
 transform = Transform3D(1, -3.72529e-09, 0, -6.51926e-08, 1, 0, 0, -7.45058e-09, 1, 0.0144489, 0.413773, 0.0463087)
 shape = SubResource("CapsuleShape3D_bjifw")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="SK_BigTent/Skeleton3D/EndCollision" index="1"]
+transform = Transform3D(1, 4.93601e-08, 1.49012e-08, -2.04891e-08, 1, 7.45058e-09, 0, -7.45058e-09, 1, 0.342259, 0.0346959, 0.0398087)
+omni_range = 1.288

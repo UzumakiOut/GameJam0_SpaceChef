@@ -1,15 +1,17 @@
-[gd_scene load_steps=13 format=3 uid="uid://bmeyvxkt8pppq"]
+[gd_scene load_steps=16 format=3 uid="uid://bmeyvxkt8pppq"]
 
 [ext_resource type="Script" path="res://Scene/Gameplay/combo_button_on_food.gd" id="1_abau0"]
 [ext_resource type="Texture2D" uid="uid://btoxtybs2byra" path="res://Textures/UI/T_ArrowLeft.png" id="1_eftbm"]
 [ext_resource type="Texture2D" uid="uid://jqk0rt0vh1q1" path="res://Textures/UI/T_ArrowUp.png" id="2_fjlh0"]
+[ext_resource type="Script" path="res://Scene/Gameplay/ArrowColor.gd" id="3_0hr1a"]
 [ext_resource type="Texture2D" uid="uid://boa7wbjx2cigh" path="res://Textures/UI/T_ArrowDown.png" id="3_e5fxw"]
 [ext_resource type="Texture2D" uid="uid://c7p47wvmu83fs" path="res://Textures/UI/T_ArrowRight.png" id="5_y11qp"]
 [ext_resource type="Texture2D" uid="uid://dho1cdpa22evd" path="res://Textures/UI/T_ArrowSpace.png" id="6_5cob7"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ngers"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qengm"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1qa5k"]
+resource_local_to_scene = true
 transparency = 1
 albedo_texture = ExtResource("2_fjlh0")
 emission_enabled = true
@@ -18,7 +20,8 @@ emission_operator = 1
 emission_texture = ExtResource("2_fjlh0")
 texture_filter = 0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a8w2t"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f7jp0"]
+resource_local_to_scene = true
 transparency = 1
 albedo_texture = ExtResource("3_e5fxw")
 emission_enabled = true
@@ -27,7 +30,8 @@ emission_operator = 1
 emission_texture = ExtResource("3_e5fxw")
 texture_filter = 0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cihvk"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5twvu"]
+resource_local_to_scene = true
 transparency = 1
 albedo_texture = ExtResource("1_eftbm")
 emission_enabled = true
@@ -36,7 +40,8 @@ emission_operator = 1
 emission_texture = ExtResource("1_eftbm")
 texture_filter = 0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gc8mj"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sx8fc"]
+resource_local_to_scene = true
 transparency = 1
 albedo_texture = ExtResource("5_y11qp")
 emission_enabled = true
@@ -45,7 +50,8 @@ emission_operator = 1
 emission_texture = ExtResource("5_y11qp")
 texture_filter = 0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_msrp5"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m4o27"]
+resource_local_to_scene = true
 transparency = 1
 albedo_texture = ExtResource("6_5cob7")
 emission_enabled = true
@@ -54,35 +60,55 @@ emission_operator = 1
 emission_texture = ExtResource("6_5cob7")
 texture_filter = 0
 
+[sub_resource type="Animation" id="Animation_lnjtp"]
+resource_name = "ButtonHit"
+tracks/0/type = "scale_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 1, 1, 1, 0.2, 1, 0.25, 0.25, 0.25, 0.4, 1, 0.1, 0.1, 0.1, 0.7, 1, 0.001, 0.001, 0.001)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wx38c"]
+_data = {
+"ButtonHit": SubResource("Animation_lnjtp")
+}
+
 [node name="ComboButtonOnFood" type="Node3D"]
 script = ExtResource("1_abau0")
 
 [node name="ArrowUp" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1.31134e-07, -1, 0, 1, 1.31134e-07, 0, 0, 0)
-visible = false
 mesh = SubResource("PlaneMesh_ngers")
-surface_material_override/0 = SubResource("StandardMaterial3D_qengm")
+surface_material_override/0 = SubResource("StandardMaterial3D_1qa5k")
+script = ExtResource("3_0hr1a")
 
 [node name="ArrowDown" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1.31134e-07, -1, 0, 1, 1.31134e-07, 0, 0, 0)
-visible = false
 mesh = SubResource("PlaneMesh_ngers")
-surface_material_override/0 = SubResource("StandardMaterial3D_a8w2t")
+surface_material_override/0 = SubResource("StandardMaterial3D_f7jp0")
+script = ExtResource("3_0hr1a")
 
 [node name="ArrowLeft" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1.31134e-07, -1, 0, 1, 1.31134e-07, 0, 0, 0)
-visible = false
 mesh = SubResource("PlaneMesh_ngers")
-surface_material_override/0 = SubResource("StandardMaterial3D_cihvk")
+surface_material_override/0 = SubResource("StandardMaterial3D_5twvu")
+script = ExtResource("3_0hr1a")
 
 [node name="ArrowRight" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1.31134e-07, -1, 0, 1, 1.31134e-07, 0, 0, 0)
-visible = false
 mesh = SubResource("PlaneMesh_ngers")
-surface_material_override/0 = SubResource("StandardMaterial3D_gc8mj")
+surface_material_override/0 = SubResource("StandardMaterial3D_sx8fc")
+script = ExtResource("3_0hr1a")
 
 [node name="ArrowSpace" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1.31134e-07, -1, 0, 1, 1.31134e-07, 0, 0, 0)
-visible = false
 mesh = SubResource("PlaneMesh_ngers")
-surface_material_override/0 = SubResource("StandardMaterial3D_msrp5")
+surface_material_override/0 = SubResource("StandardMaterial3D_m4o27")
+script = ExtResource("3_0hr1a")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_wx38c")
+}

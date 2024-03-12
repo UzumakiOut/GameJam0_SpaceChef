@@ -1,0 +1,92 @@
+[gd_scene load_steps=9 format=3 uid="uid://bdbuy4mlb0vkx"]
+
+[ext_resource type="PackedScene" uid="uid://bvmotj8px11jc" path="res://Scene/Items/Tools/sm_spritzer.tscn" id="1_577u3"]
+[ext_resource type="Script" path="res://Scene/Gameplay/Tools/LemonSprits.gd" id="1_j4wyj"]
+[ext_resource type="AudioStream" uid="uid://cklvl7vrmyc5a" path="res://Sound/SFX/Tools/SFX_Spraybottle.wav" id="3_abred"]
+
+[sub_resource type="FogMaterial" id="FogMaterial_uau4k"]
+density = 3.3226
+emission = Color(1, 1, 1, 1)
+height_falloff = 0.00749621
+edge_fade = 0.282843
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gx241"]
+height = 2.97615
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_72la3"]
+size = Vector3(0.57251, 0.732178, 0.609131)
+
+[sub_resource type="Animation" id="Animation_161os"]
+resource_name = "Sprits"
+tracks/0/type = "scale_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../SM_Spritzer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 1, 1, 1, 0.1, 1, 0.9, 0.9, 0.9, 0.2, 1, 1.1, 1.1, 1.1, 1, 1, 1, 1, 1)
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_abred")
+}],
+"times": PackedFloat32Array(0.1)
+}
+tracks/1/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_18pw6"]
+_data = {
+"Sprits": SubResource("Animation_161os")
+}
+
+[node name="LemonSprits" type="Node3D"]
+script = ExtResource("1_j4wyj")
+
+[node name="SM_Spritzer" parent="." instance=ExtResource("1_577u3")]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="SM_Spritzer"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.28592, 0.496757, 0)
+visible = false
+light_color = Color(1, 1, 0, 1)
+light_energy = 16.0
+spot_range = 1.33928
+spot_angle = 24.2195
+
+[node name="FogVolume" type="FogVolume" parent="SM_Spritzer"]
+transform = Transform3D(-0.00609112, -0.999981, 0, 0.999981, -0.00609112, 0, 0, 0, 1, 0.935089, 0.499064, 0)
+visible = false
+size = Vector3(0.87, 0.93, 0.67)
+shape = 1
+material = SubResource("FogMaterial_uau4k")
+
+[node name="SprayHurtBox" type="Area3D" parent="." groups=["Sprits"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SprayHurtBox"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.074313, 0.497624, 0)
+shape = SubResource("CapsuleShape3D_gx241")
+disabled = true
+
+[node name="SpritzerArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SpritzerArea" groups=["Sprits"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00256348, 0.0560303, -0.00524902)
+shape = SubResource("BoxShape3D_72la3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../AudioStreamPlayer")
+libraries = {
+"": SubResource("AnimationLibrary_18pw6")
+}
+speed_scale = 1.5
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[connection signal="mouse_entered" from="SpritzerArea" to="." method="_on_spritzer_area_mouse_entered"]
+[connection signal="mouse_exited" from="SpritzerArea" to="." method="_on_spritzer_area_mouse_exited"]

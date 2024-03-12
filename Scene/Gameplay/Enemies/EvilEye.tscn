@@ -1,17 +1,165 @@
-[gd_scene load_steps=4 format=3 uid="uid://ccu2g4rxspfrs"]
+[gd_scene load_steps=12 format=3 uid="uid://ccu2g4rxspfrs"]
 
 [ext_resource type="Script" path="res://Scene/Gameplay/Enemies/EvilEye.gd" id="1_7kvm1"]
 [ext_resource type="PackedScene" uid="uid://dpe2d8hob846x" path="res://Scene/Character/Enemy/skm_big_eye.tscn" id="2_xlcpy"]
+[ext_resource type="AudioStream" uid="uid://dgfhy2wf1n2ce" path="res://Sound/SFX/Enemy/SFX_EyeballDeath1.wav" id="3_4kcdk"]
+[ext_resource type="AudioStream" uid="uid://bp08wwk0pyvvq" path="res://Sound/SFX/Enemy/SFX_EyeballDeath2.wav" id="4_2jg75"]
+[ext_resource type="AudioStream" uid="uid://cafewj170ou5w" path="res://Sound/SFX/Enemy/SFX_EyeballSpawn.wav" id="5_yemia"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_rti1r"]
 radius = 1.02898
+
+[sub_resource type="Animation" id="Animation_r75ct"]
+resource_name = "Idle"
+length = 4.0
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 1, 0, 0.2003, 0, 2, 1, 0, 0, 0, 3, 1, 0, -0.110921, 0.000576973, 4, 1, 0, 0, 0)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.8, 1, 0.00359611, 0.180114, 0.0196352, 0.983443, 1, 1, 0, 0, -0.0560393, 0.998429, 2, 1, 0, 0, 0, 1, 2.1, 1, 0.00359611, 0.180114, 0.0196352, 0.983443, 2.3, 1, 0, 0, 0, 1, 2.9, 1, -0.00267003, -0.23405, 0.0110903, 0.972158, 3, 1, 0, 0, 0.0285148, 0.999593, 4, 1, 0, 0, 0, 1)
+tracks/2/type = "scale_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 1, 1, 1, 2, 1, 1, 1, 1, 4, 1, 1, 1, 1)
+
+[sub_resource type="Animation" id="Animation_v88jx"]
+resource_name = "Spawning"
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, -2, 0, 0.2, 1, 0, 0, 0)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0.827918, 0.560849, 0.2, 1, 0, 0, 0, 1)
+tracks/2/type = "scale_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0.01, 0.01, 0.01, 0.2, 1, 1, 1, 1)
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../AudioStreamPlayer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("5_yemia")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/3/use_blend = true
+
+[sub_resource type="Animation" id="Animation_egg8p"]
+resource_name = "Sprits"
+length = 2.0
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.2, 1, 0, 0, 0, 1.1, 1, 0, 0, -3.93007)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.1, 1, -0.291162, -0.35939, 0.119104, 0.878566, 0.2, 1, 0, -0.700853, 0, 0.713305, 0.7, 1, 0, 0.633641, 0, 0.773627, 1.9, 1, 0, -0.61959, 0, 0.784926, 2, 1, 0, 0, 0, 1)
+tracks/2/type = "scale_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 1, 1, 1, 0.9, 1, 1, 1, 1, 1.1, 1, 0.01, 0.01, 0.01)
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../AudioStreamPlayer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_4kcdk")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_2jg75")
+}],
+"times": PackedFloat32Array(0, 0.9)
+}
+tracks/3/use_blend = true
+
+[sub_resource type="Animation" id="Animation_duom2"]
+resource_name = "PreSpawnAnim"
+tracks/0/type = "scale_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.01, 0.01, 0.01)
+tracks/1/type = "position_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, -11.8856, 0)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1bqfb"]
+_data = {
+"Idle": SubResource("Animation_r75ct"),
+"PreSpawnAnim": SubResource("Animation_duom2"),
+"Spawning": SubResource("Animation_v88jx"),
+"Sprits": SubResource("Animation_egg8p")
+}
 
 [node name="EvilEye" type="Node3D"]
 script = ExtResource("1_7kvm1")
 
 [node name="SKM_BigEye" parent="." instance=ExtResource("2_xlcpy")]
 
-[node name="EyeballCollision" type="Area3D" parent="."]
+[node name="EyeballCollision" type="Area3D" parent="SKM_BigEye" groups=["Eyeball"]]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="EyeballCollision"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SKM_BigEye/EyeballCollision"]
 shape = SubResource("SphereShape3D_rti1r")
+disabled = true
+
+[node name="EyeballAnims" type="AnimationPlayer" parent="."]
+root_node = NodePath("../SKM_BigEye")
+libraries = {
+"": SubResource("AnimationLibrary_1bqfb")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -20.0
+
+[connection signal="area_entered" from="SKM_BigEye/EyeballCollision" to="." method="_on_eyeball_collision_area_entered"]

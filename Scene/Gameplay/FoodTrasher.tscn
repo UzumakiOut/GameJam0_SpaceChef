@@ -1,8 +1,32 @@
-[gd_scene load_steps=7 format=3 uid="uid://c6bp0cuxxgpww"]
+[gd_scene load_steps=12 format=3 uid="uid://c6bp0cuxxgpww"]
 
+[ext_resource type="Script" path="res://Scene/Gameplay/FoodTrasher.gd" id="1_0b156"]
 [ext_resource type="PackedScene" uid="uid://slk5ek1x03v7" path="res://Scene/Environment/sm_trashcan.tscn" id="1_xrg8j"]
 [ext_resource type="AudioStream" uid="uid://drj1kkn22r72p" path="res://Sound/SFX/Enemy/SFX_TentDeath1.wav" id="2_e2lqu"]
+[ext_resource type="FontFile" uid="uid://b3yrs1t26a5rt" path="res://Font/PixelOperatorMono8-Bold.ttf" id="3_m5s16"]
 [ext_resource type="AudioStream" uid="uid://brai2ykqnpbu3" path="res://Sound/SFX/Character/SFX_Trash.wav" id="3_smh43"]
+[ext_resource type="Shader" path="res://Shaders/PSXShader.gdshader" id="4_f0u2c"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x525i"]
+render_priority = 0
+shader = ExtResource("4_f0u2c")
+shader_parameter/jitter = 0.5
+shader_parameter/jitter_z_coordinate = true
+shader_parameter/jitter_depth_independent = true
+shader_parameter/affine_texture_mapping = true
+shader_parameter/alpha_scissor = 1.0
+shader_parameter/triplanar = false
+shader_parameter/emissiveBoost = 0.1
+shader_parameter/Direction = Vector2(0, 0)
+shader_parameter/Speed = 0.0
+shader_parameter/UVScale = Vector2(1, 1)
+
+[sub_resource type="TextMesh" id="TextMesh_qftma"]
+material = SubResource("ShaderMaterial_x525i")
+text = "TRASH
+"
+font = ExtResource("3_m5s16")
+font_size = 36
 
 [sub_resource type="Animation" id="Animation_jxe32"]
 resource_name = "TrashCanEating"
@@ -53,19 +77,26 @@ _data = {
 size = Vector3(0.894127, 1.96753, 2.10687)
 
 [node name="FoodTrasher" type="Node3D"]
+script = ExtResource("1_0b156")
 
 [node name="SM_Trashcan" parent="." instance=ExtResource("1_xrg8j")]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="SM_Trashcan"]
-libraries = {
-"": SubResource("AnimationLibrary_jsijw")
-}
 
 [node name="OmniLight3D" type="OmniLight3D" parent="SM_Trashcan"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.55036, 2.89423, -5.13892)
 light_color = Color(1, 0, 0, 1)
 light_energy = 6.133
 omni_range = 1.288
+
+[node name="TrashText" type="MeshInstance3D" parent="SM_Trashcan"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.92954, 2.1503, -5.13879)
+mesh = SubResource("TextMesh_qftma")
+skeleton = NodePath("../..")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../SM_Trashcan")
+libraries = {
+"": SubResource("AnimationLibrary_jsijw")
+}
 
 [node name="TrashAudio" type="AudioStreamPlayer" parent="."]
 volume_db = -20.0
@@ -79,3 +110,5 @@ collision_mask = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TrashArea"]
 transform = Transform3D(0.310295, -0.95064, 0, 0.95064, 0.310295, 0, 0, 0, 1, -0.253818, -1.05083, 0.0526428)
 shape = SubResource("BoxShape3D_368fo")
+
+[connection signal="area_entered" from="TrashArea" to="." method="_on_trash_area_area_entered"]

@@ -1,0 +1,146 @@
+[gd_scene load_steps=10 format=3 uid="uid://bcmf1ng7wxmpb"]
+
+[ext_resource type="Script" path="res://Scene/Gameplay/Tools/CleaverTool.gd" id="1_2wqbp"]
+[ext_resource type="PackedScene" uid="uid://7adoc6qqai2r" path="res://Scene/Items/Tools/sm_cleaver.tscn" id="1_22i43"]
+[ext_resource type="AudioStream" uid="uid://83avi1u410jt" path="res://Sound/SFX/Tools/SFX_CleaverSwish.wav" id="3_b7n6u"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1c07u"]
+size = Vector3(0.306522, 0.236328, 1.1441)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_10wds"]
+size = Vector3(0.244873, 0.821045, 1.63013)
+
+[sub_resource type="Animation" id="Animation_o8tor"]
+resource_name = "Swing"
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SM_Cleaver2")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.2, 1, 0, 0.3183, 0.630359, 0.4, 1, 0, -0.496619, -0.111449, 0.6, 1, 0, -0.160264, -0.00869307, 0.8, 1, 0, 0, 0)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SM_Cleaver2")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.2, 1, 0.860809, 0, 0, 0.508929, 0.4, 1, -0.243557, 0, 0, 0.969887, 0.6, 1, 0.154945, 0, 0, 0.987923, 0.8, 1, 0, 0, 0, 1)
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_b7n6u")
+}],
+"times": PackedFloat32Array(0.2)
+}
+tracks/2/use_blend = true
+
+[sub_resource type="Animation" id="Animation_1oyi5"]
+resource_name = "Swing2"
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SM_Cleaver2")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.2, 1, 0, 0.15968, 0.472096, 0.3, 1, -0.617891, -0.224766, 0.281175, 0.4, 1, 0, -0.525901, 0.0902537, 0.6, 1, 0.326302, -0.551936, 0.0601691, 0.8, 1, 0.163151, -0.275968, 0.0300846, 1, 1, 0, 0, 0)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SM_Cleaver2")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.2, 1, 0.822228, 0, 0, 0.569158, 0.3, 1, 0.34124, 0.207911, 0.564521, 0.72225, 0.4, 1, -0.0399519, -0.0327067, 0.63261, 0.772747, 0.6, 1, -0.324128, -0.33655, 0.625395, 0.624945, 0.8, 1, -0.259692, -0.114924, 0.625503, 0.726703, 1, 1, 0, 0, 0, 1)
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_b7n6u")
+}],
+"times": PackedFloat32Array(0.2)
+}
+tracks/2/use_blend = true
+
+[sub_resource type="Animation" id="Animation_sfoh3"]
+resource_name = "Swing3"
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SM_Cleaver2")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.2, 1, 0, 0.381843, 0.728972, 0.4, 1, 0, -0.636983, 0.0676906, 0.6, 1, 0.3749, -0.237205, 0.0451271, 1, 1, 0, 0, 0)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SM_Cleaver2")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.2, 1, 0.833566, -0.282739, -0.152443, 0.44943, 0.4, 1, -0.199865, 0.194587, -0.589554, 0.758034, 0.6, 1, -0.183413, 0.0664865, -0.00945419, 0.980739, 1, 1, 0, 0, 0, 1)
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_b7n6u")
+}],
+"times": PackedFloat32Array(0.2)
+}
+tracks/2/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0rssw"]
+_data = {
+"Swing1": SubResource("Animation_o8tor"),
+"Swing2": SubResource("Animation_1oyi5"),
+"Swing3": SubResource("Animation_sfoh3")
+}
+
+[node name="MeatCleaver" type="Node3D"]
+script = ExtResource("1_2wqbp")
+
+[node name="SM_Cleaver2" parent="." instance=ExtResource("1_22i43")]
+
+[node name="CleaverHurtBox" type="Area3D" parent="SM_Cleaver2" groups=["Cleaver"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SM_Cleaver2/CleaverHurtBox" groups=["Cleaver"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.72205e-06, -0.619359, -0.68931)
+shape = SubResource("BoxShape3D_1c07u")
+disabled = true
+
+[node name="CleaverArea" type="Area3D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CleaverArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00012207, -0.269653, -0.41687)
+shape = SubResource("BoxShape3D_10wds")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0rssw")
+}
+speed_scale = 1.5
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -20.0
+
+[connection signal="mouse_entered" from="CleaverArea" to="." method="_on_cleaver_area_mouse_entered"]
+[connection signal="mouse_exited" from="CleaverArea" to="." method="_on_cleaver_area_mouse_exited"]

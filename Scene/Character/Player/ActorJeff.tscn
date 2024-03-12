@@ -21,3 +21,8 @@ visible = false
 [node name="CollisionShape3D" type="CollisionShape3D" parent="JeffCollision"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.20307, 0)
 shape = SubResource("CapsuleShape3D_nmjsd")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(0.126578, -0.216763, 0.967983, 0.0281057, 0.976224, 0.214934, -0.991558, -5.54021e-09, 0.129661, 3.16441, 4.01818, 0)
+light_energy = 4.13
+spot_range = 4.08674

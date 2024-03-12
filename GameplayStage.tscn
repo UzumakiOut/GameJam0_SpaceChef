@@ -1,0 +1,334 @@
+[gd_scene load_steps=36 format=3 uid="uid://dlb8mf43p3ecs"]
+
+[ext_resource type="Script" path="res://PlayerController.gd" id="1_p252l"]
+[ext_resource type="Script" path="res://ComboDetector.gd" id="2_2yl6o"]
+[ext_resource type="Script" path="res://Scripts/CameraController.gd" id="3_hwrcn"]
+[ext_resource type="PackedScene" uid="uid://b3vlsgwsx3j08" path="res://Scene/Environment/sm_background.tscn" id="4_mxuhb"]
+[ext_resource type="PackedScene" uid="uid://beipi0uo5s22o" path="res://Scene/Environment/sm_conveyor.tscn" id="5_7w632"]
+[ext_resource type="PackedScene" uid="uid://col4rlrx4xro8" path="res://Scene/Environment/sm_decoration.tscn" id="6_03qpo"]
+[ext_resource type="PackedScene" uid="uid://4vmteov2sttb" path="res://Scene/Environment/sm_space_background.tscn" id="7_n2jvp"]
+[ext_resource type="PackedScene" uid="uid://cd8tweahy8ud2" path="res://Scene/Environment/sm_expo_door.tscn" id="8_wytic"]
+[ext_resource type="AudioStream" uid="uid://djr7rga3c1u6j" path="res://Sound/Music/Venus.wav" id="9_jlj8x"]
+[ext_resource type="AudioStream" uid="uid://bxje0fj513yxb" path="res://Sound/SFX/Environment/SFX_DroningHum.wav" id="10_354ag"]
+[ext_resource type="FontFile" uid="uid://b3yrs1t26a5rt" path="res://Font/PixelOperatorMono8-Bold.ttf" id="11_s5ypr"]
+[ext_resource type="Shader" path="res://Shaders/PSXShader.gdshader" id="12_vwe27"]
+[ext_resource type="Texture2D" uid="uid://bgctrtj5573e8" path="res://Textures/Mesh/Environment/T_EmissiveLight.png" id="13_8jxrh"]
+[ext_resource type="PackedScene" uid="uid://bpnynw3larqxl" path="res://Scene/Gameplay/ArrowKeysOnScreen.tscn" id="14_bckop"]
+[ext_resource type="PackedScene" uid="uid://catohhfede31l" path="res://Scene/Gameplay/FoodSpawner.tscn" id="15_uo2w2"]
+[ext_resource type="PackedScene" uid="uid://bw24dv5pvglqq" path="res://Scene/Character/Player/ActorJeff.tscn" id="16_xfdlp"]
+[ext_resource type="PackedScene" uid="uid://c6bp0cuxxgpww" path="res://Scene/Gameplay/FoodTrasher.tscn" id="17_0ixun"]
+[ext_resource type="PackedScene" uid="uid://coorjuc0867xs" path="res://Scene/Items/Food/sm_bowl_noods.tscn" id="18_m3mvl"]
+[ext_resource type="PackedScene" uid="uid://dqxrk40pywqir" path="res://Scene/Items/Food/sm_bagel.tscn" id="19_tpxy1"]
+[ext_resource type="PackedScene" uid="uid://dnxhpypy5bqjx" path="res://Scene/Items/Tools/sm_plate.tscn" id="20_aa068"]
+[ext_resource type="Script" path="res://ScoreLabel.gd" id="21_h68md"]
+[ext_resource type="PackedScene" uid="uid://bdbuy4mlb0vkx" path="res://Scene/Gameplay/Tools/LemonSprits.tscn" id="22_6yv58"]
+[ext_resource type="PackedScene" uid="uid://bcmf1ng7wxmpb" path="res://Scene/Gameplay/Tools/MeatCleaver.tscn" id="23_6il6g"]
+[ext_resource type="PackedScene" uid="uid://y6ri5a7xsbt4" path="res://Scene/Gameplay/Enemies/Tent.tscn" id="24_43474"]
+[ext_resource type="PackedScene" uid="uid://ccu2g4rxspfrs" path="res://Scene/Gameplay/Enemies/EvilEye.tscn" id="25_12s57"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_amk4a"]
+sky_top_color = Color(0, 0, 0, 1)
+sky_horizon_color = Color(0.5, 0.5, 0.5, 1)
+sky_energy_multiplier = 3.75
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0.5, 0.5, 0.5, 1)
+
+[sub_resource type="Sky" id="Sky_5kmbo"]
+sky_material = SubResource("ProceduralSkyMaterial_amk4a")
+
+[sub_resource type="Environment" id="Environment_l2sm2"]
+background_mode = 2
+sky = SubResource("Sky_5kmbo")
+glow_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_e67kk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_52krc"]
+size = Vector3(0.37793, 0.135925, 1.17642)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ycx0b"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+
+[sub_resource type="TextMesh" id="TextMesh_61vvb"]
+material = SubResource("StandardMaterial3D_ycx0b")
+text = "Meat
+Cleaver
+"
+font = ExtResource("11_s5ypr")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o3sos"]
+render_priority = 0
+shader = ExtResource("12_vwe27")
+shader_parameter/jitter = 0.5
+shader_parameter/jitter_z_coordinate = true
+shader_parameter/jitter_depth_independent = true
+shader_parameter/affine_texture_mapping = true
+shader_parameter/alpha_scissor = 1.0
+shader_parameter/triplanar = false
+shader_parameter/emissiveBoost = 2.0
+shader_parameter/Direction = Vector2(0, 0)
+shader_parameter/Speed = 0.0
+shader_parameter/UVScale = Vector2(1, 1)
+shader_parameter/albedo = ExtResource("13_8jxrh")
+
+[sub_resource type="TextMesh" id="TextMesh_e6wnf"]
+material = SubResource("ShaderMaterial_o3sos")
+text = "Lemon
+Spray
+"
+font = ExtResource("11_s5ypr")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vow4d"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+
+[node name="Main" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_l2sm2")
+camera_attributes = SubResource("CameraAttributesPractical_e67kk")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(-0.00382349, -0.548512, 0.836134, -0.00250822, 0.836143, 0.548506, -0.99999, -4.65666e-10, -0.00457277, 9.50294, 6.02851, -2.61232)
+light_color = Color(0.878431, 0.85098, 0.768627, 1)
+light_energy = 16.0
+light_indirect_energy = 2.829
+light_size = 1.0
+spot_range = 10.017
+
+[node name="PlayerController" type="Node3D" parent="."]
+transform = Transform3D(0.0242577, 0, 0.999706, 0, 1, 0, -0.999706, 0, 0.0242577, 10.6017, 4.11189, -3.16919)
+script = ExtResource("1_p252l")
+
+[node name="ComboArea" type="Area3D" parent="PlayerController" groups=["Detector"]]
+transform = Transform3D(0.00691182, 0, -0.999706, 0, 1, 0, 0.284849, 0, 0.0242577, -2.49581, -1.75907, -5.25838)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("2_2yl6o")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerController/ComboArea"]
+transform = Transform3D(7.19, 0, -1.42109e-13, 0, 7.19, 0, 1.42109e-13, 0, 7.19, -2.23635, -0.717741, 1.4965)
+shape = SubResource("BoxShape3D_52krc")
+
+[node name="CameraController" type="Node3D" parent="PlayerController"]
+script = ExtResource("3_hwrcn")
+
+[node name="Camera3D" type="Camera3D" parent="PlayerController/CameraController" groups=["Camera"]]
+transform = Transform3D(0.999997, -0.00237177, -0.00011619, 0.00237177, 0.995209, 0.0977452, -0.000116196, -0.0977452, 0.995211, -1.76996, 0.0999999, 3.46377)
+fov = 57.5
+
+[node name="MapCollection" type="Node3D" parent="."]
+
+[node name="SM_Background" parent="MapCollection" instance=ExtResource("4_mxuhb")]
+
+[node name="SM_Conveyor" parent="MapCollection" instance=ExtResource("5_7w632")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.63907)
+
+[node name="SM_Conveyor2" parent="MapCollection" instance=ExtResource("5_7w632")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0203245, -9.26749)
+
+[node name="SM_Decoration" parent="MapCollection" instance=ExtResource("6_03qpo")]
+
+[node name="SM_Decoration5" parent="MapCollection" instance=ExtResource("6_03qpo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.1506, -0.450776, -1.30704)
+
+[node name="SM_Decoration2" parent="MapCollection" instance=ExtResource("6_03qpo")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.43985, 0, 7.56134)
+
+[node name="SM_Decoration3" parent="MapCollection" instance=ExtResource("6_03qpo")]
+transform = Transform3D(-1, 0, 7.86805e-08, 0, 1, 0, 8.74228e-08, 0, 0.9, -8.83429, -0.0868196, 14.2339)
+
+[node name="SM_Decoration4" parent="MapCollection" instance=ExtResource("6_03qpo")]
+transform = Transform3D(-1, 0, 7.86805e-08, 0, 1, 0, 8.74228e-08, 0, 0.9, 14.6007, -0.0868196, 14.2339)
+
+[node name="SM_SpaceBackground" parent="MapCollection" instance=ExtResource("7_n2jvp")]
+
+[node name="SM_ExpoDoor" parent="MapCollection" instance=ExtResource("8_wytic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.14972)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="MapCollection"]
+transform = Transform3D(1, 0, 0, 0, -0.342922, 0.939364, 0, -0.939364, -0.342922, 5.56118, 5.13895, -2.8561)
+light_color = Color(0.733333, 0.698039, 0.498039, 1)
+light_energy = 16.0
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="MapCollection"]
+transform = Transform3D(1, 0, 0, 0, 0.285939, 0.958248, 0, -0.958248, 0.285939, 5.38664, 5.47441, -4.8826)
+light_color = Color(0.733333, 0.698039, 0.498039, 1)
+light_energy = 16.0
+
+[node name="BGM" type="AudioStreamPlayer" parent="MapCollection"]
+stream = ExtResource("9_jlj8x")
+volume_db = -20.0
+autoplay = true
+
+[node name="AmbientDrone" type="AudioStreamPlayer" parent="MapCollection"]
+stream = ExtResource("10_354ag")
+volume_db = -30.0
+autoplay = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MapCollection"]
+transform = Transform3D(-3.84252e-08, -0.476699, 0.879067, -2.08372e-08, 0.879067, 0.476699, -1, 0, -4.37114e-08, 10.2334, 1.87574, -0.60353)
+mesh = SubResource("TextMesh_61vvb")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="MapCollection"]
+transform = Transform3D(-4.09646e-08, -0.348899, 0.93716, -1.52509e-08, 0.93716, 0.348899, -1, 0, -4.37114e-08, 10.2334, 1.87574, -2.04432)
+mesh = SubResource("TextMesh_e6wnf")
+surface_material_override/0 = SubResource("StandardMaterial3D_vow4d")
+
+[node name="ArrowKeysOnScreen" parent="." instance=ExtResource("14_bckop")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.6434, 2.79201, 0.513304)
+
+[node name="ScannerLight" type="SpotLight3D" parent="."]
+transform = Transform3D(0.998818, 0.0485611, -0.0020837, 0.048592, -0.998637, 0.0190616, -0.00115521, -0.0191403, -0.999816, 5.27976, 2.16144, -3.38658)
+light_color = Color(0, 1, 0, 1)
+light_energy = 16.0
+spot_range = 1.99877
+spot_attenuation = 5.85637
+spot_angle = 89.99
+
+[node name="FoodSpawner" parent="." instance=ExtResource("15_uo2w2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.31891)
+
+[node name="ActorJeff" parent="." instance=ExtResource("16_xfdlp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.51066, 4.76837e-07, 0.149129)
+
+[node name="FoodTrasher" parent="." instance=ExtResource("17_0ixun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.30298)
+
+[node name="RandomJunk" type="Node3D" parent="."]
+transform = Transform3D(0.48, 0, 0, 0, 0.48, 0, 0, 0, 0.48, -3.98204, 2.02959, 5.71061)
+
+[node name="SM_Bowl2" parent="RandomJunk" instance=ExtResource("18_m3mvl")]
+
+[node name="SM_Bowl3" parent="RandomJunk" instance=ExtResource("18_m3mvl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.01037)
+
+[node name="SM_Bowl4" parent="RandomJunk" instance=ExtResource("18_m3mvl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.33529)
+
+[node name="SM_Bagel2" parent="RandomJunk" instance=ExtResource("19_tpxy1")]
+transform = Transform3D(2.08333, 0, 0, 0, 2.08333, 0, 0, 0, 2.08333, -1.74323, 6.99754, -23.5866)
+
+[node name="SM_Bagel3" parent="RandomJunk" instance=ExtResource("19_tpxy1")]
+transform = Transform3D(2.08333, 0, 0, 0, 2.08333, 0, 0, 0, 2.08333, -1.74323, 6.99754, -26.27)
+
+[node name="SM_Bagel4" parent="RandomJunk" instance=ExtResource("19_tpxy1")]
+transform = Transform3D(2.08333, 0, 0, 0, 2.08333, 0, 0, 0, 2.08333, -1.74323, 6.99754, -28.9239)
+
+[node name="SM_Bagel5" parent="RandomJunk" instance=ExtResource("19_tpxy1")]
+transform = Transform3D(2.08333, 0, 0, 0, 2.08333, 0, 0, 0, 2.08333, -1.74323, 6.99754, -31.1496)
+
+[node name="SM_Plate2" parent="RandomJunk" instance=ExtResource("20_aa068")]
+transform = Transform3D(1.13542, 0, 0, 0, 1.13535, -0.0125239, 0, 0.0125239, 1.13535, 0.198751, 0.133457, -23.5094)
+
+[node name="SM_Plate3" parent="RandomJunk" instance=ExtResource("20_aa068")]
+transform = Transform3D(1.13542, 0, 0, 0, 1.13535, -0.0125239, 0, 0.0125239, 1.13535, 0.198751, 0.438282, -23.5094)
+
+[node name="SM_Plate4" parent="RandomJunk" instance=ExtResource("20_aa068")]
+transform = Transform3D(1.13542, 0, 0, 0, 1.13535, -0.0125239, 0, 0.0125239, 1.13535, 0.198751, 0.747976, -23.5094)
+
+[node name="SM_Plate5" parent="RandomJunk" instance=ExtResource("20_aa068")]
+transform = Transform3D(1.13542, 0, 0, 0, 1.13535, -0.0125239, 0, 0.0125239, 1.13535, 0.198751, 1.06989, -23.5094)
+
+[node name="SM_Plate6" parent="RandomJunk" instance=ExtResource("20_aa068")]
+transform = Transform3D(1.13542, 0, 0, 0, 1.13535, -0.0125239, 0, 0.0125239, 1.13535, 0.198751, 0.133457, -26.342)
+
+[node name="SM_Plate7" parent="RandomJunk" instance=ExtResource("20_aa068")]
+transform = Transform3D(1.13542, 0, 0, 0, 1.13535, -0.0125239, 0, 0.0125239, 1.13535, 0.198751, 0.438282, -26.342)
+
+[node name="SM_Plate8" parent="RandomJunk" instance=ExtResource("20_aa068")]
+transform = Transform3D(1.13542, 0, 0, 0, 1.13535, -0.0125239, 0, 0.0125239, 1.13535, 0.198751, 0.747976, -26.342)
+
+[node name="SM_Plate9" parent="RandomJunk" instance=ExtResource("20_aa068")]
+transform = Transform3D(1.13542, 0, 0, 0, 1.13535, -0.0125239, 0, 0.0125239, 1.13535, 0.198751, 1.06989, -26.342)
+
+[node name="SM_Plate10" parent="RandomJunk" instance=ExtResource("20_aa068")]
+transform = Transform3D(1.13542, 0, 0, 0, 1.13535, -0.0125239, 0, 0.0125239, 1.13535, 0.198751, 0.133457, -29.8381)
+
+[node name="SM_Plate11" parent="RandomJunk" instance=ExtResource("20_aa068")]
+transform = Transform3D(1.13542, 0, 0, 0, 1.13535, -0.0125239, 0, 0.0125239, 1.13535, 0.198751, 0.438282, -29.8381)
+
+[node name="SM_Plate12" parent="RandomJunk" instance=ExtResource("20_aa068")]
+transform = Transform3D(1.13542, 0, 0, 0, 1.13535, -0.0125239, 0, 0.0125239, 1.13535, 0.198751, 0.747976, -29.8381)
+
+[node name="SM_Plate13" parent="RandomJunk" instance=ExtResource("20_aa068")]
+transform = Transform3D(1.13542, 0, 0, 0, 1.13535, -0.0125239, 0, 0.0125239, 1.13535, 0.198751, 1.06989, -29.8381)
+
+[node name="UserInterface" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="UserInterface"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 119.0
+offset_right = 268.0
+offset_bottom = 156.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("11_s5ypr")
+theme_override_font_sizes/font_size = 15
+text = "Score: 0"
+vertical_alignment = 1
+script = ExtResource("21_h68md")
+
+[node name="LemonSprits" parent="." instance=ExtResource("22_6yv58")]
+transform = Transform3D(-3.27835e-08, 0, 0.75, 0, 0.75, 0, -0.75, 0, -3.27835e-08, 9.81224, 2.00278, -2.13773)
+
+[node name="MeatCleaver" parent="." instance=ExtResource("23_6il6g")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 9.58419, 2.09087, -0.117413)
+
+[node name="Tentacle" parent="." instance=ExtResource("24_43474")]
+transform = Transform3D(0.877101, 0, 0, 0, 0.86387, 0, 0, 0, 1.72608, 2.4291, 0.924393, -6.41256)
+attackAnim = 2
+
+[node name="Tentacle2" parent="." instance=ExtResource("24_43474")]
+transform = Transform3D(1, 0, 0, 0, 0.989876, -0.141938, 0, 0.141938, 0.989876, 2.79429, -9.53674e-07, 3.44132)
+attackAnim = 2
+difficultySpawnValue = 4
+
+[node name="Tentacle3" parent="." instance=ExtResource("24_43474")]
+transform = Transform3D(1.45658, 0.153617, -0.299652, -0.336734, 0.664489, -1.29618, -8.91089e-08, 1.33037, 0.682015, -2.27905, 3.11971, -13.7739)
+tentSelect = 5
+difficultySpawnValue = 3
+
+[node name="Tentacle4" parent="." instance=ExtResource("24_43474")]
+transform = Transform3D(1.30911, 3.64986e-17, 0.124324, -0.00609052, 1.31342, 0.0641323, -0.124174, -0.0644208, 1.30754, 2.83444, -0.189435, -1.74139)
+attackAnim = 2
+difficultySpawnValue = 5
+
+[node name="Tentacle5" parent="." instance=ExtResource("24_43474")]
+transform = Transform3D(0.976941, -0.213508, 0, 0.213508, 0.976941, 0, 0, 0, 1, 3.3295, 0, -4.32161)
+attackAnim = 3
+difficultySpawnValue = 2
+
+[node name="EvilEye" parent="." instance=ExtResource("25_12s57")]
+transform = Transform3D(0.931425, 0, -0.363934, 0, 1, 0, 0.363934, 0, 0.931425, 6.22348, 3.04268, -4.87467)
+difficultySpawnValue = 5
+
+[node name="EvilEye2" parent="." instance=ExtResource("25_12s57")]
+transform = Transform3D(0.469708, 0, -0.331662, 0, 0.575, 0, 0.331662, 0, 0.469708, 8.80876, 3.95468, -5.5084)
+difficultySpawnValue = 2
+
+[node name="EvilEye3" parent="." instance=ExtResource("25_12s57")]
+transform = Transform3D(0.436039, -0.109653, 0.299076, 0.0904262, 0.52875, 0.0620228, -0.30544, 0, 0.445316, 9.1745, 3.01109, 1.74688)
+difficultySpawnValue = 3
+
+[node name="EvilEye4" parent="." instance=ExtResource("25_12s57")]
+transform = Transform3D(0.386331, 0, -0.340549, 0, 0.515, 0, 0.340549, 0, 0.386331, 8.20726, 2.44233, -5.59639)
+difficultySpawnValue = 4
+
+[node name="EvilEye5" parent="." instance=ExtResource("25_12s57")]
+transform = Transform3D(0.814847, 0.205743, 0.541936, -0.171314, 0.978606, -0.113937, -0.553784, 0, 0.83266, 6.9915, 5.05474, 2.68341)
+difficultySpawnValue = 3
+
+[node name="EvilEye6" parent="." instance=ExtResource("25_12s57")]
+transform = Transform3D(0.250241, -0.108402, -0.511887, -0.1284, 0.537344, -0.176563, 0.50724, 0.189499, 0.207839, 3.20244, 5.17127, -7.19954)
+
+[connection signal="area_entered" from="PlayerController/ComboArea" to="PlayerController/ComboArea" method="_on_area_entered"]

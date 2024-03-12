@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://7adoc6qqai2r"]
+
+[ext_resource type="PackedScene" uid="uid://cg4c6bkheqrl5" path="res://Mesh/Item/SM_Cleaver.glb" id="1_knvmr"]
+[ext_resource type="Shader" path="res://Shaders/PSXShader.gdshader" id="2_2eqwe"]
+[ext_resource type="Texture2D" uid="uid://lnlbc766tww1" path="res://Textures/Mesh/Items/T_Cleaver.png" id="3_065pp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hs5to"]
+render_priority = 0
+shader = ExtResource("2_2eqwe")
+shader_parameter/jitter = 0.5
+shader_parameter/jitter_z_coordinate = true
+shader_parameter/jitter_depth_independent = true
+shader_parameter/affine_texture_mapping = true
+shader_parameter/alpha_scissor = 1.0
+shader_parameter/triplanar = false
+shader_parameter/emissiveBoost = 0.5
+shader_parameter/Direction = Vector2(0, 0)
+shader_parameter/Speed = 0.0
+shader_parameter/UVScale = Vector2(1, 1)
+shader_parameter/albedo = ExtResource("3_065pp")
+
+[node name="SM_Cleaver2" instance=ExtResource("1_knvmr")]
+
+[node name="SM_Cleaver" parent="." index="0"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+surface_material_override/0 = SubResource("ShaderMaterial_hs5to")

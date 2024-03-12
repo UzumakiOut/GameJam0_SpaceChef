@@ -60,6 +60,7 @@ tracks/1/use_blend = true
 
 [sub_resource type="Animation" id="Animation_blj7l"]
 resource_name = "printerCookingSlow"
+length = 1.1
 tracks/0/type = "position_3d"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -101,7 +102,7 @@ tracks/0/enabled = true
 tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0, 2, 0, 0.3, 1, 0, -0.103557, 0, 0.4, 1, 0, 0, 0)
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 2, 0, 0.3, 1, 0, -0.103557, 0, 0.5, 1, 0, 0, 0)
 tracks/1/type = "audio"
 tracks/1/imported = false
 tracks/1/enabled = true
@@ -172,3 +173,6 @@ root_node = NodePath("../SM_Printer")
 libraries = {
 "": SubResource("AnimationLibrary_7jhuu")
 }
+
+[node name="FoodSpawnLocation" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 5.18067, 1.92564, -8.73644)

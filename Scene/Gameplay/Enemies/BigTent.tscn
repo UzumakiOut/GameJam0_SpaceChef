@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://y6ri5a7xsbt4"]
-
-[ext_resource type="PackedScene" uid="uid://b7sliubdq50x7" path="res://Scene/Character/Enemy/skm_big_tent_2.tscn" id="1_1mioe"]
-
-[node name="BigTent" type="Node3D"]
-
-[node name="SKM_BigTent2" parent="." instance=ExtResource("1_1mioe")]

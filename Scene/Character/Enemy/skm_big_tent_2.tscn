@@ -32,60 +32,73 @@ radius = 0.296362
 height = 1.67084
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ecayv"]
-radius = 0.264914
+radius = 0.475078
 height = 1.48714
 
 [node name="SKM_BigTent2" instance=ExtResource("1_nc6x0")]
 script = ExtResource("2_3fadw")
 
 [node name="Skeleton3D" parent="SK_BigTent" index="0"]
-bones/1/rotation = Quaternion(-0.0134958, 0.00460644, 0.0048999, 0.999886)
-bones/2/rotation = Quaternion(-0.00679935, 0.00363581, 0.00577372, 0.999954)
-bones/3/rotation = Quaternion(-0.000244591, 0.00265022, -0.046491, 0.998915)
-bones/4/rotation = Quaternion(-0.0150304, 0.0139963, 0.0146322, 0.999682)
-bones/5/rotation = Quaternion(-0.0154569, 0.0310318, -0.0310617, 0.998916)
+bones/1/rotation = Quaternion(-0.0139077, 0.00471223, 0.00490388, 0.99988)
+bones/2/rotation = Quaternion(-0.00767295, 0.00360908, 0.0049865, 0.999952)
+bones/3/rotation = Quaternion(-0.000706601, 0.00220489, -0.0465027, 0.998916)
+bones/4/rotation = Quaternion(-0.0149015, 0.0136081, 0.0146261, 0.999689)
+bones/5/rotation = Quaternion(-0.015321, 0.030604, -0.0310765, 0.998931)
 
 [node name="SKM_BigTent" parent="SK_BigTent/Skeleton3D" index="0"]
 surface_material_override/0 = SubResource("ShaderMaterial_fo537")
 
 [node name="BaseCollision" type="BoneAttachment3D" parent="SK_BigTent/Skeleton3D" index="1"]
-transform = Transform3D(0.99991, -0.00992302, 0.00907957, 0.00967436, 0.999588, 0.0270336, -0.00934408, -0.0269433, 0.999593, -6.61744e-24, 0.5, 0)
+transform = Transform3D(0.999907, -0.00993766, 0.00928692, 0.00967552, 0.999565, 0.0278583, -0.00955973, -0.0277659, 0.999569, -6.61744e-24, 0.5, 0)
 bone_name = "TentBone02"
 bone_idx = 1
 
-[node name="Area3D" type="Area3D" parent="SK_BigTent/Skeleton3D/BaseCollision" index="0"]
+[node name="Area3D" type="Area3D" parent="SK_BigTent/Skeleton3D/BaseCollision" index="0" groups=["Tentacle"]]
 
-[node name="TentCollisionBase" type="CollisionShape3D" parent="SK_BigTent/Skeleton3D/BaseCollision/Area3D" index="0"]
+[node name="TentCollisionBase" type="CollisionShape3D" parent="SK_BigTent/Skeleton3D/BaseCollision/Area3D" index="0" groups=["Tentacle"]]
 transform = Transform3D(1, -2.95986e-08, 9.31323e-10, 1.5134e-08, 1, 1.86265e-09, 9.31323e-10, 3.72529e-09, 1, -0.0217234, -0.117261, -0.0033573)
 shape = SubResource("CapsuleShape3D_k4bmq")
 
 [node name="MidCollision" type="BoneAttachment3D" parent="SK_BigTent/Skeleton3D" index="2"]
-transform = Transform3D(0.999636, -0.0216398, 0.0161352, 0.0209675, 0.99895, 0.0407344, -0.0169998, -0.0403812, 0.99904, -0.0109153, 1.59955, -0.0296376)
+transform = Transform3D(0.999665, -0.0201051, 0.0162734, 0.0193844, 0.998874, 0.0432979, -0.0171256, -0.0429679, 0.99893, -0.0109314, 1.59952, -0.0305425)
 bone_name = "TentBone03"
 bone_idx = 2
 
-[node name="Area3D" type="Area3D" parent="SK_BigTent/Skeleton3D/MidCollision" index="0"]
+[node name="Area3D" type="Area3D" parent="SK_BigTent/Skeleton3D/MidCollision" index="0" groups=["Tentacle"]]
 
-[node name="TentCollisionBase" type="CollisionShape3D" parent="SK_BigTent/Skeleton3D/MidCollision/Area3D" index="0"]
+[node name="TentCollisionBase" type="CollisionShape3D" parent="SK_BigTent/Skeleton3D/MidCollision/Area3D" index="0" groups=["Tentacle"]]
 shape = SubResource("CapsuleShape3D_t0yqt")
 
+[node name="OmniLight3D" type="OmniLight3D" parent="SK_BigTent/Skeleton3D/MidCollision" index="1"]
+transform = Transform3D(1, -9.8953e-10, -3.72529e-09, 7.567e-10, 1, 3.72529e-09, 0, 0, 1, 0.848171, -0.0724307, 0.0114254)
+light_color = Color(0.811765, 0.764706, 0.952941, 1)
+light_energy = 4.304
+omni_range = 1.348
+
 [node name="TopCollision" type="BoneAttachment3D" parent="SK_BigTent/Skeleton3D" index="3"]
-transform = Transform3D(0.997853, 0.0409959, 0.0510661, -0.0444969, 0.996595, 0.0694218, -0.0480462, -0.0715451, 0.996279, 0.0145455, 2.99664, -0.0874546)
+transform = Transform3D(0.997861, 0.0425898, 0.049595, -0.046134, 0.996289, 0.0726598, -0.0463164, -0.0747924, 0.996123, 0.01668, 2.99639, -0.0925097)
 bone_name = "TentBone05"
 bone_idx = 4
 
-[node name="Area3D" type="Area3D" parent="SK_BigTent/Skeleton3D/TopCollision" index="0"]
+[node name="Area3D" type="Area3D" parent="SK_BigTent/Skeleton3D/TopCollision" index="0" groups=["Tentacle"]]
 
-[node name="TentCollisionBase" type="CollisionShape3D" parent="SK_BigTent/Skeleton3D/TopCollision/Area3D" index="0"]
+[node name="TentCollisionBase" type="CollisionShape3D" parent="SK_BigTent/Skeleton3D/TopCollision/Area3D" index="0" groups=["Tentacle"]]
 shape = SubResource("CapsuleShape3D_8cr5o")
 
-[node name="EndCollision" type="BoneAttachment3D" parent="SK_BigTent/Skeleton3D" index="4"]
-transform = Transform3D(0.988306, 0.100187, 0.114952, -0.111363, 0.989199, 0.0953074, -0.104162, -0.106994, 0.988788, 0.0432426, 3.69425, -0.137536)
+[node name="OmniLight3D" type="OmniLight3D" parent="SK_BigTent/Skeleton3D/TopCollision" index="1"]
+transform = Transform3D(0.996195, 0.0611488, 0.0620948, -0.0630243, 0.997599, 0.0287071, -0.0601903, -0.0325114, 0.997657, 0.328581, 0.453778, -0.00320922)
+light_energy = 2.045
+omni_range = 1.288
+
+[node name="EndCollision" type="BoneAttachment3D" parent="SK_BigTent/Skeleton3D" index="4" groups=["TentacleStinger"]]
+transform = Transform3D(0.988395, 0.101893, 0.112663, -0.113122, 0.988714, 0.0982254, -0.101383, -0.10983, 0.988766, 0.0464928, 3.69379, -0.144864)
 bone_name = "TentBone06"
 bone_idx = 5
 
-[node name="Area3D" type="Area3D" parent="SK_BigTent/Skeleton3D/EndCollision" index="0"]
+[node name="Area3D" type="Area3D" parent="SK_BigTent/Skeleton3D/EndCollision" index="0" groups=["Tentacle", "TentacleStinger"]]
+collision_layer = 2
+collision_mask = 2
 
-[node name="TentCollisionBase" type="CollisionShape3D" parent="SK_BigTent/Skeleton3D/EndCollision/Area3D" index="0"]
+[node name="TentHitBox" type="CollisionShape3D" parent="SK_BigTent/Skeleton3D/EndCollision/Area3D" index="0" groups=["Tentacle", "TentacleStinger"]]
 transform = Transform3D(1, -3.72529e-09, 0, -6.51926e-08, 1, 0, 0, -7.45058e-09, 1, 0.0144489, 0.413773, 0.0463087)
 shape = SubResource("CapsuleShape3D_ecayv")

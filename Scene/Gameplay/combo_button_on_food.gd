@@ -1,12 +1,16 @@
 extends Node3D
 
 
-@export var arrowValue = 1; # 0 is off, 1 = up, 2 = down, 3 = left, 4 = right, 5 = space.
-
+@export var arrowValue = 0; # 0 is off, 1 = up, 2 = down, 3 = left, 4 = right, 5 = space.
+@onready var ArrowUp = $ArrowUp;
+@onready var ArrowDown = $ArrowDown;
+@onready var ArrowLeft = $ArrowLeft;
+@onready var ArrowRight = $ArrowRight;
+@onready var Spacebar = $ArrowSpace;
+@export var arrowColor = Color(0,1,0);
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#For some reason when I use any of the surface_material_overrides or whatevers, it doesn't work and crashes. I'll just do this the lame and unoptimized way.
 	$ArrowUp.visible = false;
 	$ArrowDown.visible = false;
 	$ArrowLeft.visible = false;
@@ -33,8 +37,22 @@ func _ready():
 	if arrowValue >= 5: #if the value is too high, we also set it to zero
 		arrowValue = 0;
 
-func buttonTriggered():
-	var incomingButtonValueTrigger = 0
-	if incomingButtonValueTrigger == arrowValue:
-		visible = false;
-	
+func _process(_delta):
+	pass
+
+func setArrowColorCorrect():
+	arrowColor = Color (0,1,0)
+	ArrowUp.arrowColor = arrowColor;
+	ArrowDown.arrowColor = arrowColor;
+	ArrowLeft.arrowColor = arrowColor;
+	ArrowRight.arrowColor = arrowColor;
+	Spacebar.arrowColor = arrowColor;
+	$AnimationPlayer.play("ButtonHit");
+
+func setArrowColorIncorrect():
+	arrowColor = Color (1,0,0)
+	ArrowUp.arrowColor = arrowColor;
+	ArrowDown.arrowColor = arrowColor;
+	ArrowLeft.arrowColor = arrowColor;
+	ArrowRight.arrowColor = arrowColor;
+	Spacebar.arrowColor = arrowColor;

@@ -1,0 +1,158 @@
+[gd_scene load_steps=12 format=3 uid="uid://y6ri5a7xsbt4"]
+
+[ext_resource type="Script" path="res://Scene/Gameplay/Enemies/Tent.gd" id="1_3gd38"]
+[ext_resource type="PackedScene" uid="uid://b7sliubdq50x7" path="res://Scene/Character/Enemy/skm_big_tent_2.tscn" id="1_mm7wm"]
+[ext_resource type="PackedScene" uid="uid://cteaoh1mc7lnh" path="res://Scene/Character/Enemy/skm_skinny_tent_2.tscn" id="2_q7n8s"]
+[ext_resource type="AudioStream" uid="uid://yl1igg5krm3b" path="res://Sound/SFX/Enemy/SFX_TentSpawn2.wav" id="4_mlgjr"]
+[ext_resource type="AudioStream" uid="uid://drj1kkn22r72p" path="res://Sound/SFX/Enemy/SFX_TentDeath1.wav" id="5_3qlu0"]
+[ext_resource type="AudioStream" uid="uid://gscf4vsb7ioh" path="res://Sound/SFX/Enemy/SFX_TentSpawn1.wav" id="6_ok4tr"]
+[ext_resource type="AudioStream" uid="uid://ctug5yq3t5c06" path="res://Sound/SFX/Enemy/SFX_TentDeath2.wav" id="7_akeik"]
+
+[sub_resource type="Animation" id="Animation_es30j"]
+resource_name = "startAnim"
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, -59.7113, 0)
+
+[sub_resource type="Animation" id="Animation_10pp6"]
+resource_name = "SpawnAnim"
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, -6.81554, 0, 1, 1, 0, 0, 0)
+tracks/1/type = "scale_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0.1, 0.1, 0.1, 1, 1, 1, 1, 1)
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../AudioStreamPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_mlgjr")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("5_3qlu0")
+}],
+"times": PackedFloat32Array(0.4, 0.5)
+}
+tracks/2/use_blend = true
+
+[sub_resource type="Animation" id="Animation_d1x3n"]
+resource_name = "DeathAnim"
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 1, 0, -6.02455, 0)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+tracks/2/type = "scale_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 1, 1, 1)
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../../AudioStreamPlayer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("6_ok4tr")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("7_akeik")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("5_3qlu0")
+}],
+"times": PackedFloat32Array(0, 0.2, 1.8)
+}
+tracks/3/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k31o8"]
+_data = {
+"DeathAnim": SubResource("Animation_d1x3n"),
+"SpawnAnim": SubResource("Animation_10pp6"),
+"startAnim": SubResource("Animation_es30j")
+}
+
+[node name="Tentacle" type="Node3D"]
+script = ExtResource("1_3gd38")
+
+[node name="Tent" type="Node3D" parent="."]
+
+[node name="SKM_SkinnyTent" parent="Tent" instance=ExtResource("2_q7n8s")]
+
+[node name="Skeleton3D" parent="Tent/SKM_SkinnyTent/SK_BigTent" index="0"]
+bones/1/rotation = Quaternion(0, 0, 0, 1)
+bones/2/rotation = Quaternion(0, 0, 0, 1)
+bones/3/rotation = Quaternion(0, 0, 0, 1)
+bones/4/rotation = Quaternion(0, 0, 0, 1)
+bones/5/rotation = Quaternion(0, 0, 0, 1)
+
+[node name="BaseCollision" parent="Tent/SKM_SkinnyTent/SK_BigTent/Skeleton3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.61744e-24, 0.5, 0)
+
+[node name="MidCollision" parent="Tent/SKM_SkinnyTent/SK_BigTent/Skeleton3D" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.30872e-23, 1.6, 0)
+
+[node name="TopCollision" parent="Tent/SKM_SkinnyTent/SK_BigTent/Skeleton3D" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.63221e-23, 3, 0)
+
+[node name="EndCollision" parent="Tent/SKM_SkinnyTent/SK_BigTent/Skeleton3D" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.63221e-23, 3.7, 0)
+
+[node name="SKM_BigTent" parent="Tent" instance=ExtResource("1_mm7wm")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Tent/SKM_BigTent")
+libraries = {
+"": SubResource("AnimationLibrary_k31o8")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -30.0
+
+[connection signal="area_shape_entered" from="Tent/SKM_SkinnyTent/SK_BigTent/Skeleton3D/BaseCollision/Area3D" to="." method="_on_area_3d_area_shape_entered"]
+[connection signal="area_shape_entered" from="Tent/SKM_SkinnyTent/SK_BigTent/Skeleton3D/MidCollision/Area3D" to="." method="_on_area_3d_area_shape_entered"]
+[connection signal="area_shape_entered" from="Tent/SKM_SkinnyTent/SK_BigTent/Skeleton3D/TopCollision/Area3D" to="." method="_on_area_3d_area_shape_entered"]
+[connection signal="area_shape_entered" from="Tent/SKM_SkinnyTent/SK_BigTent/Skeleton3D/EndCollision/Area3D" to="." method="_on_area_3d_area_shape_entered"]
+[connection signal="area_shape_entered" from="Tent/SKM_BigTent/SK_BigTent/Skeleton3D/BaseCollision/Area3D" to="." method="_on_area_3d_area_shape_entered"]
+[connection signal="area_shape_entered" from="Tent/SKM_BigTent/SK_BigTent/Skeleton3D/MidCollision/Area3D" to="." method="_on_area_3d_area_shape_entered"]
+[connection signal="area_shape_entered" from="Tent/SKM_BigTent/SK_BigTent/Skeleton3D/TopCollision/Area3D" to="." method="_on_area_3d_area_shape_entered"]
+[connection signal="area_shape_entered" from="Tent/SKM_BigTent/SK_BigTent/Skeleton3D/EndCollision/Area3D" to="." method="_on_area_3d_area_shape_entered"]
+
+[editable path="Tent/SKM_SkinnyTent"]
+[editable path="Tent/SKM_BigTent"]
