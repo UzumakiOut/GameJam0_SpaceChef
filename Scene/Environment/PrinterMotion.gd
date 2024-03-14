@@ -44,13 +44,14 @@ var spawnTrashRNG2 = 2
 var canSpawnTrash = false
 var spawnEvilRNG1 = 3
 var canSpawnEvil = false;
-
+var isPlayingAnim = true
 
 
 func _ready():
 	Global.globalItemFoodSpawnLocation = spawnFoodLocation;
 
 func _process(_delta):
+	isPlayingAnim = $AnimationPlayer.is_playing()
 	$AnimationPlayer.set_speed_scale(printerAnimationPlayRate)
 	if canSpawnFood == true and isSpawningFood == false:
 		spawningFoodItem()
@@ -61,7 +62,7 @@ func spawningFoodItem():
 	await get_tree().create_timer(executionDelay).timeout
 	printerCook()
 	await get_tree().create_timer(executionDelay).timeout
-	spawnItemAtLocation();
+	spawnItemAtLocation()
 	printerMoveUp()
 	await get_tree().create_timer(executionDelay).timeout
 	if canSpawnFood == true:

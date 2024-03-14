@@ -24,7 +24,8 @@ func _physics_process(_delta):
 
 
 func _on_cleaver_area_mouse_entered():
-	mouseOverObject = true;
+	if Global.globalisDead == false:
+		mouseOverObject = true;
 
 
 func _on_cleaver_area_mouse_exited():
@@ -58,3 +59,11 @@ func _input(event):
 			await get_tree().create_timer(0.3).timeout
 			isSwinging = false
 			cleaverHurtBox.set_disabled(true);
+
+
+
+func _on_cleaver_hurt_box_area_shape_entered(_area_rid, area, _area_shape_index, _local_shape_index):
+	if area.is_in_group("Tentacle"):
+		if isSwinging == true:
+			await get_tree().create_timer(0.1).timeout
+			$HitSFX.play(0.0);

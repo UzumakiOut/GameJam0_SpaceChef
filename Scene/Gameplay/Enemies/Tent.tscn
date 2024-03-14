@@ -8,52 +8,6 @@
 [ext_resource type="AudioStream" uid="uid://gscf4vsb7ioh" path="res://Sound/SFX/Enemy/SFX_TentSpawn1.wav" id="6_ok4tr"]
 [ext_resource type="AudioStream" uid="uid://ctug5yq3t5c06" path="res://Sound/SFX/Enemy/SFX_TentDeath2.wav" id="7_akeik"]
 
-[sub_resource type="Animation" id="Animation_es30j"]
-resource_name = "startAnim"
-tracks/0/type = "position_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("..")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0, -59.7113, 0)
-
-[sub_resource type="Animation" id="Animation_10pp6"]
-resource_name = "SpawnAnim"
-tracks/0/type = "position_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("..")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0, -6.81554, 0, 1, 1, 0, 0, 0)
-tracks/1/type = "scale_3d"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("..")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, 0.1, 0.1, 0.1, 1, 1, 1, 1, 1)
-tracks/2/type = "audio"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../../AudioStreamPlayer")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"clips": [{
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource("4_mlgjr")
-}, {
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource("5_3qlu0")
-}],
-"times": PackedFloat32Array(0.4, 0.5)
-}
-tracks/2/use_blend = true
-
 [sub_resource type="Animation" id="Animation_d1x3n"]
 resource_name = "DeathAnim"
 tracks/0/type = "position_3d"
@@ -101,6 +55,52 @@ tracks/3/keys = {
 }
 tracks/3/use_blend = true
 
+[sub_resource type="Animation" id="Animation_10pp6"]
+resource_name = "SpawnAnim"
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, -6.81554, 0, 1, 1, 0, 0, 0)
+tracks/1/type = "scale_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0.1, 0.1, 0.1, 1, 1, 1, 1, 1)
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../AudioStreamPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_mlgjr")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("5_3qlu0")
+}],
+"times": PackedFloat32Array(0.4, 0.5)
+}
+tracks/2/use_blend = true
+
+[sub_resource type="Animation" id="Animation_es30j"]
+resource_name = "startAnim"
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, -59.7113, 0)
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_k31o8"]
 _data = {
 "DeathAnim": SubResource("Animation_d1x3n"),
@@ -135,6 +135,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.63221e-23, 3, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.63221e-23, 3.7, 0)
 
 [node name="SKM_BigTent" parent="Tent" instance=ExtResource("1_mm7wm")]
+
+[node name="BaseCollision" parent="Tent/SKM_BigTent/SK_BigTent/Skeleton3D" index="1"]
+transform = Transform3D(0.999907, -0.00993766, 0.00928693, 0.00967551, 0.999565, 0.0278583, -0.00955974, -0.0277659, 0.999569, -6.61744e-24, 0.5, 0)
+
+[node name="MidCollision" parent="Tent/SKM_BigTent/SK_BigTent/Skeleton3D" index="2"]
+transform = Transform3D(0.999665, -0.0201051, 0.0162734, 0.0193844, 0.998874, 0.0432978, -0.0171256, -0.0429679, 0.99893, -0.0109314, 1.59952, -0.0305424)
+
+[node name="TopCollision" parent="Tent/SKM_BigTent/SK_BigTent/Skeleton3D" index="3"]
+transform = Transform3D(0.997861, 0.0425897, 0.049595, -0.0461339, 0.996289, 0.0726597, -0.0463164, -0.0747923, 0.996123, 0.0166799, 2.99639, -0.0925096)
+
+[node name="EndCollision" parent="Tent/SKM_BigTent/SK_BigTent/Skeleton3D" index="4"]
+transform = Transform3D(0.988395, 0.101893, 0.112663, -0.113122, 0.988714, 0.0982254, -0.101383, -0.10983, 0.988766, 0.0464927, 3.69379, -0.144864)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Tent/SKM_BigTent")

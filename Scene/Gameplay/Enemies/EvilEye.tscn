@@ -34,6 +34,23 @@ tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = PackedFloat32Array(0, 1, 1, 1, 1, 2, 1, 1, 1, 1, 4, 1, 1, 1, 1)
 
+[sub_resource type="Animation" id="Animation_duom2"]
+resource_name = "PreSpawnAnim"
+tracks/0/type = "scale_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.01, 0.01, 0.01)
+tracks/1/type = "position_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, -11.8856, 0)
+
 [sub_resource type="Animation" id="Animation_v88jx"]
 resource_name = "Spawning"
 tracks/0/type = "position_3d"
@@ -116,23 +133,6 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.9)
 }
 tracks/3/use_blend = true
-
-[sub_resource type="Animation" id="Animation_duom2"]
-resource_name = "PreSpawnAnim"
-tracks/0/type = "scale_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0.01, 0.01, 0.01)
-tracks/1/type = "position_3d"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, 0, -11.8856, 0)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1bqfb"]
 _data = {

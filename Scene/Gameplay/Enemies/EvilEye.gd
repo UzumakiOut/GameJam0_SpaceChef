@@ -5,7 +5,7 @@ extends Node3D
 @onready var eyeCollision = $SKM_BigEye/EyeballCollision/CollisionShape3D
 
 #editor variables
-@export var difficultySpawnValue = 1 #between 1 and 5
+@export var difficultySpawnValue = 3 #between 3 and 10
 
 #animation variables
 var executionDelay = 0
@@ -13,6 +13,7 @@ var canRepeatIdle = true
 
 #spawning varibles
 var eyeballIsVisible = false
+var firstTimeSpawn = false
 var eyeballCanSpawn = false
 var eyeballSpawnChanceModifier = 0
 
@@ -24,7 +25,8 @@ func _ready():
 	eyeball.visible = false
 	eyeCollision.set_disabled(true)
 	await get_tree().create_timer(0.1).timeout
-	if Global.globalDifficultySetting >= difficultySpawnValue:
+	if Global.globalDifficulty >= difficultySpawnValue and firstTimeSpawn == false:
+		firstTimeSpawn = true
 		regenerateEyeball();
 
 func _process(_delta):
@@ -32,6 +34,9 @@ func _process(_delta):
 		eyeballIsWatching();
 	if eyeballCanSpawn == true:
 			eyeballSpawnAnim();
+	if Global.globalDifficulty >= difficultySpawnValue and firstTimeSpawn == false:
+		firstTimeSpawn = true
+		regenerateEyeball();
 
 
 

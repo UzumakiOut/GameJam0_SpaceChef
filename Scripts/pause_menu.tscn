@@ -1,0 +1,399 @@
+[gd_scene load_steps=21 format=3 uid="uid://uo27olpalesn"]
+
+[ext_resource type="Script" path="res://Scripts/PauseScript.gd" id="1_hb5bo"]
+[ext_resource type="Theme" uid="uid://dfr8jjn3br2fc" path="res://Scripts/defaultTheme.tres" id="2_e4y5j"]
+[ext_resource type="Script" path="res://Scripts/ResumeButton.gd" id="3_2yhny"]
+[ext_resource type="Script" path="res://Scripts/SettingsButton.gd" id="5_n2frj"]
+[ext_resource type="Script" path="res://Scripts/ReturnButton.gd" id="6_gxl2w"]
+[ext_resource type="Script" path="res://Scripts/HelpButton.gd" id="7_kk1lx"]
+[ext_resource type="Script" path="res://Scripts/ExitButton.gd" id="8_88p3k"]
+[ext_resource type="Script" path="res://Scripts/BackToPauseMenu.gd" id="11_037tm"]
+[ext_resource type="Script" path="res://Scripts/WindowValues.gd" id="11_p8yf7"]
+[ext_resource type="Script" path="res://Scripts/MasterSlider.gd" id="12_ea5r4"]
+[ext_resource type="Script" path="res://Scripts/MusicSlider.gd" id="13_5ikr8"]
+[ext_resource type="Texture2D" uid="uid://cfhg0fvopcfhp" path="res://Textures/UI/T_IconJeff.png" id="14_gxybb"]
+[ext_resource type="Texture2D" uid="uid://rtoe2vfm8ira" path="res://Textures/UI/T_IconCleaver.png" id="15_4c4v3"]
+[ext_resource type="Texture2D" uid="uid://ckl4w3hnd1bum" path="res://Textures/UI/T_IconSpritzer.png" id="16_udxe3"]
+[ext_resource type="Texture2D" uid="uid://4umxt6vdmbjp" path="res://Textures/UI/T_IconFood.png" id="17_q7llf"]
+[ext_resource type="Texture2D" uid="uid://dmv13vlqw0hd6" path="res://Textures/UI/T_IconTrash.png" id="18_88dj6"]
+[ext_resource type="Texture2D" uid="uid://cs0d12po1fotp" path="res://Textures/UI/T_IconTentEye.png" id="19_66fhs"]
+[ext_resource type="Texture2D" uid="uid://iuug1q2m6183" path="res://Textures/UI/T_IconSkelly.png" id="20_0xwd0"]
+[ext_resource type="AudioStream" uid="uid://b4okahemjxg0x" path="res://Sound/SFX/Character/SFX_Great.wav" id="21_jclta"]
+[ext_resource type="AudioStream" uid="uid://p3cifgffsxoa" path="res://Sound/Music/Intro Jingle.wav" id="22_p3thv"]
+
+[node name="PauseMenu" type="Node2D"]
+script = ExtResource("1_hb5bo")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -575.5
+offset_top = -323.0
+offset_right = 575.5
+offset_bottom = 323.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="Title" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -775.5
+offset_top = -227.0
+offset_right = 784.5
+offset_bottom = -166.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_e4y5j")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 10
+theme_override_constants/shadow_offset_y = 10
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 60
+text = "<GAME PAUSED>"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -419.0
+offset_top = -235.5
+offset_right = 419.0
+offset_bottom = 235.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 200
+theme_override_constants/margin_right = 100
+
+[node name="PauseMenu" type="VBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+
+[node name="ResumeButton" type="Button" parent="Control/MarginContainer/PauseMenu"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource("2_e4y5j")
+theme_override_font_sizes/font_size = 42
+text = "//_RESUME_GAME:"
+script = ExtResource("3_2yhny")
+
+[node name="SettingsButton" type="Button" parent="Control/MarginContainer/PauseMenu"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource("2_e4y5j")
+theme_override_font_sizes/font_size = 42
+text = "//_SETTINGS:"
+script = ExtResource("5_n2frj")
+
+[node name="HelpButton" type="Button" parent="Control/MarginContainer/PauseMenu"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource("2_e4y5j")
+theme_override_font_sizes/font_size = 42
+text = "//_HELP:"
+script = ExtResource("7_kk1lx")
+
+[node name="ReturnButton" type="Button" parent="Control/MarginContainer/PauseMenu"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource("2_e4y5j")
+theme_override_font_sizes/font_size = 42
+text = "//_MAIN_MENU:
+"
+script = ExtResource("6_gxl2w")
+
+[node name="ExitButton" type="Button" parent="Control/MarginContainer/PauseMenu"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource("2_e4y5j")
+theme_override_font_sizes/font_size = 42
+text = "//_EXIT_GAME:
+"
+script = ExtResource("8_88p3k")
+
+[node name="Settings" type="VBoxContainer" parent="Control/MarginContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Settings" type="ScrollContainer" parent="Control/MarginContainer/Settings"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/Settings/Settings"]
+layout_mode = 2
+
+[node name="Window" type="HBoxContainer" parent="Control/MarginContainer/Settings/Settings/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Window" type="Button" parent="Control/MarginContainer/Settings/Settings/VBoxContainer/Window"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme = ExtResource("2_e4y5j")
+text = "//WINDOW: "
+
+[node name="Values" type="OptionButton" parent="Control/MarginContainer/Settings/Settings/VBoxContainer/Window"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("2_e4y5j")
+alignment = 1
+item_count = 2
+selected = 0
+popup/item_0/text = "WINDOWED"
+popup/item_0/id = 0
+popup/item_1/text = "FULL_SCREEN"
+popup/item_1/id = 1
+script = ExtResource("11_p8yf7")
+
+[node name="GameVolume" type="HBoxContainer" parent="Control/MarginContainer/Settings/Settings/VBoxContainer"]
+layout_mode = 2
+
+[node name="MasterVolume" type="Button" parent="Control/MarginContainer/Settings/Settings/VBoxContainer/GameVolume"]
+layout_mode = 2
+theme = ExtResource("2_e4y5j")
+text = "//MASTER_VOLUME:"
+
+[node name="MasterSlider" type="HSlider" parent="Control/MarginContainer/Settings/Settings/VBoxContainer/GameVolume"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("2_e4y5j")
+min_value = -50.0
+max_value = 0.0
+script = ExtResource("12_ea5r4")
+
+[node name="MusicVolume" type="HBoxContainer" parent="Control/MarginContainer/Settings/Settings/VBoxContainer"]
+layout_mode = 2
+
+[node name="MusicVolume" type="Button" parent="Control/MarginContainer/Settings/Settings/VBoxContainer/MusicVolume"]
+layout_mode = 2
+theme = ExtResource("2_e4y5j")
+text = "//MUSIC__VOLUME:"
+
+[node name="MusicSlider" type="HSlider" parent="Control/MarginContainer/Settings/Settings/VBoxContainer/MusicVolume"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("2_e4y5j")
+min_value = -50.0
+max_value = 0.0
+value = -7.0
+script = ExtResource("13_5ikr8")
+
+[node name="BackToPauseMenu" type="Button" parent="Control/MarginContainer/Settings"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme = ExtResource("2_e4y5j")
+theme_override_font_sizes/font_size = 24
+text = "//_BACK( ):"
+script = ExtResource("11_037tm")
+
+[node name="Help" type="VBoxContainer" parent="Control/MarginContainer"]
+visible = false
+layout_mode = 2
+
+[node name="BackToPauseMenu" type="Button" parent="Control/MarginContainer/Help"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_e4y5j")
+theme_override_font_sizes/font_size = 24
+text = "//_BACK( ):"
+script = ExtResource("11_037tm")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/MarginContainer/Help"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/Help/ScrollContainer"]
+layout_mode = 2
+
+[node name="Jeff" type="HBoxContainer" parent="Control/MarginContainer/Help/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="JeffImage" type="TextureRect" parent="Control/MarginContainer/Help/ScrollContainer/VBoxContainer/Jeff"]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("14_gxybb")
+stretch_mode = 4
+
+[node name="JeffText" type="Label" parent="Control/MarginContainer/Help/ScrollContainer/VBoxContainer/Jeff"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("2_e4y5j")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "JEFF THE ASTRO CHEF:
+This is Jeff. Jeff is a diligent worker but he needs your help! Use the WASD and SPACE keys to guide him in the correct directions when prepping food!
+
+Be weary though! Sometimes the on-station printer will malfunction and print a non-food item!"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Cleaver" type="HBoxContainer" parent="Control/MarginContainer/Help/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="CleaverImage" type="TextureRect" parent="Control/MarginContainer/Help/ScrollContainer/VBoxContainer/Cleaver"]
+layout_mode = 2
+texture = ExtResource("15_4c4v3")
+
+[node name="CleaverText" type="Label" parent="Control/MarginContainer/Help/ScrollContainer/VBoxContainer/Cleaver"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("2_e4y5j")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "TRUSTY MEAT CLEAVER:
+Jeff's trusty cleaver from the old days when they were actually a Chef on earth! Left click to drag the cleaver to a space tentacle and right click to swing it!"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Spritzer" type="HBoxContainer" parent="Control/MarginContainer/Help/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="LemonImage" type="TextureRect" parent="Control/MarginContainer/Help/ScrollContainer/VBoxContainer/Spritzer"]
+layout_mode = 2
+texture = ExtResource("16_udxe3")
+
+[node name="LemonText" type="Label" parent="Control/MarginContainer/Help/ScrollContainer/VBoxContainer/Spritzer"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("2_e4y5j")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "THE LEMON SPRITZER:
+Simply, what great Chef doesn't have a lemon-shaped spray bottle of lemon juice? Left click to drag the Spritzer to evil eyeballs and right click to juice it!"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Food" type="HBoxContainer" parent="Control/MarginContainer/Help/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="FoodImage" type="TextureRect" parent="Control/MarginContainer/Help/ScrollContainer/VBoxContainer/Food"]
+layout_mode = 2
+texture = ExtResource("17_q7llf")
+
+[node name="FoodText" type="Label" parent="Control/MarginContainer/Help/ScrollContainer/VBoxContainer/Food"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("2_e4y5j")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "PRINTABLE FOOD OF THE FUTURE:
+The 3D food printer churns out food items for the ihabitants of the space station. Sometimes it malfunctions and \"not food\" comes out of it. Like batteries, light bulbs, brains, or toothpaste!"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Trash" type="HBoxContainer" parent="Control/MarginContainer/Help/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TrashImage" type="TextureRect" parent="Control/MarginContainer/Help/ScrollContainer/VBoxContainer/Trash"]
+layout_mode = 2
+texture = ExtResource("18_88dj6")
+
+[node name="TrashText" type="Label" parent="Control/MarginContainer/Help/ScrollContainer/VBoxContainer/Trash"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("2_e4y5j")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "RECYCLING CHUTE:
+In deep space, magic can't help us here! We must recycle everything we can. Like we definitely don't throw it all into nearby solar bodies! Drag food items with the left mouse button over the trash can to throw it away!"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Aliens" type="HBoxContainer" parent="Control/MarginContainer/Help/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="AliensImage" type="TextureRect" parent="Control/MarginContainer/Help/ScrollContainer/VBoxContainer/Aliens"]
+layout_mode = 2
+texture = ExtResource("19_66fhs")
+
+[node name="AliensText" type="Label" parent="Control/MarginContainer/Help/ScrollContainer/VBoxContainer/Aliens"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("2_e4y5j")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "DENIZENS OF SPACE:
+Sometimes the ship is hungry and it must feed on your soul."
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Zombie" type="HBoxContainer" parent="Control/MarginContainer/Help/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ZombieImage" type="TextureRect" parent="Control/MarginContainer/Help/ScrollContainer/VBoxContainer/Zombie"]
+layout_mode = 2
+texture = ExtResource("20_0xwd0")
+
+[node name="ZombieText" type="Label" parent="Control/MarginContainer/Help/ScrollContainer/VBoxContainer/Zombie"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("2_e4y5j")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "JEFF THE ASTRO CHEF:
+Something isn't right. Something is wrong. I feel like I've been here before. Why do I feel like we are repeating the same thing every day? I think maybe I've been eating too many brains. Maybe I should take the day off..."
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="ButtonSounds" type="AudioStreamPlayer" parent="Control"]
+stream = ExtResource("21_jclta")
+volume_db = -20.0
+pitch_scale = 0.8
+
+[node name="StartGameSound" type="AudioStreamPlayer" parent="Control"]
+stream = ExtResource("22_p3thv")
+
+[connection signal="pressed" from="Control/MarginContainer/PauseMenu/ResumeButton" to="Control/MarginContainer/PauseMenu/ResumeButton" method="_on_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/PauseMenu/SettingsButton" to="Control/MarginContainer/PauseMenu/SettingsButton" method="_on_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/PauseMenu/HelpButton" to="Control/MarginContainer/PauseMenu/HelpButton" method="_on_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/PauseMenu/ReturnButton" to="Control/MarginContainer/PauseMenu/ReturnButton" method="_on_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/PauseMenu/ExitButton" to="Control/MarginContainer/PauseMenu/ExitButton" method="_on_pressed"]
+[connection signal="item_selected" from="Control/MarginContainer/Settings/Settings/VBoxContainer/Window/Values" to="Control/MarginContainer/Settings/Settings/VBoxContainer/Window/Values" method="_on_item_selected"]
+[connection signal="pressed" from="Control/MarginContainer/Settings/Settings/VBoxContainer/Window/Values" to="Control/MarginContainer/Settings/Settings/VBoxContainer/Window/Values" method="_on_pressed"]
+[connection signal="value_changed" from="Control/MarginContainer/Settings/Settings/VBoxContainer/GameVolume/MasterSlider" to="Control/MarginContainer/Settings/Settings/VBoxContainer/GameVolume/MasterSlider" method="_on_value_changed"]
+[connection signal="value_changed" from="Control/MarginContainer/Settings/Settings/VBoxContainer/MusicVolume/MusicSlider" to="Control/MarginContainer/Settings/Settings/VBoxContainer/MusicVolume/MusicSlider" method="_on_value_changed"]
+[connection signal="pressed" from="Control/MarginContainer/Settings/BackToPauseMenu" to="Control/MarginContainer/Settings/BackToPauseMenu" method="_on_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/Help/BackToPauseMenu" to="Control/MarginContainer/Help/BackToPauseMenu" method="_on_pressed"]

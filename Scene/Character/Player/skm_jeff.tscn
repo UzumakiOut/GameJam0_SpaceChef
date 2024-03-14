@@ -18,6 +18,7 @@ shader_parameter/triplanar = false
 shader_parameter/emissiveBoost = 0.0
 shader_parameter/Direction = Vector2(0, 0)
 shader_parameter/Speed = 0.0
+shader_parameter/UVScale = Vector2(1, 1)
 shader_parameter/albedo = ExtResource("3_lqyi6")
 
 [node name="SKM_Jeff" instance=ExtResource("1_iotm6")]
@@ -28,11 +29,10 @@ bones/0/rotation = Quaternion(-2.77657e-17, -3.62015e-09, 0.0269439, 0.999637)
 bones/1/rotation = Quaternion(2.78245e-17, 9.45023e-09, -0.0703358, 0.997523)
 bones/2/rotation = Quaternion(5.55458e-17, -4.74672e-09, 0.0353287, 0.999376)
 bones/3/rotation = Quaternion(7.28774e-17, -3.06864e-09, 0.0228391, 0.999739)
-bones/4/position = Vector3(-1.49012e-08, 1.2, 7.28584e-17)
 bones/4/rotation = Quaternion(0, -1.09125e-16, 0, 1)
 bones/5/rotation = Quaternion(0.97338, -0.0826114, -0.0180795, 0.213026)
 bones/6/rotation = Quaternion(0.0068708, 0.118539, -0.262802, 0.957516)
-bones/7/rotation = Quaternion(0.017532, 3.54463e-15, 8.3599e-09, 0.999846)
+bones/7/rotation = Quaternion(0.017532, -3.9551e-09, 3.67103e-08, 0.999846)
 bones/8/rotation = Quaternion(0.974928, -0.0907471, 0.0188304, -0.202301)
 bones/9/rotation = Quaternion(-0.00701483, -0.0823075, -0.193582, 0.9776)
 bones/10/rotation = Quaternion(-0.017532, -2.61473e-10, -5.48714e-09, 0.999846)
@@ -48,7 +48,6 @@ surface_material_override/0 = SubResource("ShaderMaterial_dm1u1")
 
 [node name="AnimationPlayer" parent="." index="1"]
 playback_default_blend_time = 0.1
-speed_scale = 2.0
 
 [node name="JeffSounds" type="AudioStreamPlayer" parent="." index="2"]
 stream = ExtResource("5_gb7qp")

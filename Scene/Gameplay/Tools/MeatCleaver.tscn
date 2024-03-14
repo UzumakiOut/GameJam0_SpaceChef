@@ -1,8 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://bcmf1ng7wxmpb"]
+[gd_scene load_steps=12 format=3 uid="uid://bcmf1ng7wxmpb"]
 
 [ext_resource type="Script" path="res://Scene/Gameplay/Tools/CleaverTool.gd" id="1_2wqbp"]
 [ext_resource type="PackedScene" uid="uid://7adoc6qqai2r" path="res://Scene/Items/Tools/sm_cleaver.tscn" id="1_22i43"]
 [ext_resource type="AudioStream" uid="uid://83avi1u410jt" path="res://Sound/SFX/Tools/SFX_CleaverSwish.wav" id="3_b7n6u"]
+[ext_resource type="AudioStream" uid="uid://dar3ba0iklsnm" path="res://Sound/SFX/Character/SFX_Fail1.wav" id="4_nluv8"]
+[ext_resource type="AudioStream" uid="uid://dakegfudqqgfr" path="res://Sound/SFX/Character/SFX_Fail3.wav" id="5_vml3w"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1c07u"]
 size = Vector3(0.306522, 0.236328, 1.1441)
@@ -140,7 +142,13 @@ libraries = {
 speed_scale = 1.5
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-volume_db = -20.0
+stream = ExtResource("4_nluv8")
+volume_db = -10.0
 
+[node name="HitSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_vml3w")
+volume_db = -25.0
+
+[connection signal="area_shape_entered" from="SM_Cleaver2/CleaverHurtBox" to="." method="_on_cleaver_hurt_box_area_shape_entered"]
 [connection signal="mouse_entered" from="CleaverArea" to="." method="_on_cleaver_area_mouse_entered"]
 [connection signal="mouse_exited" from="CleaverArea" to="." method="_on_cleaver_area_mouse_exited"]

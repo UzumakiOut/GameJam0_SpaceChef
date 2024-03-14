@@ -14,9 +14,11 @@ var tentaclesChopped = 0
 
 #silly little guy
 var spookyValue = 0
-var spookyMode = false
-var globalHealthPointsMax = 5
-var globalHealthPointsCurrent = globalHealthPointsMax
+var spookyMode = true
+var globalHealthPointsMax = 3
+var globalHealthPointsCurrent = 3
+var globalisDead = false
+var globalHeat = false
 
 #in-game clock
 var gameplayTimerActive = true #set to true when gameplay "starts"
@@ -25,8 +27,8 @@ var gameTimerMinutes = 0 #every 60 minutes = one hour
 var gameTimerSeconds = 0 #every 60 seconds = one minute
 
 #difficulty stuff
-var globalDifficultyEndlessMode = false #maybe
-var globalDifficultySetting = 1 #Range from 1 to 5 "Very Easy, Easy, Normal, Hard, Very Hard"
+var globalDifficultyEndlessMode = true #maybe
+var globalDifficultySetting = 3 #Range from 1 to 5 "Very Easy, Easy, Normal, Hard, Very Hard"
 var globalDifficultyTimer = 1 #this will be ticked up by the timer, then lowered at some point.
 var globalDifficulty = globalDifficultySetting + globalDifficultyTimer #this changes based on factors here
 var globalHeatingUp = 0 #increases speed after X consecutive combos
@@ -38,20 +40,14 @@ var globalMouseLocationInSpace = Vector3()
 #gameplay stuff
 var canSpawnFoodItem = true
 var globalItemFoodSpawnLocation = Vector3()
-
+var runTutorial = true
 
 
 func _ready():
-	if globalDifficultySetting == 1 or 2:
-		globalHealthPointsMax = 5;
-	if globalDifficultySetting == 3:
-		globalHealthPointsMax = 4;
-	if globalDifficultySetting == 4:
-		globalHealthPointsMax = 3;
-	if globalDifficultySetting == 5:
-		globalHealthPointsMax = 1;
+	resetGameplayGlobalValues();
 
 func _process(_delta):
+	roundi(scorePoints)
 	gameplayWorkDayTimer();
 	if scorePoints <= 0: #if points are less than 0, then they are 0
 		scorePoints = 0;
@@ -61,6 +57,36 @@ func _process(_delta):
 		runSpookyMode();
 	else:
 		spookyMode = false;
+
+
+func resetGameplayGlobalValues():   #called when a game starts, resets all global variables that pertain to gameplay
+	globalDifficultyTimer = 1
+	globalHeatingUp = 0
+	gameTimerHours = 0
+	gameTimerMinutes = 0
+	gameTimerSeconds = 0
+	globalHealthPointsCurrent = 3
+	platesCompleted = 0
+	platesFailed = 0
+	platesTrashed = 0
+	platesCursedAccepted = 0
+	platesTrashAccepted = 0
+	eyeballsSpritzed = 0
+	tentaclesChopped = 0
+	scorePoints = 0
+	spookyValue = 0
+	spookyMode = false
+	globalisDead = false
+
+func setLeaderboard():
+	pass #this may be added later on, but now now i'm not going to use it.
+
+func addToLeaderboard():
+	pass
+
+
+
+
 
 func runSpookyMode():
 	spookyMode = true;
@@ -77,7 +103,7 @@ func gameplayWorkDayTimer():
 				gameTimerHours += 1; #at 8 this should be where the normal gameplay loop ends
 			
 	
-	#here's where it gets trashy
+#here's where it gets trashy
 func gameplayTimerDifficultyChanges():
 	var _globalDailyModifier = 1 #on specific days this will increase
 	if globalDifficultyEndlessMode == false:
@@ -101,12 +127,11 @@ func gameplayTimerDifficultyChanges():
 
 
 func globalComboHeatingUp():
-	globalHeatingUp += 1;
-	
-	
+	globalHeat = true
+	globalHeatingUp += 1
+	await get_tree().create_timer(0.01).timeout
+	globalHeat = false;
 
 func globalComboLossedHeat():
 	globalHeatingUp = 0;
-	
-	
 

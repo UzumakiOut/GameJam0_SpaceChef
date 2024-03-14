@@ -26,3 +26,6 @@ shape = SubResource("CapsuleShape3D_nmjsd")
 transform = Transform3D(0.126578, -0.216763, 0.967983, 0.0281057, 0.976224, 0.214934, -0.991558, -5.54021e-09, 0.129661, 3.16441, 4.01818, 0)
 light_energy = 4.13
 spot_range = 4.08674
+
+[connection signal="mouse_entered" from="JeffCollision" to="." method="_on_jeff_collision_mouse_entered"]
+[connection signal="mouse_exited" from="JeffCollision" to="." method="_on_jeff_collision_mouse_exited"]

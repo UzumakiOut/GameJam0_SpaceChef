@@ -30,7 +30,8 @@ func _physics_process(_delta):
 
 
 func _on_spritzer_area_mouse_entered():
-	mouseOverObject = true;
+	if Global.globalisDead == false:
+		mouseOverObject = true;
 
 
 func _on_spritzer_area_mouse_exited():

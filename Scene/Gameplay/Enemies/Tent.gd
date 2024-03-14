@@ -11,7 +11,7 @@ var activeTent = ""
 #editor values
 @export var attackAnim = 1 #can be 1, 2, or 3
 @export var tentSelect = 1 #1 is big, 2 is skinny
-@export var difficultySpawnValue = 1 #between 1 and 5
+@export var difficultySpawnValue = 3 #between 1 and 5
 
 #variables
 var executionDelay = 0
@@ -23,10 +23,12 @@ var tentAggression = 0
 var canAttack = false
 var tentRunAwayValue = 0
 var tentisBuildingAggro = true
+var firstTimeSpawn = false
 
 func _ready():
 	$AnimationPlayer.play("startAnim")
-	if Global.globalDifficultySetting >= difficultySpawnValue:
+	if Global.globalDifficulty >= difficultySpawnValue and firstTimeSpawn == false:
+		firstTimeSpawn = true
 		regenerateTent();
 
 
@@ -37,6 +39,9 @@ func _process(_delta):
 		if tentRunAwayValue == 1 + Global.globalDifficultySetting:
 			print("tent wore out")
 			tentDeath();
+	if Global.globalDifficulty >= difficultySpawnValue and firstTimeSpawn == false:
+		firstTimeSpawn = true
+		regenerateTent();
 
 func tentTerror():
 	if canGiveSpookyValue == true:

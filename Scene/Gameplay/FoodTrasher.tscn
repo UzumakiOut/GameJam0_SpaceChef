@@ -99,7 +99,7 @@ libraries = {
 }
 
 [node name="TrashAudio" type="AudioStreamPlayer" parent="."]
-volume_db = -20.0
+volume_db = -25.0
 pitch_scale = 0.5
 
 [node name="TrashArea" type="Area3D" parent="." groups=["Trash"]]

@@ -16,6 +16,7 @@ shader_parameter/triplanar = false
 shader_parameter/emissiveBoost = 0.1
 shader_parameter/Direction = Vector2(0, 0)
 shader_parameter/Speed = 0.0
+shader_parameter/UVScale = Vector2(1, 1)
 shader_parameter/albedo = ExtResource("3_x238k")
 
 [node name="SM_Plate2" instance=ExtResource("1_gob5x")]

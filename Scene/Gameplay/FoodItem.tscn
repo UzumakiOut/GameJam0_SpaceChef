@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://dlu4h4yceto0b"]
+[gd_scene load_steps=69 format=3 uid="uid://dlu4h4yceto0b"]
 
 [ext_resource type="Script" path="res://Scene/Items/Tools/FoodAndComboSpawner.gd" id="1_rim2d"]
 [ext_resource type="PackedScene" uid="uid://dnxhpypy5bqjx" path="res://Scene/Items/Tools/sm_plate.tscn" id="2_1s3mj"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://btoxtybs2byra" path="res://Textures/UI/T_ArrowLeft.png" id="6_d8ed5"]
 [ext_resource type="Texture2D" uid="uid://c7p47wvmu83fs" path="res://Textures/UI/T_ArrowRight.png" id="7_f6e85"]
 [ext_resource type="Texture2D" uid="uid://dho1cdpa22evd" path="res://Textures/UI/T_ArrowSpace.png" id="8_2fp20"]
+[ext_resource type="Texture2D" uid="uid://d00kgpwuow21n" path="res://Textures/UI/T_ArrowMissing.png" id="9_4lq0u"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_55m8m"]
 resource_local_to_scene = true
@@ -58,6 +59,16 @@ emission_enabled = true
 emission = Color(1, 1, 1, 1)
 emission_operator = 1
 emission_texture = ExtResource("8_2fp20")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bcmjh"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = ExtResource("9_4lq0u")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_operator = 1
+emission_texture = ExtResource("9_4lq0u")
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_br7qj"]
@@ -110,6 +121,16 @@ emission_operator = 1
 emission_texture = ExtResource("8_2fp20")
 texture_filter = 0
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ra1l1"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = ExtResource("9_4lq0u")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_operator = 1
+emission_texture = ExtResource("9_4lq0u")
+texture_filter = 0
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ubwmj"]
 resource_local_to_scene = true
 transparency = 1
@@ -158,6 +179,16 @@ emission_enabled = true
 emission = Color(1, 1, 1, 1)
 emission_operator = 1
 emission_texture = ExtResource("8_2fp20")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_woo10"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = ExtResource("9_4lq0u")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_operator = 1
+emission_texture = ExtResource("9_4lq0u")
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w6bhp"]
@@ -210,6 +241,16 @@ emission_operator = 1
 emission_texture = ExtResource("8_2fp20")
 texture_filter = 0
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7cslf"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = ExtResource("9_4lq0u")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_operator = 1
+emission_texture = ExtResource("9_4lq0u")
+texture_filter = 0
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nm3fi"]
 resource_local_to_scene = true
 transparency = 1
@@ -258,6 +299,16 @@ emission_enabled = true
 emission = Color(1, 1, 1, 1)
 emission_operator = 1
 emission_texture = ExtResource("8_2fp20")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nar0f"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = ExtResource("9_4lq0u")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_operator = 1
+emission_texture = ExtResource("9_4lq0u")
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ht5o7"]
@@ -310,6 +361,16 @@ emission_operator = 1
 emission_texture = ExtResource("8_2fp20")
 texture_filter = 0
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cdyut"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = ExtResource("9_4lq0u")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_operator = 1
+emission_texture = ExtResource("9_4lq0u")
+texture_filter = 0
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f0sde"]
 resource_local_to_scene = true
 transparency = 1
@@ -358,6 +419,16 @@ emission_enabled = true
 emission = Color(1, 1, 1, 1)
 emission_operator = 1
 emission_texture = ExtResource("8_2fp20")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_apysh"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = ExtResource("9_4lq0u")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_operator = 1
+emission_texture = ExtResource("9_4lq0u")
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lyf24"]
@@ -410,6 +481,16 @@ emission_operator = 1
 emission_texture = ExtResource("8_2fp20")
 texture_filter = 0
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ps73a"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = ExtResource("9_4lq0u")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_operator = 1
+emission_texture = ExtResource("9_4lq0u")
+texture_filter = 0
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_164ek"]
 resource_local_to_scene = true
 transparency = 1
@@ -460,6 +541,16 @@ emission_operator = 1
 emission_texture = ExtResource("8_2fp20")
 texture_filter = 0
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lckpj"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = ExtResource("9_4lq0u")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_operator = 1
+emission_texture = ExtResource("9_4lq0u")
+texture_filter = 0
+
 [sub_resource type="SphereShape3D" id="SphereShape3D_d13ui"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tt681"]
@@ -500,6 +591,9 @@ surface_material_override/0 = SubResource("StandardMaterial3D_4yp3e")
 [node name="ArrowSpace" parent="Plate/ComboButton1" index="4"]
 surface_material_override/0 = SubResource("StandardMaterial3D_j0com")
 
+[node name="ArrowQuestion" parent="Plate/ComboButton1" index="5"]
+surface_material_override/0 = SubResource("StandardMaterial3D_bcmjh")
+
 [node name="ComboButton2" parent="Plate" instance=ExtResource("3_2brj5")]
 transform = Transform3D(0.24, 0, 1.23691e-10, 0, 0.24, 0, -1.23691e-10, 0, 0.24, -0.716368, -0.185977, 2.95822)
 
@@ -517,6 +611,9 @@ surface_material_override/0 = SubResource("StandardMaterial3D_ktsah")
 
 [node name="ArrowSpace" parent="Plate/ComboButton2" index="4"]
 surface_material_override/0 = SubResource("StandardMaterial3D_5ycsj")
+
+[node name="ArrowQuestion" parent="Plate/ComboButton2" index="5"]
+surface_material_override/0 = SubResource("StandardMaterial3D_ra1l1")
 
 [node name="ComboButton3" parent="Plate" instance=ExtResource("3_2brj5")]
 transform = Transform3D(0.24, 0, 1.23691e-10, 0, 0.24, 0, -1.23691e-10, 0, 0.24, -0.265653, -0.185977, 2.95808)
@@ -536,6 +633,9 @@ surface_material_override/0 = SubResource("StandardMaterial3D_0rdg5")
 [node name="ArrowSpace" parent="Plate/ComboButton3" index="4"]
 surface_material_override/0 = SubResource("StandardMaterial3D_oi32n")
 
+[node name="ArrowQuestion" parent="Plate/ComboButton3" index="5"]
+surface_material_override/0 = SubResource("StandardMaterial3D_woo10")
+
 [node name="ComboButton4" parent="Plate" instance=ExtResource("3_2brj5")]
 transform = Transform3D(0.24, 0, 1.23691e-10, 0, 0.24, 0, -1.23691e-10, 0, 0.24, 0.185062, -0.185977, 2.95794)
 
@@ -553,6 +653,9 @@ surface_material_override/0 = SubResource("StandardMaterial3D_h62mr")
 
 [node name="ArrowSpace" parent="Plate/ComboButton4" index="4"]
 surface_material_override/0 = SubResource("StandardMaterial3D_h515l")
+
+[node name="ArrowQuestion" parent="Plate/ComboButton4" index="5"]
+surface_material_override/0 = SubResource("StandardMaterial3D_7cslf")
 
 [node name="ComboButton5" parent="Plate" instance=ExtResource("3_2brj5")]
 transform = Transform3D(0.24, 0, 1.23691e-10, 0, 0.24, 0, -1.23691e-10, 0, 0.24, 0.634398, -0.185977, 2.9578)
@@ -572,6 +675,9 @@ surface_material_override/0 = SubResource("StandardMaterial3D_7ioje")
 [node name="ArrowSpace" parent="Plate/ComboButton5" index="4"]
 surface_material_override/0 = SubResource("StandardMaterial3D_4m1qs")
 
+[node name="ArrowQuestion" parent="Plate/ComboButton5" index="5"]
+surface_material_override/0 = SubResource("StandardMaterial3D_nar0f")
+
 [node name="ComboButton6" parent="Plate" instance=ExtResource("3_2brj5")]
 transform = Transform3D(0.24, 0, 1.23691e-10, 0, 0.24, 0, -1.23691e-10, 0, 0.24, -0.936517, -0.667872, 2.95829)
 
@@ -589,6 +695,9 @@ surface_material_override/0 = SubResource("StandardMaterial3D_6il2j")
 
 [node name="ArrowSpace" parent="Plate/ComboButton6" index="4"]
 surface_material_override/0 = SubResource("StandardMaterial3D_gawar")
+
+[node name="ArrowQuestion" parent="Plate/ComboButton6" index="5"]
+surface_material_override/0 = SubResource("StandardMaterial3D_cdyut")
 
 [node name="ComboButton7" parent="Plate" instance=ExtResource("3_2brj5")]
 transform = Transform3D(0.24, 0, 1.23691e-10, 0, 0.24, 0, -1.23691e-10, 0, 0.24, -0.487753, -0.667872, 2.95815)
@@ -608,6 +717,9 @@ surface_material_override/0 = SubResource("StandardMaterial3D_apitc")
 [node name="ArrowSpace" parent="Plate/ComboButton7" index="4"]
 surface_material_override/0 = SubResource("StandardMaterial3D_77vm8")
 
+[node name="ArrowQuestion" parent="Plate/ComboButton7" index="5"]
+surface_material_override/0 = SubResource("StandardMaterial3D_apysh")
+
 [node name="ComboButton8" parent="Plate" instance=ExtResource("3_2brj5")]
 transform = Transform3D(0.24, 0, 1.23691e-10, 0, 0.24, 0, -1.23691e-10, 0, 0.24, -0.0370369, -0.667872, 2.95801)
 
@@ -626,6 +738,9 @@ surface_material_override/0 = SubResource("StandardMaterial3D_ce22q")
 [node name="ArrowSpace" parent="Plate/ComboButton8" index="4"]
 surface_material_override/0 = SubResource("StandardMaterial3D_nr6il")
 
+[node name="ArrowQuestion" parent="Plate/ComboButton8" index="5"]
+surface_material_override/0 = SubResource("StandardMaterial3D_ps73a")
+
 [node name="ComboButton9" parent="Plate" instance=ExtResource("3_2brj5")]
 transform = Transform3D(0.24, 0, 1.23691e-10, 0, 0.24, 0, -1.23691e-10, 0, 0.24, 0.414726, -0.667872, 2.95786)
 
@@ -643,6 +758,9 @@ surface_material_override/0 = SubResource("StandardMaterial3D_jpljj")
 
 [node name="ArrowSpace" parent="Plate/ComboButton9" index="4"]
 surface_material_override/0 = SubResource("StandardMaterial3D_e48yr")
+
+[node name="ArrowQuestion" parent="Plate/ComboButton9" index="5"]
+surface_material_override/0 = SubResource("StandardMaterial3D_lckpj")
 
 [node name="FoodArea" type="Area3D" parent="." groups=["FoodItem"]]
 collision_layer = 2

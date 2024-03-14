@@ -43,6 +43,7 @@ var platePointValue = 0
 
 func _ready():   #call RNG setting, set pregen stats, generate point values
 	initialRNGComboOnItem()
+	killTimer()
 	if platePregenerated == true:   #i could have done this with a for-break, but i don't care
 		$Plate/ComboButton1.arrowValue = plateComboArray[0];
 		$Plate/ComboButton2.arrowValue = plateComboArray[1];
@@ -62,6 +63,10 @@ func _ready():   #call RNG setting, set pregen stats, generate point values
 		platePointValue = platePointValue * 0.5
 		setWarningText();
 
+
+func killTimer():
+	await get_tree().create_timer(30).timeout
+	queue_free();
 
 func setWarningText():
 	if Global.globalDifficultySetting < 5:
@@ -88,7 +93,9 @@ func initialRNGComboOnItem():   #RNG for the combo buttons as they appear on the
 		plateComboArray.resize(9);
 
 func _process(_delta):   #all that's here is the code for reading button combos
-	if acceptingInput == true:
+	if Global.globalisDead == true:
+		platePointValue = 0;
+	if acceptingInput == true and Global.globalisDead == false:
 		if Input.is_action_just_pressed(sequence[sequenceIndex]):
 			correctInput = true
 			buttonSelectionArray[sequenceIndex].setArrowColorCorrect();
@@ -129,15 +136,17 @@ func _on_food_area_area_entered(area):   #check where the plate is colliding wit
 			queue_free();
 		else:   #we didn't complete the input
 			if plateIsEvil == true: 
+				Global.platesCursedAccepted += 1
 				Global.scorePoints -= platePointValue * 0.1
 				Global.spookyValue += 50   #increases spooky
 				Global.globalHealthPointsCurrent -= 1;
 			if plateIsTrash == true:
+				Global.platesTrashAccepted += 1
 				Global.scorePoints -= platePointValue * 0.1   #lose points and take damage
 				Global.globalHealthPointsCurrent -= 1;
 			else:   #noninput normal plate
 				Global.scorePoints -= platePointValue * 0.5
-			Global.platesFailed += 1
+				Global.platesFailed += 1
 			Global.globalComboLossedHeat()
 			queue_free();
 
@@ -152,10 +161,9 @@ func _on_food_area_area_entered(area):   #check where the plate is colliding wit
 			Global.platesTrashed += 1
 			queue_free();
 		if plateHeld == false:
-			print("Shouldn't be here");
+			print("PLATE POSITION ERROR");
 
 	if area.is_in_group("Tentacle"):   #when tentacle attacks
-		print("hit plate!")
 		if plateHeld == false:
 			plateTrashing = true
 			Global.scorePoints -= platePointValue * 0.5   #lose points

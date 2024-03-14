@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bmeyvxkt8pppq"]
+[gd_scene load_steps=18 format=3 uid="uid://bmeyvxkt8pppq"]
 
 [ext_resource type="Script" path="res://Scene/Gameplay/combo_button_on_food.gd" id="1_abau0"]
 [ext_resource type="Texture2D" uid="uid://btoxtybs2byra" path="res://Textures/UI/T_ArrowLeft.png" id="1_eftbm"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://boa7wbjx2cigh" path="res://Textures/UI/T_ArrowDown.png" id="3_e5fxw"]
 [ext_resource type="Texture2D" uid="uid://c7p47wvmu83fs" path="res://Textures/UI/T_ArrowRight.png" id="5_y11qp"]
 [ext_resource type="Texture2D" uid="uid://dho1cdpa22evd" path="res://Textures/UI/T_ArrowSpace.png" id="6_5cob7"]
+[ext_resource type="Texture2D" uid="uid://d00kgpwuow21n" path="res://Textures/UI/T_ArrowMissing.png" id="8_1qofg"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ngers"]
 
@@ -60,6 +61,16 @@ emission_operator = 1
 emission_texture = ExtResource("6_5cob7")
 texture_filter = 0
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ttpew"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = ExtResource("8_1qofg")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_operator = 1
+emission_texture = ExtResource("8_1qofg")
+texture_filter = 0
+
 [sub_resource type="Animation" id="Animation_lnjtp"]
 resource_name = "ButtonHit"
 tracks/0/type = "scale_3d"
@@ -106,6 +117,12 @@ script = ExtResource("3_0hr1a")
 transform = Transform3D(1, 0, 0, 0, 1.31134e-07, -1, 0, 1, 1.31134e-07, 0, 0, 0)
 mesh = SubResource("PlaneMesh_ngers")
 surface_material_override/0 = SubResource("StandardMaterial3D_m4o27")
+script = ExtResource("3_0hr1a")
+
+[node name="ArrowQuestion" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1.31134e-07, -1, 0, 1, 1.31134e-07, 0, 0, 0)
+mesh = SubResource("PlaneMesh_ngers")
+surface_material_override/0 = SubResource("StandardMaterial3D_ttpew")
 script = ExtResource("3_0hr1a")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
