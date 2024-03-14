@@ -57,16 +57,20 @@ func _process(_delta):
 		spawningFoodItem()
 
 func spawningFoodItem():
-	isSpawningFood = true
-	printerMoveDown()
-	await get_tree().create_timer(executionDelay).timeout
-	printerCook()
-	await get_tree().create_timer(executionDelay).timeout
-	spawnItemAtLocation()
-	printerMoveUp()
-	await get_tree().create_timer(executionDelay).timeout
-	if canSpawnFood == true:
-		spawningFoodItem()
+	if Global.globalisDead == false:
+		isSpawningFood = true
+		printerMoveDown()
+	if Global.globalisDead == false:
+		await get_tree().create_timer(executionDelay).timeout
+		printerCook()
+	if Global.globalisDead == false:
+		await get_tree().create_timer(executionDelay).timeout
+		spawnItemAtLocation()
+		printerMoveUp()
+	if Global.globalisDead == false:
+		await get_tree().create_timer(executionDelay).timeout
+		if canSpawnFood == true:
+			spawningFoodItem()
 
 #Animations
 func printerMoveDown():

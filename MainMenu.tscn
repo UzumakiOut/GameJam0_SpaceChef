@@ -1,5 +1,6 @@
-[gd_scene load_steps=39 format=3 uid="uid://6a7iptqhnpbx"]
+[gd_scene load_steps=40 format=3 uid="uid://6a7iptqhnpbx"]
 
+[ext_resource type="Script" path="res://MainMenu.gd" id="1_oljs4"]
 [ext_resource type="Script" path="res://Scripts/CameraController.gd" id="3_p6i03"]
 [ext_resource type="PackedScene" uid="uid://b3vlsgwsx3j08" path="res://Scene/Environment/sm_background.tscn" id="4_74800"]
 [ext_resource type="PackedScene" uid="uid://col4rlrx4xro8" path="res://Scene/Environment/sm_decoration.tscn" id="6_no7c5"]
@@ -57,6 +58,7 @@ volumetric_fog_density = 0.0
 size = Vector3(16.1129, 7.58295, 1.19043)
 
 [node name="Main" type="Node3D"]
+script = ExtResource("1_oljs4")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_l2sm2")
